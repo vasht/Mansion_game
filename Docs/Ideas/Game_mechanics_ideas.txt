@@ -1,0 +1,20 @@
+GAME MECHANICS - IDEAS
+
+
+
+07.09.2017
+-I thought it would be dark in the mansion, but you have a flash light that you can
+point in any direction using the mouse.
+-I thought you'd move the character using the WASD keys.
+-I thought the game could have 'hidden' stats, like hope vs hopeless, joy vs sad,
+fear vs safety, self-esteem vs self-hate, confidence vs insecurity
+	-How to make these work, since many depend on each other?
+	-There wouldn't be any kind of a gauge for these, but the value they're at
+	would have visible and practical effects in the game world.
+	-E.g. low stats in hope would make the game character say things like "I'm
+	never going to get out of here...", or low stats in self-esteem could
+	make her say stuff like "Why would anyone want me? I'm just ugly and useless..."
+	-The character would walk and look different depending on her mood.
+	-Does this affect dialogue?
+	-At some points the game character could react differently depending on her mood.
+	
