@@ -1,0 +1,21 @@
+PREMISE
+
+
+
+07.09.2017
+-I've previously had an idea for a creepy game set in an old mansion. I thought it would be in 3D 
+first persion view. You would explore the mansion, which would progressively have more and more
+supernatural events occurring around you. It would also have random events, that you may or may 
+not be around to witness. You also might miss some of them if you don't happen to be looking
+in that direction.
+-So I thought today that it might be a good idea to create a similar game, but in 2D, for practice.
+I could post it on Newgrounds and get feedback to learn about what I do well and what I could do better.
+	-This would also be a less complicated game to make than a Sonic game, because it relies less
+	on physics and fast movement. This also makes it a good game to practice with.
+	-I can work on collision detection in this situation which is easier to deal with to get the
+	basics right. It should help me when I'm working on something more complicated, like a Sonic
+	game.
+	-You gotta learn to crawl before you can learn to walk.
+	-This way I also get practice with receiving feedback and reacting to it. I'd learn to
+	fix the things people find problematic, and I'd learn to filter good feedback from bad
+	feedback.
