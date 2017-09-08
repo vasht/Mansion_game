@@ -1,0 +1,98 @@
+CORE MECHANICS - IDEAS
+
+
+
+-Here I'd want to explore the core mechanics, that is the gameplay that actually 
+progresses the game. It's also gameplay that is not optional.
+
+08.09.2017
+
+Option 1:
+
+-One option is that to be able to move on, you have to do things for your game
+character to reach a high enough mood and confidence level.
+	-For example in the beginning, before having a flash light, if you try
+	to enter a dark room, she could say something like "I'm too scared to
+	enter that room... :/". But once you do SOME STUFF, she'll say something	
+	like "I think I'm ready to enter that dark room now..." or "I think I feel
+	brave enough to enter that room now..."
+	
+	-What kind of things could you do that increase her confidence level?
+	
+	Option 1:
+	-Going through less scary areas could increase her confidence to go through
+	more scary areas. 
+		-The character would always say something whenever she's confident
+		enough to enter an area she was too scared to enter before.
+		-This can't really be a core mechanic though, because then the game
+		would just be about visiting different areas in the right order. -.-
+	
+	Option 2:
+		-Inventory puzzles that ONLY increase the game character's confidence,
+		but don't do anything else.
+			-E.g. if you find a dress and use it in front of a mirror, the character
+			would put it on and look at herself in the mirror. She would think
+			it looks nice, and it would boost her confidence.
+				-That sounds like a nice thing to have optional though...
+			-Tryin some kind of skill that she doesn't know well.
+				-The first time she might be like "I did such a bad job, man
+				I suck..." and you might lose confidence. But the second time
+				she would say something like "Meh, it's not great..." and
+				lose just a little bit of confidence. Then the third time,	
+				she would say "It's okay, I guess", and then the fourth time
+				"Hey, that's not too bad!".
+				-As you do it enough times, you would end up gaining more
+				confidence than you lost initially.
+			-If the demons have weaknesses, then using an item against one
+			and defeating it, could increase her confidence.
+			-Equipping: You could pick up something comforting, like a teddy bear.
+			It would have an option to equip it, and at first glance it doesn't appear
+			to do anything. It would, however, actually increase your confidence or decrease
+			your loneliness level while wearing it. 
+				-Might give access to some place earlier, or make some events
+				easier to come across.
+	-I don't really like the thought of this as a core mechanic so far, maybe as an optional thing.
+	Might still turn out to become a core mechanic if I come up with more ways that you could increase
+	her mood and confidence.
+
+Option 2:
+
+-Inventory puzzles
+		-I feel like there would have to be a lot of items, for me to get into
+		making inventory puzzles. This way it's not so obvious what the right item 
+		is, compared to having 5 things in your inventory, and just going ahead and
+		trying all of them.
+			-If you have tons of items, you'll feel like thinking about what the
+			right one to use is, rather than just trying a bunch.
+			-Also, sometimes the necessary item might be something you picked up
+			quite a while ago in the game, which also makes it less obvious what the
+			right item is.
+			-In this case I'd want to make it so that you can use all of the items somewhere
+			and completely empty your inventory of useable items. Even if some of them
+			didn't actually really do anything when used, but maybe get a cool comment 
+			from the character.
+			-I'm kinda digging this idea, although I'm not sure if it should be a core
+			mechanic yet or not.
+-I might actually go with this as the main core mechanic. I kind of like the idea of inventory
+	puzzles, but I'd have to try to think of some to see if I'm able to come up with them. 
+
+Option 3:
+
+-Non-inventory puzzles. Including text puzzles, dialogue puzzles and "RE4" puzzles.
+-I might wanna add text puzzles and dialogue puzzles as little extra things in the game,
+but I don't want the game to focus on them. I don't like the idea of RE4-style puzzles
+in this game.
+
+Option 4:
+
+-Boss fights with the demons. Each demon would have some kind of weakness that you have to figure out.
+	-Physical fights, with weapons.
+		-I don't want the game to have weapons...
+	-Physical fights with some items you find, like pots, steel pipes, rocks, bottles etc.
+	-"Boss fights", where you mostly avoid the demon's attacks, while trying to figure out
+	its weakness.
+-I'm not really digging this idea. I'd rather keep the game focused on the atmosphere. But
+at the same time, I don't know if it'll get boring or repetitive without fights. I might have
+to make sure the game isn't so long that stuff starts feeling repetitive or boring.
+
+
