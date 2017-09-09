@@ -1,0 +1,11 @@
+GAMEPLAY - DESIGN
+
+
+
+09.09.2017
+-I decided that the game is going to be kind of like an adventure game, but where you
+move your character with the WASD keys and interact with things in the game using
+an interact key, Q.
+	-The game is based on inventory puzzles.
+		-You pick up items you find and they go in your inventory.
+-You will also find a flash light relatively early on. This will be aimed using the mouse.
