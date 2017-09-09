@@ -7,6 +7,75 @@ Then I can later come back and move them to the sections they belong in and go o
 if I want to implement them or not.
 
 
+
+09.09.2017
+-Voices could sometimes randomly be heard at low volumes, saying something to put
+down the main character or to make her feel scared
+	-This would depend on a random timer, and would say something different
+	depending on your location and how far you are in the game
+	-They could say things like "It's hopeless" "You're going to die",
+	"You're useless" "I've killed" etc
+
+-There could be dialogue puzzles, with like 10 options to choose from that you can
+say or respond. There would be one option in there that would be clever to say at 
+that point, and that would allow you to gain some kind of insight to the demons
+or the mansion.
+	-The reason there's 10 options is so that the game doesn't so easily just
+	give you the right thing to say. Hopefully it would make you actually have
+	to think about what's smart to say in this situation.
+		-Figuring it out would make the player feel pretty clever. c:
+	-You could for example learn about if something one of the demons said was
+	true or a lie, or you could learn something about the demon's abilities and
+	limitations.
+		-For example, the demons will tell you that they see everything and
+		know everything that she does in the house. But if she tricks one,
+		she might find out that that's not true.
+			-For example she could say the demon in the X room told her
+			this or that but she actually didn't see a demon in that room.
+			Then if the demon she's talking to comments on that, but doesn't	
+			deny that there was a demon in that room, she would know that they
+			don't see her all the time.
+	-Once you successfully trick them to give you info, does the player have the choice
+	to tell the demon about their discovery?
+		-No, Xanne automatically tells the demon, who gets furious and curses Xanne
+		with lots of profanity and swearing. (Satisfying)
+		-No, Xanne doesn't tell the demon.
+		-Yes, you can then choose if you want to reveal that you tricked them.
+			-Are there then pros and cons of each?
+	-How does it help you to figure something out? It would be really cool if it actually
+	made a differece to the game somehow.
+		-Possibly you could have some option available to you later in the game
+		that depends on the knowledge you have. A weakness of theirs to exploit,
+		possibly a different ending.
+
+-The demons of the house gradually get more and more power, being able to do more
+powerful physical things to scare and hurt you. 
+	-Doing clever things that make your character feel happier/more confident,
+	decreases the amount of power that the demons have, by some amount.
+-Demons can attempt to possess the main character
+	-In these situations you have to mash some key on the keyboard
+	-The more injured the character is, the more likely demons are to attempt
+	possession, and the more likely they are to succeed
+	-If you don't succeed in button-mashing fast enough, the demon takes over 
+	and possesses the character
+		-If you have the knife in your inventory, they will make the Xanne
+		cut herself, or possibly stab herself in the stomach
+		-They could also make her do something creepy at the same time, like
+		make her laugh or say "I should die"
+-The character could have a hidden weariness gauge, which depletes slowly with time
+	-Once it's low, the character would start complaining about being sleepy
+	-If you don't make her sleep in a bed, she'll eventually start saying stuff like
+	"so tired..." or "Gotta hold my eyes open..."
+		-She'll eventually just lay down and rest
+	-You can also make her sleep on one of the beds in the house, or maybe a couch
+	-The screen goes black. You see her eye lids open in a first persion view, and
+	she's seeing the ceiling. You can see or hear her thoughts: "Something is on me...
+	I can't move! Oh my god, what's happening? I'm trying to scream, but I can't make
+	a sound... I feel a presence on me..."
+	-Then all of a sudden the screen is back to over head view or whatever and you hear
+	her screaming. After screaming for a few seconds, she's panting. Then she wonders,
+	was that a dream? Or was there someone here just now? 
+
 07.09.2017
 -A demon could lie and say that they'll help you if you give it some item
 	-They might look like something neutral
