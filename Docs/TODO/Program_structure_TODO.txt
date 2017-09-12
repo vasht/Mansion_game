@@ -7,3 +7,7 @@ PROGRAM STRUCTURE - TODO
 -Write the class MainCharacter
 -Write the class MovingObject
 -Write the class MovingMonster
+-Write the class LevelObject
+-Write the class Vector
+-Write the class Mansion_game
+-Write the class Level
