@@ -1,0 +1,70 @@
+PROGRAM STRUCTURE - RESOLVED
+
+
+
+11.09.2017 
+-There will be both characters that move and don't move, as well as
+items that move and don't move
+	-However, there most of the time level objects just stay still and
+	don't need any dynamic programming (behavior specific to them)
+	-Monsters might do one or the other
+	-Should they be separated into different classes by if they're a 
+	character or an object, or by whether they move or not?
+		-Or should there be general classes for the most common
+		cases, and then separate classes for the execptions?
+
+Option 1:
+-There's a character class and an item class
+	-Characters can move, items can't
+		-Should characters that don't move be programmed as items?
+		-Should items that move be programmed as characters?
+		-Where's the sense?
+
+Option 2:
+-There's classes MovableGameObject and GameObject
+	-Characters and items that move are MovableGameObjects
+	-Characters and items that don't move are GameObjects
+
+Option 3:
+-There's a GameObject class, a MainCharacter class, a LevelObject class, 
+MovingObject class, and a MovingMonster class
+	-The GameObject class has a tags variable
+	-The MovingObject extends GameObject, and MainCharacter
+	and MovingMonster extend MovingObject
+	-LevelObject extends GameObject
+	-That should cover most of the cases
+	-MovingObject might be identical to MovingMonster.
+		-I don't really care.
+-I think I'll go with this
+
+
+-Does a monster that stands still even need a class of its own? Couldn't
+it just be a movie clip?
+	-If it's just a movie clip, it won't have a tag...
+	-Does it need a tag?	
+		-Tags are good for anything where I need to check the class
+		type at runtime. 
+		-Do I need to check the class type of still monsters
+		at runtime?
+-They could just be a GameObject for now. That way they have a tag if that's
+needed, and I can change the class type later if needed.
+
+
+-Should the character be its own class, separate from any kind of monsters, or should
+they both inherit the same class?
+
+Option 1:
+-They inherit the same class.
+	-The class they inherit from would contain anything that both the character
+	and monsters would have in common
+		-Functions for movement
+			-Velocity, acceleration
+			-moveInDirection(some representation of direction)
+		-Not very much in common, so it's not so much to add
+-Sounds good to me, because there's so little to add to both, they can then
+develop their own ways after that
+		
+
+-They don't inherit from the same class
+	-I'd have to write functions for movement separately in both, or copy paste 
+	the same stuff
