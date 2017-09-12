@@ -7,6 +7,10 @@ GAMEPLAY - CONSIDERATIONS
 	-Can there be cool game play if it takes a while to find the flash
 	light? Or should you find it like, in one of the first three rooms
 	or something?
+	-Should you maybe find matches and possibly candles in the lobby first? And then a bit
+	later the flash light?
+		-How much do matches or candles light a room up?
+			-Test this with actual matches and candles
 
 08.09.2017
 -What room are you in when the game starts?
