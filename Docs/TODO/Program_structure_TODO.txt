@@ -4,7 +4,6 @@ PROGRAM STRUCTURE - TODO
 
 11.09.2017
 -Write the class MainCharacter
--Write the class MovingObject
 -Write the class MovingMonster
 -Write the class LevelObject
 -Write the class Vector
