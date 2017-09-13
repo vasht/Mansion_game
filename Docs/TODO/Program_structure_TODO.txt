@@ -9,5 +9,9 @@ PROGRAM STRUCTURE - TODO
 -Write the class MovingMonster
 -Write the class LevelObject
 -Write the class Vector
+	-Write the function scalarMultiply(vector, number)
+	-Write the function magnitude
+	-Write the static function add(vector, vector)
 -Write the class Mansion_game
+	-Write function pause
 -Write the class Level

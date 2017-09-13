@@ -29,7 +29,7 @@ variables:
 spawn_location: Point
 
 
-Vector:
+2DVector:
 
 variables:
 x, y
@@ -38,7 +38,7 @@ functions:
 
 static:
 
-add(vector, vector)
+add(2DVector, 2DVector)
 
 non-static:
 magnitude()
@@ -60,9 +60,9 @@ MovingObject:
 
 variables:
 
-velocity:Point
+velocity:2DVector
 
-acceleration:Point
+acceleration:2DVector
 
 functions:
 
