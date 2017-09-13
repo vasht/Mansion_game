@@ -1,7 +1,8 @@
 ﻿package Code {
 	
 	/*
-	* 
+	* Your typical 2D vector  with an x and a y value.
+	* Also some functions for manipulating vectors.
 	*/
 	public class 2DVector {
 		
