@@ -2,6 +2,14 @@ PROGRAM STRUCTURE - DESIGN
 
 
 
+13.09.2017
+-There's an Updater class that calls an update function in each
+class and instance that needs it, on every frame
+	-It has an onEnterFrame event listener to execute the 
+	update function on each frame
+	-The update function calls an update function in each
+	class and instance necessary
+
 11.09.2017
 -There's a GameObject class that contains a tags property, of type Tags
 	-MovingObject extends GameObject

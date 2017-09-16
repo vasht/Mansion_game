@@ -2,6 +2,27 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+13.09.2017
+-How do we get a reference to the stage inside the Updater class?
+
+Option 1:
+-Just have the actions from the main timeline call the Mansion_game.init() function
+and pass a reference to the stage as a parameter.
+-This sounds good to me. There might be some better way, but at least this will
+work and be easy.
+ 
+
+-How do I update the Controller?
+
+Option 1:
+-Write a class called something like Updater
+	-It would have an onEnterFrame event listener
+	which calls a function update
+	-The update function would call an update function in each
+	class and instance that needs it
+-Sounds good to me.
+
+ 
 11.09.2017 
 -There will be both characters that move and don't move, as well as
 items that move and don't move

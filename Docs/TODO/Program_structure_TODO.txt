@@ -3,6 +3,9 @@ PROGRAM STRUCTURE - TODO
 
 
 11.09.2017
+-Write the class Controller
+	-Make it so pressing the WASD keys moves the character
+	-Write an update function for the controller
 -Write the class MainCharacter
 -Write the class MovingMonster
 -Write the class LevelObject
@@ -10,6 +13,5 @@ PROGRAM STRUCTURE - TODO
 	-Write the function scalarMultiply(vector, number)
 	-Write the function magnitude
 	-Write the static function add(vector, vector)
--Write the class Mansion_game
-	-Write function pause
+-Write the function pause in the Mansion_game class
 -Write the class Level
