@@ -1,8 +1,92 @@
 PROGRAM STRUCTURE - RESOLVED
 
 
+ 
+14.09.2017 
+-Where should the controllers be stored?
+	-They will be stored in the Controller class, as static
+	variables.
+	-There will be a variable pointing to the gameplayController,
+	one pointing to the menuController and one pointing to
+	whichever controller is active at the moment
+
+-Should the updater class have a method
+that switches between a gameplay controller and a menu controller?
+	-No. The Controller class will have a static function
+	setController(controllerName:String) that sets the
+	controller according to the given name.
+
+-What class calls the Controller.init() function?
+	-Since the Controller class doesn't need a reference
+	to anything external (so far), it could just be called 
+	from the Mansion_game's init function.
+
+-Where is the controller created?
+	-It's created in a static init function in the Controller class
+
+-How does the Updater instance get a reference to the controller?
+	-It doesn't. The active controller is stored as a static 
+	variable in the Controller class.
+	-The updator just does stuff to Controller.activeController.
+
+
+-Where should the controllers be stored?
+
+Option 1:
+-The Updator class
+	-The updator instantiates both controllers in its
+	constructor
+	-The updator has a function that switches between which
+	controller should be active
+	-The updator calls controller.update();
+-I don't see a problem with this, other than it feels a bit weird for
+some reason.
+
+Option 2:
+-Static variables in the Controller class
+	-The Updator (or the Mansion_game's init method) would call a 
+	static function Controller.init() where the controllers would be created
+	-The updator's setController(controllerName:String) would
+	call Controller.setController(controllerName:String)
+	-The updator calls Controller.activeController.update();
+-Somehow this feels like it makes more sense... It's probably good. :D
+
+
+-Should the Mansion_game class create the controller inside of 
+the loadLevel function, or should the updater class have a method
+that switches between a gameplay controller and a menu controller?
+	-If we're switching between two controllers, should the one
+	not used be deleted, or should it be stored for use later?	
+		-I can't know how much the player will be pausing,
+		but the controller doesn't take much memory, since
+		it doesn't contain anything graphical.
+		-> We might as well keep it stored
+		-> That means we should create both controllers early
+		on.
+		-> That means the updater class could create both 
+		controllers in its constructor
+
+-Where is the controller created?
+	-In the Mansion_game class, in the method that starts a given level/floor
+	-It creates the right controller first and then makes the flash app load
+	the scene with the given name
+
+-How does the Updater instance get a reference to the controller?
+	-The Mansion_game sets the Updater's controller when creating it
+
 
 13.09.2017
+-Does the Updater class have to extend the MovieClip class
+to be able to have the onEnterFrame event listener?
+	-It seems like you can only add event listeners to display
+	objects in flash.	
+	-This means, we should add the event listener to the stage, but
+	with the updater class's update function as the listener function
+		-This means we need a reference to the stage
+-We get a reference to the stage from the init function, then we add the
+event listener to the stage. :D
+
+
 -How do we get a reference to the stage inside the Updater class?
 
 Option 1:

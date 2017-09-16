@@ -4,6 +4,16 @@ PROGRAM STRUCTURE - TODO
 
 11.09.2017
 -Write the class Controller
+	-Write a static init function
+		-Make this function initialize the two different 
+		controllers
+		-Make the Mansion_game's init function call the
+		Controller.init function
+	-Make it so the Controller class has three static variables
+		-gameplayController - the controller for playing
+		-menuController - the controller for the menus
+		-activeController - whichever controller is active
+		ATM
 	-Make it so pressing the WASD keys moves the character
 	-Write an update function for the controller
 -Write the class MainCharacter
@@ -13,5 +23,12 @@ PROGRAM STRUCTURE - TODO
 	-Write the function scalarMultiply(vector, number)
 	-Write the function magnitude
 	-Write the static function add(vector, vector)
--Write the function pause in the Mansion_game class
+Mansion_game:
+-Write the method loadLevel(levelName:String)
+	-Make it so this method loads the scene with the
+	given name
+	-Make it so this method calls the Controller.setController("gameplayController")
+-Write the function pause
+	-Make it so the pause function calls the Controller.setController("menuController")
+	function
 -Write the class Level

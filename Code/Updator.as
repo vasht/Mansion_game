@@ -3,10 +3,15 @@
 	import flash.events.Event;
 	
 	/*
-	* 
+	* The updater has an update function that is called once on
+	* each frame. This function calls the update functions in
+	* other classes that need to have something done on each
+	* frame.
 	*/
 	public class Updater {
-
+		
+		public var controller:Controller;
+		
 		public function Updater() {
 			
 		}
