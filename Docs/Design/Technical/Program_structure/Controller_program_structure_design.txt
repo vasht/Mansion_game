@@ -2,8 +2,21 @@ CONTROLLER - PROGRAM STRUCTURE - DESIGN
 
 
 
-16.09.2017
--There is a Controller class, a GameplayController class and a MenuController
-class
+properties:
+
+gameplayController:GameplayController
+menuController:MenuController
+activeController:Controller
+
+-These are initialized in the init function
 -The GameplayController and MenuController classes have their own methods for
 responding to input
+
+
+methods:
+
+Init function:
+-This is called by the init function in the Mansion_game class
+-This function initializes the controllers
+
+

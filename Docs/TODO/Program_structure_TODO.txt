@@ -7,16 +7,6 @@ GameplayController:
 MenuController:
 
 Controller:
-	-Write a static init function
-		-Make this function initialize the two different 
-		controllers
-		-Make the Mansion_game's init function call the
-		Controller.init function
-	-Make it so the Controller class has three static variables
-		-gameplayController - the controller for playing
-		-menuController - the controller for the menus
-		-activeController - whichever controller is active
-		ATM
 	-Make it so pressing the WASD keys moves the character
 	-Write an update function for the controller
 -Write the class MainCharacter

@@ -1,0 +1,6 @@
+MANSION GAME - PROGRAM STRUCTURE DESIGN
+
+
+
+Init function:
+-calls the init function in the Controller class
