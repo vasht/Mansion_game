@@ -4,6 +4,7 @@ CONTROLLER - PROGRAM STRUCTURE - DESIGN
 
 properties:
 
+static:
 gameplayController:GameplayController
 menuController:MenuController
 activeController:Controller

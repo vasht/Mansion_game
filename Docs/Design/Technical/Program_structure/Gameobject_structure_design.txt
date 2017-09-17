@@ -1,0 +1,20 @@
+GAMEOBJECT - PROGRAM STRUCTURE DESIGN
+
+
+
+Class hierarchy:
+
+-MovingObject extends GameObject
+	-MainCharacter extends MovingObject
+	-MovingMonster extends MovingObject
+-LevelObject extends GameObject
+-Stationary monsters will have the class type GameObject for now
+
+
+properties:
+
+tags:Tags
+-Contains tags relevant to the game object
+
+methods:
+

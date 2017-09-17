@@ -1,0 +1,17 @@
+UPDATER - PROGRAM STRUCTURE DESIGN
+
+
+
+properties:
+
+methods:
+
+init(referenceObject:Object):
+-Gets a reference to the stage from the given Object
+-Adds an on ENTER_FRAME event listener to the stage, with
+update as the listener function
+
+update(event:Event):
+-called once on each frame
+	-Calls the update functions in any other classes and
+	instances that need it
