@@ -3,7 +3,10 @@ PROGRAM STRUCTURE - TODO
 
 
 11.09.2017
--Write the class Controller
+GameplayController:
+MenuController:
+
+Controller:
 	-Write a static init function
 		-Make this function initialize the two different 
 		controllers

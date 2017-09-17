@@ -1,0 +1,9 @@
+CONTROLLER - PROGRAM STRUCTURE - DESIGN
+
+
+
+16.09.2017
+-There is a Controller class, a GameplayController class and a MenuController
+class
+-The GameplayController and MenuController classes have their own methods for
+responding to input
