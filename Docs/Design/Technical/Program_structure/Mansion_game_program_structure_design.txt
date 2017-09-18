@@ -7,6 +7,7 @@ init function:
 
 loadLevel(levelName:String):
 -Loads the scene with the given name
+-Calls the function Controller.setController("gameplayController")
 
 pause function:
 -Calls the method Controller.setController("menuController") to set the menuController

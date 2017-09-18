@@ -1,0 +1,9 @@
+MAIN TIMELINE - PROGRAM STRUCTURE DESIGN
+
+
+
+18.09.2017
+-The main timeline creates the Mansion_game instance
+-Mansion_game.init is called
+	-This calls init in other classes
+-Mansion_game.loadLevel(levelName:String) is called
