@@ -4,6 +4,11 @@ PROGRAM STRUCTURE - TODO
 
 11.09.2017
 GameplayController:
+-Make this class use a Singleton model
+-Make it have a static instance theInstance:GameplayController
+-Write the static getInstance function, which checks if theInstance is null
+or not and initializes it if it is. Then returns it
+
 MenuController:
 
 Controller:
@@ -11,7 +16,10 @@ Controller:
 	-Make it so the readInput function registers which keys
 	are being pressed, and sets booleans to true on those
 	keys we care about
--Write the class MainCharacter
+	-Write the Controller.setController(controllerType:String)
+	method
+MainCharacter:
+
 -Write the class MovingMonster
 -Write the class LevelObject
 -Write the class Vector
