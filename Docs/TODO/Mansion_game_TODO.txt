@@ -1,0 +1,15 @@
+MANSION GAME - TODO
+
+
+
+
+-Make it so the init function calls the Controller.init function
+-Write the method loadLevel(levelName:String)
+	-Make it so this method loads the scene with the
+	given name
+	-Make it so this method calls the Controller.setController("gameplayController")
+	-Make it so this method is called by...
+	-Figure out where this method should be called
+-Write the function pause
+	-Make it so the pause function calls the Controller.setController("menuController")
+	function
