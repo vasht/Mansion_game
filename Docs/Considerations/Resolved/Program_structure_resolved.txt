@@ -2,6 +2,26 @@ PROGRAM STRUCTURE - RESOLVED
 
 
  
+18.09.2017
+-Should the method in the controller class be called update
+or something like respondToInput or readInput?
+
+Option 1:
+-It's called update()
+	-Not immediately clear what it does, except that it
+	runs every frame
+	-Could possibly just run a method called something like 
+	readInput inside the update method. 
+		-That way it's clear inside the class that it
+		both runs on every frame and that it reads input
+-I think I'll go with this.
+
+Option 2:
+-It's called readInput
+	-It's clear everywhere that it reads input, but might 	
+	not be 100% clear that it runs on every frame...
+
+
 14.09.2017 
 -Where should the controllers be stored?
 	-They will be stored in the Controller class, as static

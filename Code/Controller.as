@@ -26,7 +26,14 @@
 		* 
 		*/
 		public function update():void{
-			trace("löl");
+			readInput();
+		}
+		
+		/*
+		*
+		*/
+		private function readInput():void{
+			
 		}
 
 	}

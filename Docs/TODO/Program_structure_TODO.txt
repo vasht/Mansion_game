@@ -8,7 +8,9 @@ MenuController:
 
 Controller:
 	-Make it so pressing the WASD keys moves the character
-	-Write an update function for the controller
+	-Make it so the readInput function registers which keys
+	are being pressed, and sets booleans to true on those
+	keys we care about
 -Write the class MainCharacter
 -Write the class MovingMonster
 -Write the class LevelObject
