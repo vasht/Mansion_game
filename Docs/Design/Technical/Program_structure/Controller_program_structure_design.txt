@@ -10,6 +10,8 @@ menuController:MenuController
 activeController:Controller
 
 -These are initialized in the init function
+-This class has a method that checks which keys are pressed
+	-Sets booleans accordingly
 -The GameplayController and MenuController classes have their own methods for
 responding to input
 
@@ -18,6 +20,6 @@ methods:
 
 Init function:
 -This is called by the init function in the Mansion_game class
--This function initializes the controllers
+-This function calls GameplayController.getController() and MenuController.getController()
 
 

@@ -1,0 +1,17 @@
+GAMEPLAY CONTROLLER - PROGRAM STRUCTURE DESIGN
+
+
+
+-This class uses the Singleton programming pattern
+
+properties:
+
+static:
+theInstance:GameplayController
+
+methods:
+
+getInstance():GameplayController
+-Checks if the instance is null
+	-If it is, initializes the instance
+	-Returns the instance

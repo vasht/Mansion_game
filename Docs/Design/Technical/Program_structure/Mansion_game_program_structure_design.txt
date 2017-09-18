@@ -2,5 +2,13 @@ MANSION GAME - PROGRAM STRUCTURE DESIGN
 
 
 
-Init function:
--calls the init function in the Controller class
+init function:
+-Calls the init function in the Controller class
+
+loadLevel(levelName:String):
+-Loads the scene with the given name
+
+pause function:
+-Calls the method Controller.setController("menuController") to set the menuController
+to be the active controller
+
