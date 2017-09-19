@@ -2,10 +2,18 @@ MANSION GAME - PROGRAM STRUCTURE DESIGN
 
 
 
+properties:
+
+stage:Stage
+
+methods:
+
 init function:
 -Calls the init function in the Controller class
 
 loadLevel(levelName:String):
+-This is why we need a stage property in this class,
+because 
 -Loads the scene with the given name
 -Calls the function Controller.setController("gameplayController")
 

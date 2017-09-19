@@ -1,5 +1,6 @@
 ﻿package Code{
 	
+	import flash.display.Stage;
 	import Code.Controller;
 	
 	/*
@@ -7,18 +8,24 @@
 	*/
 	public class Mansion_game {
 		
-		public var updater:Updater;
-		public var controller:Controller;
+		public var mainStage:Stage;
 		
 		public function Mansion_game() {
 			
-			updater = new Updater();
-			controller = new Controller();
 		}
 		
 		public function init(referenceObject:Object):void{
 			
-			updater.init(referenceObject);
+			mainStage = referenceObject.mainStage;
+			
+			Updater.getInstance().init(referenceObject);
+			Controller.init();
+		}
+		
+		/*
+		*
+		*/
+		public function loadLevel(levelName:String):void{
 			
 		}
 

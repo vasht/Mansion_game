@@ -10,7 +10,7 @@
 	*/
 	public class Updater {
 		
-		public var controller:Controller;
+		private static var theInstance:Updater;
 		
 		public function Updater() {
 			
@@ -21,6 +21,18 @@
 		*/
 		public function init(referenceObject:Object):void{
 			referenceObject.mainStage.addEventListener(Event.ENTER_FRAME, update);
+		}
+		
+		/*
+		* Checks if the instance is null, if it is it initializes
+		* it.
+		* It returns the Updater instance.
+		*/
+		public static function getInstance():Updater{
+			if(theInstance == null){
+				theInstance = new Updater();
+			}
+			return theInstance;
 		}
 		
 		/*

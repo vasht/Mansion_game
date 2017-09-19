@@ -2,5 +2,8 @@ MAIN TIMELINE - TODO
 
 
 
+19.09.2017
+-Make the first keyframe in the main timeline be labeled "Level 1" 
+
 18.09.2017
 -Make the main timeline call the Mansion_game.loadLevel(levelName:String) method

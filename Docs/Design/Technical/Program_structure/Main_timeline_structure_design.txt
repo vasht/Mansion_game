@@ -2,6 +2,12 @@ MAIN TIMELINE - PROGRAM STRUCTURE DESIGN
 
 
 
+19.09.2017
+-The game shouldn't use scenes, as I've heard using them leads to problems.
+I don't know if those problems have been fixed in newer versions, but I don't 
+want to take the risk.
+	-Every level should have it's own labeled keyframe in the main timeline
+
 18.09.2017
 -The main timeline creates the Mansion_game instance
 -Mansion_game.init is called

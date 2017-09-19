@@ -2,7 +2,11 @@ UPDATER - PROGRAM STRUCTURE DESIGN
 
 
 
+-This class uses the Singleton programming pattern
+
 properties:
+
+theInstance:Updater
 
 methods:
 
@@ -10,6 +14,11 @@ init(referenceObject:Object):
 -Gets a reference to the stage from the given Object
 -Adds an on ENTER_FRAME event listener to the stage, with
 update as the listener function
+
+getInstance():Updater
+-Checks if theInstance is null
+	-If it is it initializes it
+-Returns theInstance
 
 update(event:Event):
 -called once on each frame
