@@ -11,18 +11,28 @@ menuController:MenuController
 activeController:Controller
 
 -These are initialized in the init function
--This class has a method that checks which keys are pressed
-	-Sets booleans accordingly
--The GameplayController and MenuController classes have their own methods for
-responding to input
+
+W_pressed:Boolean
+A_pressed:Boolean
+S_pressed:Boolean
+D_pressed:Boolean
+J_pressed:Boolean
+K_pressed:Boolean
+I_pressed:Boolean
+ENTER_pressed:Boolean
 
 
 static functions:
 
-readInput():
--This function should be a listener function to the On KEY_DOWN event
+readKeyPressed():
+-This function is a listener function to the On KEY_DOWN event
 -This function checks which keys are pressed and sets boolean values
-accordingly
+to true accordingly
+
+readKeyReleased():
+-This function is a listener function to the on KEY_UP event
+-This function checks which keys are released and sets boolean values
+to false accordingly
 
 methods:
 

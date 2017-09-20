@@ -3,3 +3,4 @@ MENU CONTROLLER - TODO
 
 
 20.09.2017
+-Write the processInput method

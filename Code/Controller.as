@@ -1,5 +1,6 @@
 ﻿package Code {
 	
+	import flash.ui.Keyboard;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	
@@ -16,6 +17,17 @@
 		public static var gameplayController:GameplayController;
 		public static var menuController:MenuController;
 		public static var activeController:Controller;
+		
+		protected static var W_pressed:Boolean;
+		protected static var A_pressed:Boolean;
+		protected static var S_pressed:Boolean;
+		protected static var D_pressed:Boolean;
+		
+		protected static var J_pressed:Boolean;
+		protected static var K_pressed:Boolean;
+		protected static var I_pressed:Boolean;
+		
+		protected static var ENTER_pressed:Boolean;
 
 		public function Controller() {
 			
@@ -26,25 +38,124 @@
 			gameplayController = GameplayController.getInstance();
 			menuController = MenuController.getInstance();
 			
-			referenceObject.mainStage.addEventListener(KeyboardEvent.KEY_DOWN, readInput);
+			referenceObject.mainStage.addEventListener(KeyboardEvent.KEY_DOWN, readKeyPressed);
+			referenceObject.mainStage.addEventListener(KeyboardEvent.KEY_UP, readKeyReleased);
+			
 		}
 		
 		/*
-		* 
+		* Calls the function to react to input based
+		* on the values of the boolean variables.
+		* This way the processInput function can
+		* respond to combo key presses for example.
 		*/
 		public function update():void{
-			readInput();
+			processInput();
 		}
 		
 		/*
-		*
+		* Responds to input based on the boolean variables.
+		* The Controller class's method is empty, because
+		* this is supposed to be overridden by the GameplayController
+		* and MenuController classes.
 		*/
-		private static function readInput(e:Event = null):void{
-			trace("löl");
+		protected function processInput(){
+			// Do nothing.
 		}
 		
 		/*
-		*
+		* Sets the boolean variables to true for those
+		* keys that are pressed.
+		*/
+		private static function readKeyPressed(e:KeyboardEvent):void{
+			
+			switch(e.keyCode){
+				case Keyboard.W:{
+					
+					W_pressed = true;
+				}
+				case Keyboard.A:{
+					
+					A_pressed = true;
+				}
+				case Keyboard.S:{
+					
+					S_pressed = true;
+				}
+				case Keyboard.D:{
+					
+					D_pressed = true;
+				}
+				case Keyboard.J:{
+					
+					J_pressed = true;
+				}
+				case Keyboard.K:{
+					
+					K_pressed = true;
+				}
+				case Keyboard.I:{
+					
+					I_pressed = true;
+				}
+				case Keyboard.ENTER:{
+					
+					ENTER_pressed = true;
+				}
+				default:{
+					
+				}
+			}
+		}
+		
+		/*
+		* Sets the boolean variables to false for those keys
+		* that are released.
+		*/
+		private static function readKeyReleased(e:KeyboardEvent):void{
+			
+			switch(e.keyCode){
+				case Keyboard.W:{
+					
+					W_pressed = false;
+				}
+				case Keyboard.A:{
+					
+					A_pressed = false;
+				}
+				case Keyboard.S:{
+					
+					S_pressed = false;
+				}
+				case Keyboard.D:{
+					
+					D_pressed = false;
+				}
+				case Keyboard.J:{
+					
+					J_pressed = false;
+				}
+				case Keyboard.K:{
+					
+					K_pressed = false;
+				}
+				case Keyboard.I:{
+					
+					I_pressed = false;
+				}
+				case Keyboard.ENTER:{
+					
+					ENTER_pressed = false;
+				}
+				default:{
+					
+				}
+			}
+		}
+		
+		/*
+		* Sets the active controller to the one named in the 
+		* argument string.
 		*/
 		public static function setController(controllerName:String){
 			

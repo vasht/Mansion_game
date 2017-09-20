@@ -29,7 +29,7 @@
 		* there's an error.
 		*/
 		private static function update(event:Event = null){
-			
+			Controller.activeController.update();
 		}
 
 	}

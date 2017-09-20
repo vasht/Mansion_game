@@ -28,6 +28,17 @@
 			}
 			return theInstance;
 		}
+		
+		/*
+		* This function overrides the processInput function in the
+		* Controller class. It responds to input by doing stuff,
+		* like moving the character, interacting with stuff and
+		* pausing the game. :O
+		*/
+		protected override function processInput(){
+			super.processInput();
+			
+		}
 	
 	}
 	
