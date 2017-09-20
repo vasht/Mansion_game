@@ -5,6 +5,7 @@ CONTROLLER - PROGRAM STRUCTURE - DESIGN
 properties:
 
 static:
+
 gameplayController:GameplayController
 menuController:MenuController
 activeController:Controller
@@ -16,10 +17,18 @@ activeController:Controller
 responding to input
 
 
+static functions:
+
+readInput():
+-This function should be a listener function to the On KEY_DOWN event
+-This function checks which keys are pressed and sets boolean values
+accordingly
+
 methods:
 
-Init function:
+init(referenceObject:Object):
 -This is called by the init function in the Mansion_game class
 -This function calls GameplayController.getController() and MenuController.getController()
-
+-This function adds an eventlistener to the stage, using the referenceObject argument
+	-It adds readInput as a listener function to the event KEY_DOWN
 

@@ -20,7 +20,7 @@
 			mainStage = referenceObject.mainStage;
 			
 			Updater.init(referenceObject);
-			Controller.init();
+			Controller.init(referenceObject);
 		}
 		
 		/*

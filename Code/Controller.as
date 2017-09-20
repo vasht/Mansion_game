@@ -1,7 +1,11 @@
 ﻿package Code {
 	
+	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	
 	import Code.GameplayController;
 	import Code.MenuController;
+	
 	
 	/*
 	* This class is in charge of taking keyboard input
@@ -17,9 +21,12 @@
 			
 		}
 		
-		public static function init():void{
+		public static function init(referenceObject:Object):void{
+			
 			gameplayController = GameplayController.getInstance();
 			menuController = MenuController.getInstance();
+			
+			referenceObject.mainStage.addEventListener(KeyboardEvent.KEY_DOWN, readInput);
 		}
 		
 		/*
@@ -32,8 +39,8 @@
 		/*
 		*
 		*/
-		private function readInput():void{
-			
+		private static function readInput(e:Event = null):void{
+			trace("löl");
 		}
 		
 		/*

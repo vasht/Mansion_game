@@ -6,3 +6,7 @@ CONTROLLER - TODO
 -Make it so the readInput function registers which keys
 are being pressed, and sets booleans to true on those
 keys we care about
+-Test that the readInput function is actually called when
+pressing keys
+-Make the init function register the readInput function
+as a listener function to the event KEY_DOWN
