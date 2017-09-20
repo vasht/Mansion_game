@@ -10,12 +10,12 @@ Situations where it needs to be called:
 1. When first starting the game:
 	-Since I don't have a preloader or a Menu, the level starts immediately
 	-It should be called by the main timeline after calling the init function
-	-I think for now this is the only time, since we don't have multiple levels
-	or saves and loads
-	-Unrelated, but I also realized that I should put the levels on separate frames,
-	instead of scenes, like I initially thought
-		-People online have said not to use scenes because they're buggy
-		-I didn't really believe them, but it's better to be safe than sorry
+-I think for now this is the only time, since we don't have multiple levels
+or saves and loads
+-Unrelated, but I also realized that I should put the levels on separate frames,
+instead of scenes, like I initially thought
+	-People online have said not to use scenes because they're buggy
+	-I didn't really believe them, but it's better to be safe than sorry
 
 
 -Should the method in the controller class be called update

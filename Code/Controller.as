@@ -18,8 +18,8 @@
 		}
 		
 		public static function init():void{
-			gameplayController = new GameplayController();
-			menuController = new MenuController();
+			gameplayController = GameplayController.getInstance();
+			menuController = MenuController.getInstance();
 		}
 		
 		/*
@@ -34,6 +34,21 @@
 		*/
 		private function readInput():void{
 			
+		}
+		
+		/*
+		*
+		*/
+		public static function setController(controllerName:String){
+			
+			if(controllerName == "gameplayController"){
+				activeController = gameplayController;
+			} else if(controllerName == "menuController"){
+				activeController = menuController;
+			} else {
+				trace("Invalid controller name in Controller." +
+					  "setController: " + controllerName);
+			}
 		}
 
 	}

@@ -2,6 +2,7 @@
 	
 	import flash.display.Stage;
 	import Code.Controller;
+	import flash.display.MovieClip;
 	
 	/*
 	* The actual game.
@@ -27,6 +28,8 @@
 		*/
 		public function loadLevel(levelName:String):void{
 			
+			(mainStage.getChildAt(0) as MovieClip).gotoAndStop(levelName);
+			Controller.setController("gameplayController");
 		}
 
 	}
