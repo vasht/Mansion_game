@@ -3,10 +3,7 @@ PROGRAM STRUCTURE - TODO
 
 
 -Write the class Level
--Make sure that the Updater class uses the Singleton pattern
-	-Also outside of the class, that any time getting
-	an instance, the Updater.getInstance() function is 
-	used
+
 -Make sure that the GameplayController and MenuController classes 
 use the Singleton pattern
 	-Also outside of the classes, that any time getting

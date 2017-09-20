@@ -10,29 +10,16 @@
 	*/
 	public class Updater {
 		
-		private static var theInstance:Updater;
-		
 		public function Updater() {
-			
+			trace("NO! BAD! You're not supposed to use the Updater constructor! " +
+				  "It's supposed to be a static class!");
 		}
 		
 		/*
 		* Gives the updater a reference to the stage.
 		*/
-		public function init(referenceObject:Object):void{
+		public static function init(referenceObject:Object):void{
 			referenceObject.mainStage.addEventListener(Event.ENTER_FRAME, update);
-		}
-		
-		/*
-		* Checks if the instance is null, if it is it initializes
-		* it.
-		* It returns the Updater instance.
-		*/
-		public static function getInstance():Updater{
-			if(theInstance == null){
-				theInstance = new Updater();
-			}
-			return theInstance;
 		}
 		
 		/*
@@ -41,7 +28,7 @@
 		* have to take one parameter of type Event, otherwise
 		* there's an error.
 		*/
-		public function update(event:Event = null){
+		private static function update(event:Event = null){
 			
 		}
 

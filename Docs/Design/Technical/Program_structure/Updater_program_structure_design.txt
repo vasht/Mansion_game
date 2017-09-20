@@ -2,23 +2,18 @@ UPDATER - PROGRAM STRUCTURE DESIGN
 
 
 
--This class uses the Singleton programming pattern
+-This class is a static class, by which I mean that it's not supposed
+to have any instances created. You're just supposed to use the static
+functions.
 
 properties:
 
-theInstance:Updater
-
-methods:
+static functions:
 
 init(referenceObject:Object):
 -Gets a reference to the stage from the given Object
 -Adds an on ENTER_FRAME event listener to the stage, with
 update as the listener function
-
-getInstance():Updater
--Checks if theInstance is null
-	-If it is it initializes it
--Returns theInstance
 
 update(event:Event):
 -called once on each frame

@@ -19,7 +19,7 @@
 			
 			mainStage = referenceObject.mainStage;
 			
-			Updater.getInstance().init(referenceObject);
+			Updater.init(referenceObject);
 			Controller.init();
 		}
 		
