@@ -2,6 +2,12 @@ MAIN CHARACTER - TODO
 
 
 
+21.09.2017
+
+-Test that the MainCharacter constructor actually fires
+-Test that the main character actually gets added to the Mansion_game
+instance
+
 20.09.2017
 
 -Create a square in the authoring tool to represent the main character

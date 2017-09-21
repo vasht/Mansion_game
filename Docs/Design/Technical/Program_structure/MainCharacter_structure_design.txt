@@ -2,18 +2,16 @@ MAIN CHARACTER - PROGRAM STRUCTURE DESIGN
 
 
 
--This class uses the Singleton programming pattern, because
-there should only be one main character instance at all times
 
 
-static variables:
+properties:
 
-theInstance:MainCharacter
--The only instance in existence
 
-static functions:
+methods:
 
-getInstance():MainCharacter:
--Checks if the instance is initialized and initializes it
-if it isn't
--Returns the MainCharacter instance
+constructor:
+-The MainCharacter instance should add a reference to itself in the Mansion_game.mainCharacter
+when created
+
+
+

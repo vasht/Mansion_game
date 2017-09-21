@@ -10,11 +10,21 @@
 	*/
 	public class MainCharacter extends MovingObject{
 		
+		// Static variables
 		private static var theInstance:MainCharacter;
 		
+		/*
+		* The constructor
+		*/
 		public function MainCharacter(){
-			
+			Mansion_game.getInstance().mainCharacter = this;
+			trace(Mansion_game.getInstance().mainCharacter);
 		}
+		
+		/*
+		*
+		* Static functions
+		*/
 		
 		/*
 		*

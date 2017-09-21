@@ -3,10 +3,6 @@ MANSION GAME - TODO
 
 
 
--Give the Mansion_game a mainCharacter property
--Make the Mansion_game use the Singleton pattern
-	-theInstance static variable
-	-Write the getInstance static function
 -Write the function pause
 	-Make it so the pause function brings up some form of pause menu
 	-Make it so the pause function stops the updater from

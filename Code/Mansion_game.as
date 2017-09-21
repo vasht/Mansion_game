@@ -1,8 +1,11 @@
 ﻿package Code{
 	
 	import flash.display.Stage;
-	import Code.Controller;
 	import flash.display.MovieClip;
+	
+	import Code.Controller;
+	import Code.MainCharacter;
+	
 	
 	/*
 	* The actual game.
@@ -14,8 +17,15 @@
 		// Static variables
 		private static var theInstance:Mansion_game;
 		
-		public var mainStage:Stage;
+		public static var mainStage:Stage;
 		
+		// Instance properties
+		public var mainCharacter:MainCharacter;
+		
+		
+		/*
+		* Constructor
+		*/
 		public function Mansion_game() {
 			
 		}
