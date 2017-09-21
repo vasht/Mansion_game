@@ -14,8 +14,7 @@
 	*/
 	public class Controller {
 		
-		public static var gameplayController:GameplayController;
-		public static var menuController:MenuController;
+		// Static variables
 		public static var activeController:Controller;
 		
 		protected static var W_pressed:Boolean;
@@ -28,20 +27,23 @@
 		protected static var I_pressed:Boolean;
 		
 		protected static var ENTER_pressed:Boolean;
-
+		
+		
+		/*
+		* The constructor
+		*/
 		public function Controller() {
 			
 		}
 		
+		
 		public static function init(referenceObject:Object):void{
-			
-			gameplayController = GameplayController.getInstance();
-			menuController = MenuController.getInstance();
 			
 			referenceObject.mainStage.addEventListener(KeyboardEvent.KEY_DOWN, readKeyPressed);
 			referenceObject.mainStage.addEventListener(KeyboardEvent.KEY_UP, readKeyReleased);
 			
 		}
+		
 		
 		/*
 		* Calls the function to react to input based
@@ -160,9 +162,9 @@
 		public static function setController(controllerName:String){
 			
 			if(controllerName == "gameplayController"){
-				activeController = gameplayController;
+				activeController = GameplayController.getInstance();
 			} else if(controllerName == "menuController"){
-				activeController = menuController;
+				activeController = MenuController.getInstance();
 			} else {
 				trace("Invalid controller name in Controller." +
 					  "setController: " + controllerName);
