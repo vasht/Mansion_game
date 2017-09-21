@@ -2,14 +2,40 @@ MANSION GAME - PROGRAM STRUCTURE DESIGN
 
 
 
+
+-This class uses the Singleton pattern, as there should
+only be one instance of the game running at any given time.
+	-This also makes it easy for classes that extend
+	MovieClip and that are added in the authoring tool
+	to get a reference to the Mansion_game instance.
+
+
+
+static variables:
+
+theInstance:Mansion_game
+
+
 properties:
 
 stage:Stage
+
+mainCharacter:MainCharacter
+
+
+static functions:
+
+getInstance():Mansion_game
+-Checks if the instance is null and initializes
+it if it is
+-Returns the Mansion_game instance
+
 
 methods:
 
 init function:
 -Calls the init function in the Controller class
+
 
 loadLevel(levelName:String):
 -This is why we need a stage property in this class,
