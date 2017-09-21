@@ -1,0 +1,8 @@
+MAIN CHARACTER - TODO
+
+
+
+20.09.2017
+
+-Create a square in the authoring tool to represent the main character
+	-Make it have the class type MainCharacter

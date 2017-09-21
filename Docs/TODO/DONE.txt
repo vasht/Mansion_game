@@ -1,0 +1,5 @@
+DONE
+
+
+
+-Make the MainCharacter class use the Singleton programming pattern

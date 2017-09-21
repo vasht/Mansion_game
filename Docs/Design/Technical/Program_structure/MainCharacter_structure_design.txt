@@ -1,0 +1,19 @@
+MAIN CHARACTER - PROGRAM STRUCTURE DESIGN
+
+
+
+-This class uses the Singleton programming pattern, because
+there should only be one main character instance at all times
+
+
+static variables:
+
+theInstance:MainCharacter
+-The only instance in existence
+
+static functions:
+
+getInstance():MainCharacter:
+-Checks if the instance is initialized and initializes it
+if it isn't
+-Returns the MainCharacter instance

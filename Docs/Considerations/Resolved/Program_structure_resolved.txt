@@ -3,6 +3,18 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 20.09.2017
+-How should I get the Controller to have a reference to the main character?
+
+Option 1:
+-Make the MainCharacter class use the Singleton pattern
+	-There should only be one main character instance, so this would
+	make sense
+	-The controller can then just call MainCharacter.getInstance()
+-I think I'll do this.
+-If a copy of the graphic is needed for whatever reason
+	I think it's possible to copy just the graphic, without
+	making a whole other MainCharacter instance
+
 -Should the updater class just be static, without instances
 or should it have them?
 	-It so far doesn't even have any properties
