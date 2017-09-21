@@ -18,7 +18,6 @@
 		*/
 		public function MainCharacter(){
 			Mansion_game.getInstance().mainCharacter = this;
-			trace(Mansion_game.getInstance().mainCharacter);
 		}
 		
 		/*

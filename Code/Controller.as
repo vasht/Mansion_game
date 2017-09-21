@@ -75,34 +75,42 @@
 				case Keyboard.W:{
 					
 					W_pressed = true;
+					break;
 				}
 				case Keyboard.A:{
 					
 					A_pressed = true;
+					break;
 				}
 				case Keyboard.S:{
 					
 					S_pressed = true;
+					break;
 				}
 				case Keyboard.D:{
 					
 					D_pressed = true;
+					break;
 				}
 				case Keyboard.J:{
 					
 					J_pressed = true;
+					break;
 				}
 				case Keyboard.K:{
 					
 					K_pressed = true;
+					break;
 				}
 				case Keyboard.I:{
 					
 					I_pressed = true;
+					break;
 				}
 				case Keyboard.ENTER:{
 					
 					ENTER_pressed = true;
+					break;
 				}
 				default:{
 					
@@ -120,34 +128,42 @@
 				case Keyboard.W:{
 					
 					W_pressed = false;
+					break;
 				}
 				case Keyboard.A:{
 					
 					A_pressed = false;
+					break;
 				}
 				case Keyboard.S:{
 					
 					S_pressed = false;
+					break;
 				}
 				case Keyboard.D:{
 					
 					D_pressed = false;
+					break;
 				}
 				case Keyboard.J:{
 					
 					J_pressed = false;
+					break;
 				}
 				case Keyboard.K:{
 					
 					K_pressed = false;
+					break;
 				}
 				case Keyboard.I:{
 					
 					I_pressed = false;
+					break;
 				}
 				case Keyboard.ENTER:{
 					
 					ENTER_pressed = false;
+					break;
 				}
 				default:{
 					

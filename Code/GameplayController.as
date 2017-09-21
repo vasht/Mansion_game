@@ -38,6 +38,20 @@
 		protected override function processInput(){
 			super.processInput();
 			
+			if(W_pressed){
+				
+				Mansion_game.getInstance().mainCharacter.y-= 5.0;
+			}
+			if(S_pressed){
+				
+				Mansion_game.getInstance().mainCharacter.y+= 5.0;
+			}
+			if(A_pressed){
+				Mansion_game.getInstance().mainCharacter.x-= 5.0;
+			}
+			if(D_pressed){
+				Mansion_game.getInstance().mainCharacter.x+= 5.0;
+			}
 		}
 	
 	}
