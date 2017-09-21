@@ -1,16 +1,27 @@
 PROGRAM STRUCTURE - RESOLVED
 
 
- 
-20.09.2017
+
+21.09.2017
 -How should I get the Controller to have a reference to the main character?
 
 Option 1:
 -Make the MainCharacter class use the Singleton pattern
-	-There should only be one main character instance, so this would
-	make sense
-	-The controller can then just call MainCharacter.getInstance()
--I think I'll do this.
+	-This doesn't work, because the constructor is run automatically
+	when the movie clip is loaded, since this class extends the
+	MovieClip class.
+
+Option 2:
+-Make the Mansion_game use the Singleton pattern. 
+	-That way any classes that extend MovieClip that are added
+	in the authoring tool can get a reference to the Mansion_game
+	instance using Mansion_game.getInstance()
+		-Then the MovieClips can add a reference to themselves
+		to any class that needs it.
+-This sounds pretty heckin' good.
+
+
+20.09.2017
 
 -Should the updater class just be static, without instances
 or should it have them?

@@ -8,6 +8,22 @@ if I want to implement them or not.
 
 
 
+21.09.2017
+-A room where you (for some reason) hear white noise for as long as you're in there
+	-This would be effectively creepy (hopefully) because there would be low volume 
+	voice samples that would play at random times.
+		-They'd be at a low enough volume that you could be unsure if you heard 
+		that or if you imagined it
+		-This would train your ears to listen for random voices, and so when
+		you hear white noise, you're more likely to hear voices in it, even
+		though they're not there
+	-The room would be designed to encourage you to stay for a while
+		-There could be stuff to explore like drawers, cabinets, a chest etc.
+		with stuff in them
+		-There could be a note/some notes to read
+		-This way you have to stay and hear the noise for a while, making it
+		more likely you'll hear something in it
+
 09.09.2017
 -Voices could sometimes randomly be heard at low volumes, saying something to put
 down the main character or to make her feel scared
