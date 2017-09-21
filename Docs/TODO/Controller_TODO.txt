@@ -3,5 +3,3 @@ CONTROLLER - TODO
 
 
 -Make it so pressing the WASD keys moves the character
--Add a listener function that sets the booleans to false on
-event KEY_DOWN
