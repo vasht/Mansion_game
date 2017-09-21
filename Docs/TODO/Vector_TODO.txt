@@ -1,8 +1,0 @@
-VECTOR - TODO
-
-
-
--Write the class Vector
-	-Write the function scalarMultiply(vector, number)
-	-Write the function magnitude
-	-Write the static function add(vector, vector)
