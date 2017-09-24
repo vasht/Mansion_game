@@ -1,0 +1,23 @@
+PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
+
+
+
+
+22.09.2017
+-Should there be a class called Level?
+
+Option 1:
+-Yes.
+	-What would this be?
+	Option 1:
+	-One floor is one Level object
+	-In this case I think the class should be called floor,
+	instead of Level
+		-How should 
+	
+	Option 2:
+	-The 
+
+
+Option 2:
+-No.
