@@ -2,6 +2,26 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+
+
+22.09.2017
+-Should there be a class called Level?
+
+Option 1:
+-Yes.
+	-What would this be?
+	Option 1:
+	-One floor is one Level object
+	-In this case I think the class should be called Floor,
+	instead of Level
+		
+Option 2:
+-No. There's actually no reason to have objects called levels, since the
+whole game is set in a fricken mansion (well, I guess I don't know if there will
+be other locations, like say a cave or a dungeon or something, but I'll worry about
+that later)
+
+
 21.09.2017
 -How should I get the Controller to have a reference to the main character?
 
