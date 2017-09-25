@@ -8,11 +8,11 @@
 	* Yea I know, I got the name from Unity, not very creative.
 	* A GameObject is actually just a movie clip, but with tags.
 	*/
-	public class GameObject extends MovieClip{
+	public class SolidObject extends MovieClip{
 
 		public var tags:Tags;
 
-		public function GameObject() {
+		public function SolidObject() {
 			tags = new Tags();
 		}
 

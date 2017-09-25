@@ -1,14 +1,14 @@
-GAMEOBJECT - PROGRAM STRUCTURE DESIGN
+SOLID OBJECT - DESIGN
 
 
 
 Class hierarchy:
 
--DynamicObject extends GameObject
+-DynamicObject extends SolidObject
 	-MainCharacter extends DynamicObject
 	-MovingMonster extends DynamicObject
--LevelObject extends GameObject
--Stationary monsters will have the class type GameObject for now
+-LevelObject extends SolidObject
+-Stationary monsters will have the class type SolidObject for now
 
 
 properties:
