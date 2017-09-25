@@ -1,0 +1,14 @@
+LEVEL OBJECT - DESIGN
+
+
+
+
+Properties:
+
+
+Constructor:
+-Each LevelObject adds itself to the array of SolidObjects (and DynamicObjects
+if applicable) in the constructor
+
+
+Methods:

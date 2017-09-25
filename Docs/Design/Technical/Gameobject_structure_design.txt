@@ -4,9 +4,9 @@ GAMEOBJECT - PROGRAM STRUCTURE DESIGN
 
 Class hierarchy:
 
--MovingObject extends GameObject
-	-MainCharacter extends MovingObject
-	-MovingMonster extends MovingObject
+-DynamicObject extends GameObject
+	-MainCharacter extends DynamicObject
+	-MovingMonster extends DynamicObject
 -LevelObject extends GameObject
 -Stationary monsters will have the class type GameObject for now
 

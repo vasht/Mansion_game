@@ -4,6 +4,32 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+
+24.09.2017
+ 
+-Should there be a class called Room?
+-Rooms will be on different frames. 
+-Each room will have certain LevelObjects in it.
+-The frame whith the room almost works like an object
+for the room. 
+	-I also don't think there are properties
+	that need to be stored separately for a room.
+-> I don't think a Room class is necessary. The LevelObjects
+can be stored in an array in the CollisionDetector.
+
+-Should the LevelObjects in a room be stored in an array, or
+should the game just go through all MovieClips as GameObject
+and check if it has the LevelObject tag, and do stuff if it 
+does?
+
+Option 1:
+-Store the LevelObjects in an array
+	-Have each LevelObject put itself in an array in its constructor
+-I think I want to go with this. It sounds cleaner to have them in
+an array than having to go through all the movie clips, testing which ones are 
+LevelObjects.
+
+
 22.09.2017
 -Should there be a class called Level?
 

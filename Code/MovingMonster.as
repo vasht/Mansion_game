@@ -3,7 +3,7 @@
 	/*
 	*
 	*/
-	public class MovingMonster extends MovingObject{
+	public class MovingMonster extends DynamicObject{
 
 		public function MovingMonster() {
 			

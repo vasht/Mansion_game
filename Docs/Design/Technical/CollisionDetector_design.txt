@@ -1,0 +1,16 @@
+COLLISION DETECTOR - DESIGN
+
+
+
+
+
+Properties:
+
+solidObjects:Array
+-Array with all the SolidObject instances in the current frame/room
+
+dynamicObjects:Array
+-Array with all the DynamicObject instances in the current frame/room'
+
+
+Methods:
