@@ -16,6 +16,8 @@
 		* The constructor
 		*/
 		public function DynamicObject() {
+		
+			tags.addTag("DynamicObject");
 			
 			// Add yourself to the dynamicObjects array in the CollisionDetector 
 			// instance.

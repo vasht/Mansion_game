@@ -1,0 +1,13 @@
+RECTANGLE COLLIDER - DESIGN
+
+
+
+-The RectangleCollider class extends the Collider class
+
+
+properties:
+
+rectangle:Rectangle
+
+methods:
+

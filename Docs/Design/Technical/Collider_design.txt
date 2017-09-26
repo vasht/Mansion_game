@@ -1,0 +1,14 @@
+COLLIDER - DESIGN
+
+
+
+
+Properties:
+
+tags:Tags
+
+
+Methods:
+
+collisionTestRectangles(rect1:RectangleCollider, rect2:RectangleCollider):Boolean
+-

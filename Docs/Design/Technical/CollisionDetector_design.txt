@@ -16,6 +16,11 @@ dynamicObjects:Array
 -Array with all the DynamicObject instances in the current frame/room'
 
 
-Methods:
+Static functions:
 
 getInstance():CollisionDetector
+
+
+methods:
+
+update()

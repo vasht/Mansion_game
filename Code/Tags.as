@@ -33,6 +33,16 @@
 		}
 		
 		/*
+		*
+		*/
+		public function traceTags():void{
+			
+			for(var i=0; i<tags.length; i++){
+				trace(tags[i]);
+			}
+		}
+		
+		/*
 		// Add this if needed
 		public function removeTag(tag:String):Void{
 			

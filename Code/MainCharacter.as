@@ -20,10 +20,6 @@
 			Mansion_game.getInstance().mainCharacter = this;
 		}
 		
-		/*
-		*
-		* Static functions
-		*/
 		
 		/*
 		*

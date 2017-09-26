@@ -1,0 +1,12 @@
+CIRCLE COLLIDER - DESIGN
+
+
+
+
+
+Properties:
+
+circle:Circle
+
+Methods:
+

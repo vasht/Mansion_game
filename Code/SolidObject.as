@@ -13,11 +13,13 @@
 		public var tags:Tags;
 
 		public function SolidObject() {
-			tags = new Tags();
 			
-			// Add yourself to the solidObjects array in the CollisionDetector 
-			// instance.
+			tags = new Tags();
+			tags.addTag("SolidObject");
+			
+			// Add yourself to the solidObjects array in CollisionDetector
 			CollisionDetector.getInstance().solidObjects.push(this);
+			
 		}
 
 	}
