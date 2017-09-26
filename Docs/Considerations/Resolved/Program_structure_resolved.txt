@@ -4,6 +4,26 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+
+26.09.2017
+-Should the SolidObjects be stored in an array in the CollisionDetector instance,
+or should only their Colliders be stored?
+
+Option 1:
+-The SolidObjects themselves are stored in the array
+	-They add themselves in their constructor
+	-The CollisionDetector goes through the SolidObjects and gets the Collider
+	from each SolidObject to use for collision testing
+-I think I'll go with this option. The SolidObjects are stored as references anyway,
+it's not like it copies them over or anything... Right...?
+
+Option 2:
+-The SolidObjects put their Collider in the array in their constructor
+	-The CollisionDetector goes through the array of Colliders
+	-I would have to have a variable in the Collider that is a 
+	reference to the SolidObject that has the Collider.
+
+
 25.09.2017
 -The CollisionDetector class should use the Singleton pattern instead of
 being a static class

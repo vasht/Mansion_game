@@ -2,13 +2,13 @@
 	
 	/*
 	* The main character of the game. This class extends
-	* the MovingObject class and uses the Singleton programming
+	* the DynamicObject class and uses the Singleton programming
 	* pattern.
 	* This class contains properties such as
 	* health, movement speed, mood properties etc. related
 	* to the character.
 	*/
-	public class MainCharacter extends MovingObject{
+	public class MainCharacter extends DynamicObject{
 		
 		// Static variables
 		private static var theInstance:MainCharacter;

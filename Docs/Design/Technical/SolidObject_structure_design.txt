@@ -16,5 +16,9 @@ properties:
 tags:Tags
 -Contains tags relevant to the game object
 
+
+Constructor:
+-Add yourself to the solidObjects array in the CollisionDetector instance
+
 methods:
 

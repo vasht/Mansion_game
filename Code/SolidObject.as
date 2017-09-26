@@ -5,8 +5,8 @@
 	import Code.Tags;
 	
 	/*
-	* Yea I know, I got the name from Unity, not very creative.
-	* A GameObject is actually just a movie clip, but with tags.
+	* A SolidObject is an object that the player cannot
+	* walk through.
 	*/
 	public class SolidObject extends MovieClip{
 
@@ -14,6 +14,10 @@
 
 		public function SolidObject() {
 			tags = new Tags();
+			
+			// Add yourself to the solidObjects array in the CollisionDetector 
+			// instance.
+			CollisionDetector.getInstance().solidObjects.push(this);
 		}
 
 	}

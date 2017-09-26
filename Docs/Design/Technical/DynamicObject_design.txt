@@ -1,0 +1,12 @@
+DYNAMIC OBJECT - DESIGN
+
+
+
+Properties:
+
+tags:Tags
+
+
+Constructor:
+-super();
+-Add yourself to the dynamicObjects array in the CollisionDetector instance 

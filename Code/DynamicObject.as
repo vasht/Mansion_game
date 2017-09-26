@@ -3,11 +3,11 @@
 	import Code.Vector_2D;
 	
 	/*
-	* A MovingObject extends the GameObject class.
+	* A MovingObject extends the SolidObject class.
 	* It adds properties related to movement
 	* such as vectors for velocity and accelerations.
 	*/
-	public class DynamicObject extends GameObject{
+	public class DynamicObject extends SolidObject{
 		
 		public var velocity:Vector_2D;
 		public var acceleration:Vector_2D;
@@ -17,6 +17,9 @@
 		*/
 		public function DynamicObject() {
 			
+			// Add yourself to the dynamicObjects array in the CollisionDetector 
+			// instance.
+			CollisionDetector.getInstance().dynamicObjects.push(this);
 		}
 
 	}
