@@ -3,8 +3,11 @@ COLLISION DETECTOR - DESIGN
 
 
 
+-This class uses the Singleton pattern
 
 Properties:
+
+theInstance:CollisionDetector
 
 solidObjects:Array
 -Array with all the SolidObject instances in the current frame/room
@@ -14,3 +17,5 @@ dynamicObjects:Array
 
 
 Methods:
+
+getInstance():CollisionDetector
