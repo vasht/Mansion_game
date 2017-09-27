@@ -11,6 +11,8 @@
 	public class SolidObject extends MovieClip{
 
 		public var tags:Tags;
+		
+		public var collider:Collider;
 
 		public function SolidObject() {
 			

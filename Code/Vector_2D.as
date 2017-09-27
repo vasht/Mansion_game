@@ -8,9 +8,9 @@
 		
 		public var x, y:Number;
 		
-		public function Vector_2D(x:Number, y:Number) {
-			this.x = x;
-			this.y = y;
+		public function Vector_2D(_x:Number, _y:Number) {
+			this.x = _x;
+			this.y = _y;
 		}
 		
 		
