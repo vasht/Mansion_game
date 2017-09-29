@@ -8,7 +8,7 @@
 		public var circle:Circle;
 		
 		public function CircleCollider() {
-			
+			tags.addTag("CircleCollier");
 		}
 
 	}

@@ -3,6 +3,29 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+asdasd
+28.09.2017
+-What should the Rectangle class look like?
+
+Option 1:
+-Defined as one point, width, height and rotation
+-The problem here is that each of the other points will have to be
+re-calculated each time collision testing is performed on a RectangleCollider.
+This especially sucks when the rectangle has a rotation. 
+
+Option 2:
+-Defined as four points
+-One problem with this is that it doesn't make sure the points you give
+actually make a rectangle.
+	-But I can make sure of that on my own
+	-You can even add tests if for some reason you want to make sure
+-All four points would have to be re-calculated each time a RectangleCollider
+moved
+-But if they didn't move, you don't have to re-calculate the points. This
+would work pretty well, since most RectangleColliders are in LevelObjects,
+which are stationary.
+	-So when it comes to performance, this would be better.
+
 
 
 26.09.2017

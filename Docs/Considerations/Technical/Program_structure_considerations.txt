@@ -3,5 +3,48 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 
+
+29.09.2017
+-How should the Collider be constructed?
+
+Option 1:
+-Make the Collider extend MovieClip. Then have a square- and circle-shaped 
+movie clip in the library that have the class RectangleCollider and CircleCollider.
+	-Then all you have to do is place them in a separate layer in whatever 
+	SolidObject you want and resize and rotate them to match the object.
+	-One issue is that then there's no easy way to get the corner points of the 
+	RectangleCollider once it's rotated.
+
+-How should I get the corner points of the RectangleCollider, once it has been rotated?
+
+
+28.09.2017
+-What should the Rectangle class look like?
+
+Option 1:
+-Defined as one point, width, height and rotation
+-The problem here is that each of the other points will have to be
+re-calculated each time collision testing is performed on a RectangleCollider.
+This especially sucks when the rectangle has a rotation. 
+
+Option 2:
+-Defined as four points
+-One problem with this is that it doesn't make sure the points you give
+actually make a rectangle.
+	-But I can make sure of that on my own
+	-You can even add tests if for some reason you want to make sure
+-All four points would have to be re-calculated each time a RectangleCollider
+moved
+-But if they didn't move, you don't have to re-calculate the points. This
+would work pretty well, since most RectangleColliders are in LevelObjects,
+which are stationary.
+	-So when it comes to performance, this would be better.
+
+
 26.09.2017
--
+-How do I initialize the collider instances to have the same size as a movie
+clip I've added in the authoring tool?
+	-
+
+
+

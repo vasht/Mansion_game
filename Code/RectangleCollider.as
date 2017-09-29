@@ -10,7 +10,7 @@
 		public var rectangle:Rectangle;
 		
 		public function RectangleCollider() {
-			
+			tags.addTag("RectangleCollier");
 		}
 
 	}
