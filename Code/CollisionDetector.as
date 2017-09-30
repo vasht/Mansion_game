@@ -3,7 +3,7 @@
 	/*
 	*
 	*/
-	public class CollisionDetector{
+	public class CollisionDetector {
 		
 		private static var theInstance:CollisionDetector;
 		
@@ -20,6 +20,118 @@
 				theInstance = new CollisionDetector()
 			}
 			return theInstance;
+		}
+		
+		/*
+		* This function is called once per frame. It calls
+		* other functions that check for collisions between
+		* solid objects.
+		*/
+		public function update(){
+			collisionTest();
+		}
+		
+		/*
+		* Checks for collisions between all the solid
+		* and dynamic objects.
+		* If there is a collision methods in both objects
+		* are called to let them know about it.
+		* All solid objects must have a method that's
+		* called when there's a collision.
+		*/
+		public function collisionTest():void{
+			
+			// Checking for collisions between the dynamic objects
+			collisionTestObjects(dynamicObjects, dynamicObjects);
+			
+			// Checking for collisions between the dynamic and solid objects
+			collisionTestObjects(dynamicObjects, solidObjects);
+		}
+		
+		/*
+		* Called when there has been a collision.
+		*/
+		public function collision(sol1:SolidObject, sol2:SolidObject){
+			
+			// Telling the objects about the collision
+			sol1.collision(sol2);
+			sol2.collision(sol1);
+		}
+		
+		/*
+		* Checks if any of the dynamic objects collided with
+		* any of the other dynamic objects.
+		*/
+		public function collisionTestObjects(objects_list1:Array, objects_list2:Array){
+			
+			// Object from the first array
+			for(var i=0; i<objects_list1.length; i++){
+				var dyn:DynamicObject = objects_list1[i];
+				
+				// Object from the second array
+				for(var j=0; j<objects_list2.length; j++){
+					
+					// Don't check for collisions with yourself!
+					if(objects_list1[i] == objects_list2[j]){ continue; }
+					   
+					var sol:SolidObject = objects_list2[j];
+					
+					// We have two rectangle colliders
+					if(dyn.collider.tags.containsTag("RectangleCollider") &&
+					   sol.collider.tags.containsTag("RectangleCollider")){
+						
+						var rect1:Rectangle = (dyn.collider as RectangleCollider).rectangle;
+						var rect2:Rectangle = (sol.collider as RectangleCollider).rectangle;
+						
+						// Checking if they collided, and telling them that they did
+						if(collisionTestRectangles(rect1, rect2)){
+							collision(dyn, sol);
+						}
+					
+					// We have one rectangle and one circle collider 
+					} else if(dyn.collider.tags.containsTag("RectangleCollider") &&
+							  sol.collider.tags.containsTag("CircleCollider") || 
+							  dyn.collider.tags.containsTag("CircleCollider") &&
+							  sol.collider.tags.containsTag("RectangleCollider")){
+						
+						var rect:Rectangle;
+						var circle:Circle;
+						
+						if(dyn.collider.tags.containsTag("CircleCollider")){
+							rect = (sol.collider as RectangleCollider).rectangle;
+							circle = (dyn.collider as CircleCollider).circle;
+						} else {
+							rect = (dyn.collider as RectangleCollider).rectangle;
+							circle = (sol.collider as CircleCollider).circle;
+						}
+						
+						// Checking if they collided, and telling them that they did
+						if(collisionTestRectCirc(rect, circle)){
+							collision(dyn, sol);
+						}
+						
+					// We have two circle colliders
+					} else if(dyn1.collider.tags.containsTag("CircleCollider") &&
+							  dyn2.collider.tags.containsTag("CircleCollider")){
+						
+						var circle1:Circle = (dyn1.collider as CicleCollider).circle;
+						var circle2:Circle = (dyn2.collider as CircleCollider).cicle;
+						
+						// Checking if they collided, and telling them that they did
+						if(collisionTestCircles(circle1, circle2)){
+							collision(dyn, sol);
+						}
+					} else {
+						trace("There's something wrong in CollisionDetector.collisionTest" + 
+							  "DynamicObjects.");
+						trace("Tags in dyn1.collider: ");
+						dyn.collider.tags.traceTags();
+						trace("Tags in dyn2.collider: ");
+						sol.collider.tags.traceTags();
+					}
+				}
+				
+			}
 		}
 
 	}

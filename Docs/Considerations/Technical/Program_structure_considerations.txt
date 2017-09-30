@@ -17,6 +17,23 @@ movie clip in the library that have the class RectangleCollider and CircleCollid
 
 -How should I get the corner points of the RectangleCollider, once it has been rotated?
 
+Option 1:
+-I could have another class called ColliderPoint or PointClip or something, which
+extends MovieClip, and once added in the authoring tool, will calculate its own
+center in the constructor. It would store that point in a variable.
+	-I could place four of these whenever there's a RectangleCollider,
+	one for each corner, and one for CircleColliders, for the middle point.
+-I could give the Collider a method updateCollider or something, which would check
+the type of this collider (Rectangle or Circle) and then based on which, would 
+get either four or one ColliderPoints
+	-The ColliderPoints are given instance names in the authoring tool
+	-The updateCollider method would be called once per frame
+	-With those the point(s) it would either make a Rectangle or a Circle.
+	Whichever it is is stored in a variable. 
+		-Then this is used in the correct collision test function (collisionRectangles,
+	collisionRectCirc, collisionCircles), in whatever function checks for collisions
+		-That function would first check which type of pair of colliders it has
+
 
 28.09.2017
 -What should the Rectangle class look like?

@@ -18,7 +18,7 @@
 			
 			tags = new Tags();
 			tags.addTag("SolidObject");
-			
+			// trace("From solid object");
 			// Add yourself to the solidObjects array in CollisionDetector
 			CollisionDetector.getInstance().solidObjects.push(this);
 			
