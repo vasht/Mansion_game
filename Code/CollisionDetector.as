@@ -42,7 +42,7 @@
 		public function collisionTest():void{
 			
 			// Checking for collisions between the dynamic objects
-			collisionTestObjects(dynamicObjects, dynamicObjects);
+			// collisionTestObjects(dynamicObjects, dynamicObjects);
 			
 			// Checking for collisions between the dynamic and solid objects
 			collisionTestObjects(dynamicObjects, solidObjects);
