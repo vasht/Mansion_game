@@ -111,11 +111,11 @@
 						}
 						
 					// We have two circle colliders
-					} else if(dyn1.collider.tags.containsTag("CircleCollider") &&
-							  dyn2.collider.tags.containsTag("CircleCollider")){
+					} else if(dyn.collider.tags.containsTag("CircleCollider") &&
+							  sol.collider.tags.containsTag("CircleCollider")){
 						
-						var circle1:Circle = (dyn1.collider as CicleCollider).circle;
-						var circle2:Circle = (dyn2.collider as CircleCollider).cicle;
+						var circle1:Circle = (dyn.collider as CircleCollider).circle;
+						var circle2:Circle = (sol.collider as CircleCollider).circle;
 						
 						// Checking if they collided, and telling them that they did
 						if(collisionTestCircles(circle1, circle2)){
@@ -132,8 +132,28 @@
 				}
 				
 			}
+		} // End of CollisionTestObjects
+		
+		/*
+		*
+		*/
+		public function collisionTestRectangles(rect1:Rectangle, rect2:Rectangle):Boolean{
+			return true;
 		}
 
+		/*
+		*
+		*/
+		public function collisionTestRectCirc(rect:Rectangle, circle:Circle):Boolean{
+			return true;
+		}
+		
+		/*
+		*
+		*/
+		public function collisionTestCircles(circle1:Circle, circle2:Circle):Boolean{
+			return true;
+		}
 	}
 	
 }

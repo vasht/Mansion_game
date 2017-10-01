@@ -23,6 +23,14 @@
 			CollisionDetector.getInstance().solidObjects.push(this);
 			
 		}
+		
+		/*
+		* This is supposed to be overridden by classes that
+		* extend the SolidObject class.
+		*/
+		public function collision(solidObject:SolidObject):void{
+			
+		}
 
 	}
 	
