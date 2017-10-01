@@ -3,7 +3,28 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
-asdasd
+
+01.10.2017
+-Should the rectangles used for collision detection be constructed each time
+we're doing collision testing, or should they only be calculated once,
+and then again only if the solid object moved?
+	-It's not really a big deal if we do, the only calculation happening
+	is localToGlobal of the points...
+
+Option 1:
+-We just construct them in the collisionTestObjects function, and use those
+rectangles for collision testing. Could possibly be optimized, but it's not
+a big deal.
+
+Option 2:
+-We have a boolean variable in the solid object or the collider, that states
+wether it moved since the previous frame or not.
+	-If it didn't move, we just use the rectangle from the previous frame
+	-If it did move, we construct a new rectangle and save it
+	-It's easy to implement, and it could make it perform a bit better...
+-Why not.
+
+
 28.09.2017
 -What should the Rectangle class look like?
 

@@ -17,7 +17,7 @@
 		
 		public static function getInstance():CollisionDetector{
 			if(theInstance == null){
-				theInstance = new CollisionDetector()
+				theInstance = new CollisionDetector();
 			}
 			return theInstance;
 		}
@@ -138,6 +138,8 @@
 		*
 		*/
 		public function collisionTestRectangles(rect1:Rectangle, rect2:Rectangle):Boolean{
+			
+			
 			return true;
 		}
 

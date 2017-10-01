@@ -4,6 +4,13 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 
+
+01.10.2017
+-Which should be called first in the updater, Controller.activeController.update()
+or CollisionDetector.getInstance().update()?
+
+Option 1:
+
 29.09.2017
 -How should the Collider be constructed?
 
@@ -23,11 +30,8 @@ extends MovieClip, and once added in the authoring tool, will calculate its own
 center in the constructor. It would store that point in a variable.
 	-I could place four of these whenever there's a RectangleCollider,
 	one for each corner, and one for CircleColliders, for the middle point.
--I could give the Collider a method updateCollider or something, which would check
-the type of this collider (Rectangle or Circle) and then based on which, would 
-get either four or one ColliderPoints
-	-The ColliderPoints are given instance names in the authoring tool
-	-The updateCollider method would be called once per frame
+-I get the points using the collider_point_mc instances, and use the getGlobalCoord() function
+to get the coordinates of them
 	-With those the point(s) it would either make a Rectangle or a Circle.
 	Whichever it is is stored in a variable. 
 		-Then this is used in the correct collision test function (collisionRectangles,
@@ -56,6 +60,10 @@ moved
 would work pretty well, since most RectangleColliders are in LevelObjects,
 which are stationary.
 	-So when it comes to performance, this would be better.
+-This works even better considering that I can just place movie clips on the
+corners and use them to get the coordinates. These are automatically repositioned
+when the parent movie clip is rotated.
+-So I guess the Rectangle should consist of four points!
 
 
 26.09.2017
