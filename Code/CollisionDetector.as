@@ -69,12 +69,11 @@
 				var dyn:DynamicObject = objects_list1[i];
 				
 				// Object from the second array
-				for(var j=0; j<objects_list2.length; j++){
+				for(var j=i + 1; j<objects_list2.length; j++){
 					
-					// Don't check for collisions with yourself!
-					if(objects_list1[i] == objects_list2[j]){ continue; }
-					   
 					var sol:SolidObject = objects_list2[j];
+					
+					sol.collider.updateCollider();
 					
 					// We have two rectangle colliders
 					if(dyn.collider.tags.containsTag("RectangleCollider") &&
@@ -83,7 +82,7 @@
 						var rect1:Rectangle = (dyn.collider as RectangleCollider).rectangle;
 						var rect2:Rectangle = (sol.collider as RectangleCollider).rectangle;
 						
-						// Checking if they collided, and telling them that they did
+						// Calling collision() if they collided
 						if(collisionTestRectangles(rect1, rect2)){
 							collision(dyn, sol);
 						}
@@ -105,7 +104,7 @@
 							circle = (sol.collider as CircleCollider).circle;
 						}
 						
-						// Checking if they collided, and telling them that they did
+						// Calling collision() if they collided
 						if(collisionTestRectCirc(rect, circle)){
 							collision(dyn, sol);
 						}
@@ -117,7 +116,7 @@
 						var circle1:Circle = (dyn.collider as CircleCollider).circle;
 						var circle2:Circle = (sol.collider as CircleCollider).circle;
 						
-						// Checking if they collided, and telling them that they did
+						// Calling collision() if they collided
 						if(collisionTestCircles(circle1, circle2)){
 							collision(dyn, sol);
 						}

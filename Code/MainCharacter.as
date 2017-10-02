@@ -1,4 +1,4 @@
-﻿package Code{
+﻿package Code {
 	
 	/*
 	* The main character of the game. This class extends

@@ -11,9 +11,20 @@
 	public class Collider extends MovieClip {
 		
 		public var tags:Tags;
+		
+		public var has_moved:Boolean;
 
 		public function Collider() {
-			tags = new Tags()
+			tags = new Tags();
+			has_moved = true;
+		}
+		
+		/*
+		*
+		*/
+		public function updateCollider():void{
+			
+			has_moved = false;
 		}
 
 	}

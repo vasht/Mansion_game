@@ -4,6 +4,28 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+
+02.10.2017
+-How should the points in each collider be updated?
+
+Option 1:
+-I have a method called updateCollider(), that is called
+in each frame in each collider. 
+	-It checks whether the collider has moved or not,
+	and creates a new rectangle or circle to use for 
+	collision testing depending on that.
+	-One issue with this approach is that the game goes through all of the
+	colliders twice in each frame. Once to update the rectangles and circles,
+	and another time to check for collisions.
+		-Could be more efficient to do both at the same time during collision
+		testing.
+		-> In the CollisionDetector.collisionTestObjects(), first check if
+		a collider moved or not, then create a new rectangle or circle if it
+		did. Then use the rectangle or circle it has for collision detection.
+-This sounds pretty good, especially since the collider is only needed for collision
+testing.
+
+
 01.10.2017
 -Which should be called first in the updater, Controller.activeController.update()
 or CollisionDetector.getInstance().update()?

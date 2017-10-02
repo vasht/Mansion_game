@@ -5,6 +5,16 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 
+02.10.2017
+-I decided that the CollisionDetector.collisionTestObjects() method
+should call updateCollider() on each collider. But the method goes
+through the dynamic objects twice. 
+	-On the second time the ones that had moved have
+	been set to "haven't moved", so it'll just use the new rectangle
+	or circle. So there's not really a problem.
+	-Furthermore, the solid objects usually don't move, so the 
+	rectangles and circles in them will usually just stay the same.
+
 
 29.09.2017
 -How should the Collider be constructed?
