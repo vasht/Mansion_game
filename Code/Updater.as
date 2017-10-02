@@ -29,7 +29,12 @@
 		* there's an error.
 		*/
 		private static function update(event:Event = null){
+			
+			// Processing controller input first
 			Controller.activeController.update();
+			
+			// Performing collision detection
+			CollisionDetector.getInstance().update();
 		}
 
 	}

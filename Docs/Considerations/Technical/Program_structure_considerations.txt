@@ -5,11 +5,6 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 
-01.10.2017
--Which should be called first in the updater, Controller.activeController.update()
-or CollisionDetector.getInstance().update()?
-
-Option 1:
 
 29.09.2017
 -How should the Collider be constructed?

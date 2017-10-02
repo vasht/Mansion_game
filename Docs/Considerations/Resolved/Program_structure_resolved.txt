@@ -5,6 +5,19 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 01.10.2017
+-Which should be called first in the updater, Controller.activeController.update()
+or CollisionDetector.getInstance().update()?
+	-I realized that the keys that are processed in a frame are whatever keys
+	were down when that frame was entered. Meaning that the player most likely
+	pressed the key in the previous frame and so it was held down when the
+	frame changed. 
+		-So if you see something in a frame and want to press a key to 
+		respond to it, it's already too late, because your key press won't
+		be processed until the next frame is entered
+	-> So it would make sense to process the input first, and then update the
+	positions (and collision detection) of different stuff
+
+
 -Should the rectangles used for collision detection be constructed each time
 we're doing collision testing, or should they only be calculated once,
 and then again only if the solid object moved?
