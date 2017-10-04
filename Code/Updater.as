@@ -35,6 +35,8 @@
 			
 			// Performing collision detection
 			CollisionDetector.getInstance().update();
+			
+			DebugGUI.getInstance().update();
 		}
 
 	}

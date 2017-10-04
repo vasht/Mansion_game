@@ -7,16 +7,22 @@
 	* if two SolidObjects collided or not.
 	* A Collider actually has a shape, either rectangle or circle
 	* (for now) which are used by the CollisionDetector.
+	*
+	* TODO
+	* 
 	*/
-	public class Collider extends MovieClip {
+	public class Collider {
 		
 		public var tags:Tags;
+		
+		// The solid object whose collider this is
+		public var solidObject;
 		
 		public var has_moved:Boolean;
 
 		public function Collider() {
 			tags = new Tags();
-			has_moved = true;
+			has_moved = false;
 		}
 		
 		/*

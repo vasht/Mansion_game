@@ -7,8 +7,11 @@
 	* This class contains properties such as
 	* health, movement speed, mood properties etc. related
 	* to the character.
+	*
+	* TODO
+	* -Initialize the collider to the correct type
 	*/
-	public class MainCharacter extends DynamicObject{
+	public class MainCharacter extends DynamicObject {
 		
 		// Static variables
 		private static var theInstance:MainCharacter;
@@ -18,6 +21,9 @@
 		*/
 		public function MainCharacter(){
 			Mansion_game.getInstance().mainCharacter = this;
+			tags.addTag("MainCharacter");
+			
+			collider = new RectangleCollider();
 		}
 		
 		

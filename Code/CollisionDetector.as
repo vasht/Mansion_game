@@ -53,6 +53,10 @@
 		*/
 		public function collision(sol1:SolidObject, sol2:SolidObject){
 			
+			if(sol1.tags.containsTag("MainCharacter")){
+				DebugGUI.getInstance().mainCharacterTouching = true;
+			}
+			
 			// Telling the objects about the collision
 			sol1.collision(sol2);
 			sol2.collision(sol1);
@@ -64,21 +68,25 @@
 		*/
 		public function collisionTestObjects(objects_list1:Array, objects_list2:Array){
 			
+			DebugGUI.getInstance().mainCharacterTouching = false;
+			
 			// Object from the first array
 			for(var i=0; i<objects_list1.length; i++){
 				var dyn:DynamicObject = objects_list1[i];
 				
 				// Object from the second array
-				for(var j=i + 1; j<objects_list2.length; j++){
+				for(var j=0; j<objects_list2.length; j++){
 					
 					var sol:SolidObject = objects_list2[j];
+					
+					if(dyn == sol){ continue; }
 					
 					sol.collider.updateCollider();
 					
 					// We have two rectangle colliders
 					if(dyn.collider.tags.containsTag("RectangleCollider") &&
 					   sol.collider.tags.containsTag("RectangleCollider")){
-						
+						trace("lol");
 						var rect1:Rectangle = (dyn.collider as RectangleCollider).rectangle;
 						var rect2:Rectangle = (sol.collider as RectangleCollider).rectangle;
 						
@@ -122,10 +130,11 @@
 						}
 					} else {
 						trace("There's something wrong in CollisionDetector.collisionTest" + 
-							  "DynamicObjects.");
-						trace("Tags in dyn1.collider: ");
+							  "DynamicObjects().");
+							  
+						trace("Tags in dyn.collider: ");
 						dyn.collider.tags.traceTags();
-						trace("Tags in dyn2.collider: ");
+						trace("Tags in sol.collider: ");
 						sol.collider.tags.traceTags();
 					}
 				}

@@ -5,7 +5,67 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+
+03.10.2017
+-Where should the colliders be initialized?
+
+Option 1:
+-The classes that extend solid object could initialize their collider in their 
+own constructors, to be whichever type they need (circle, rectangle)
+	-Then the collider's constructor could set has_moved to false
+	and initialize the rectangle using the collider points
+
+
+-How do the colliders get a reference to the solid object that they belong to?
+
+Option 1:
+-Just give them a reference in the constructor. Easy.
+
+
+-Right now I have a library entry called RectangleCollider, of type RectangleCollider,
+containing collider points at its corners. When scaling the rectangle collider, the 
+points scale too and no longer look like points. What should I do about this?
+
+Option 1:
+-Leave it the way it is. Even if the points get big and you have to approximate the
+center of it when placing the rectangle collider, it's still not too bad.
+
+Option 2:
+-Have the collider points in a layer in the solid object library entry (like MainCharacter for example),
+and have the rectangle collider have a reference to the library entry
+	-You can get the collider points with that reference
+	-As a result the RectangleCollider class should no longer extend MovieClip
+-I think this sounds good.
+
+
 02.10.2017
+-How should I get the corner points of the RectangleCollider, once it has been rotated?
+
+Option 1:
+-I could have another class called ColliderPoint or PointClip or something, which
+extends MovieClip, and once added in the authoring tool, will calculate its own
+center in the constructor. It would store that point in a variable.
+	-I could place four of these whenever there's a RectangleCollider,
+	one for each corner, and one for CircleColliders, for the middle point.
+-I get the points using the collider_point_mc instances, and use the getGlobalCoord() function
+to get the coordinates of them
+	-With those point(s) it would either make a Rectangle or a Circle.
+	Whichever it is is stored in a variable. 
+		-Then this is used in the correct collision test function (collisionRectangles,
+	collisionRectCirc, collisionCircles), in whatever function checks for collisions
+
+
+-I decided that the CollisionDetector.collisionTestObjects() method
+should call updateCollider() on each collider. But the method goes
+through the dynamic objects twice. 
+	-On the second time the ones that had moved have
+	been set to "haven't moved", so it'll just use the new rectangle
+	or circle. So there's not really a problem.
+	-Furthermore, the solid objects usually don't move, so the 
+	rectangles and circles in them will usually just stay the 
+-All's okay.
+
+
 -How should the points in each collider be updated?
 
 Option 1:
@@ -81,8 +141,10 @@ moved
 would work pretty well, since most RectangleColliders are in LevelObjects,
 which are stationary.
 	-So when it comes to performance, this would be better.
-
-
+-This works even better considering that I can just place movie clips on the
+corners and use them to get the coordinates. These are automatically repositioned
+when the parent movie clip is rotated.
+-So I guess the Rectangle should consist of four points!
 
 26.09.2017
 -How should the collision detection happen?
