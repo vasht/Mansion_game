@@ -89,11 +89,14 @@
 					
 					var sol:SolidObject = objects_list2[j];
 					
-					if(dyn == sol){ continue; }
-					
+					// Updating before checking if they're the same object,
+					// to make sure that every object gets updated, including the
+					// first one
 					if(!sol.collider.has_moved){
 						sol.collider.updateCollider();
 					}
+					
+					if(dyn == sol){ continue; }
 					
 					// We have two rectangle colliders
 					if(dyn.collider.tags.containsTag("RectangleCollider") &&

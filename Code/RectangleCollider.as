@@ -7,9 +7,7 @@
 	*
 	*
 	* TODO
-	* -Get the corners from the solidObject reference
-	* in the updateCollider function
-	* -Make a new rectangle out of the aforementioned corners
+	* 
 	*/
 	public class RectangleCollider extends Collider {
 		
@@ -26,12 +24,35 @@
 			
 			if(has_moved){
 				
-				var corner1:Vector_2D = solidObject.collider_point_1_mc.getGlobalCoord();
-				var corner2:Vector_2D = solidObject.collider_point_2_mc.getGlobalCoord();
-				var corner3:Vector_2D = solidObject.collider_point_3_mc.getGlobalCoord();
-				var corner4:Vector_2D = solidObject.collider_point_4_mc.getGlobalCoord();
+				var corners:Array = new Array();
 				
-				rectangle = new Rectangle(corner1, corner2, corner3, corner4);
+				corners[0] = solidObject.collider_point_1_mc.getGlobalCoord();
+				corners[1] = solidObject.collider_point_2_mc.getGlobalCoord();
+				corners[2] = solidObject.collider_point_3_mc.getGlobalCoord();
+				corners[3] = solidObject.collider_point_4_mc.getGlobalCoord();
+				
+				// Updating the min max x and y
+				minX = (corners[0] as Vector_2D).x;
+				minY = -(corners[0] as Vector_2D).y;
+				maxX = (corners[0] as Vector_2D).x;
+				maxY = -(corners[0] as Vector_2D).y;
+				
+				for(var i=1; i<corners.length; i++){
+					if((corners[i] as Vector_2D).x < minX){
+						minX = corners[i];
+					}
+					if((corners[i] as Vector_2D).y < minY){
+						minY = corners[i];
+					}
+					if((corners[i] as Vector_2D).x > maxX){
+						maxX = corners[i];
+					}
+					if((corners[i] as Vector_2D).y > maxY){
+						maxY = corners[i];
+					}
+				}
+				
+				rectangle = new Rectangle(corners[0], corners[1], corners[2], corners[3]);
 			}
 			
 			super.updateCollider();

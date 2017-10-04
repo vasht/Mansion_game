@@ -18,6 +18,11 @@
 		// The solid object whose collider this is
 		public var solidObject;
 		
+		public var minX:Number;
+		public var minY:Number;
+		public var maxX:Number;
+		public var maxY:Number;
+		
 		public var has_moved:Boolean;
 
 		public function Collider() {
