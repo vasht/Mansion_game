@@ -2,6 +2,16 @@
 	
 	/*
 	*
+	* TODO
+	* -Make collisionTestRectangles test if two rectangles are touching
+	* 	-Test if it works
+	* -Make collisionTestRectCirc test if a rectangle and a circle are touching
+	* 	-Test if it works
+	* -Make collisionTestCircles test if two circles are touching
+	* 	-Test if it works
+	* -Test that collisionTestObjects goes through every pair of dynamic objects
+	* -Test that this goes through every pair of dynamic object and 
+	* solid object
 	*/
 	public class CollisionDetector {
 		
@@ -81,7 +91,9 @@
 					
 					if(dyn == sol){ continue; }
 					
-					sol.collider.updateCollider();
+					if(!sol.collider.has_moved){
+						sol.collider.updateCollider();
+					}
 					
 					// We have two rectangle colliders
 					if(dyn.collider.tags.containsTag("RectangleCollider") &&

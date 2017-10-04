@@ -12,9 +12,24 @@
 		public var circle:Circle;
 		
 		public function CircleCollider() {
-			tags.addTag("CircleCollier");
 			
-			solidObject.collider_point_mc.getGlobalCoord();
+			tags.addTag("CircleCollider");
+		}
+		
+		/*
+		*
+		*/
+		public override function updateCollider():void{
+			
+			if(has_moved){
+				
+				var center1:Vector_2D = solidObject.collider_point_mc.getGlobalCoord();
+				var radius:Number = solidObject.width / 2;
+				
+				circle = new Circle(center1, radius);
+			}
+			
+			super.updateCollider();
 		}
 
 	}

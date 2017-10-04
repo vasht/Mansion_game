@@ -14,7 +14,7 @@ Option 1:
 own constructors, to be whichever type they need (circle, rectangle)
 	-Then the collider's constructor could set has_moved to false
 	and initialize the rectangle using the collider points
-
+-Good.
 
 -How do the colliders get a reference to the solid object that they belong to?
 

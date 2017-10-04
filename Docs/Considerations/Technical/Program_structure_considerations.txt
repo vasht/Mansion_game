@@ -6,16 +6,6 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 03.10.2017
--Where should the colliders be initialized?
-
-Option 1:
--The classes that extend solid object could initialize their collider in their 
-own constructors, to be whichever type they need (circle, rectangle)
-	-Then the collider's constructor could set has_moved to false
-	and initialize the rectangle using the collider points
 
 
--How do the colliders get a reference to the solid object that they belong to?
 
-Option 1:
--Just give them a reference in the constructor. Easy.
