@@ -6,6 +6,15 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+05.10.2017
+-How do I make sure that the colliders get updated when they're first created, since
+usually I only update them when they've moved?
+
+Option 1:
+-Just set the has_moved flag to true in the constructor. They all immediately get updated.
+Bada-bum bada-bim.
+
+
 03.10.2017
 -Where should the colliders be initialized?
 

@@ -16,7 +16,7 @@
 		public var tags:Tags;
 		
 		// The solid object whose collider this is
-		public var solidObject;
+		public var solidObject:SolidObject;
 		
 		public var minX:Number;
 		public var minY:Number;
@@ -25,9 +25,15 @@
 		
 		public var has_moved:Boolean;
 
-		public function Collider() {
+		/*
+		*
+		*/
+		public function Collider(_solidObject:SolidObject){
 			tags = new Tags();
-			has_moved = false;
+			tags.addTag("Collider");
+			
+			this.solidObject = _solidObject;
+			has_moved = true;
 		}
 		
 		/*

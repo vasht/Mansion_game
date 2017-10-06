@@ -79,9 +79,10 @@
 		public function collisionTestObjects(objects_list1:Array, objects_list2:Array){
 			
 			DebugGUI.getInstance().mainCharacterTouching = false;
-			
+			/*
 			// Object from the first array
 			for(var i=0; i<objects_list1.length; i++){
+				
 				var dyn:DynamicObject = objects_list1[i];
 				
 				// Object from the second array
@@ -92,7 +93,7 @@
 					// Updating before checking if they're the same object,
 					// to make sure that every object gets updated, including the
 					// first one
-					if(!sol.collider.has_moved){
+					if(sol.collider.has_moved){
 						sol.collider.updateCollider();
 					}
 					
@@ -101,12 +102,10 @@
 					// We have two rectangle colliders
 					if(dyn.collider.tags.containsTag("RectangleCollider") &&
 					   sol.collider.tags.containsTag("RectangleCollider")){
-						trace("lol");
-						var rect1:Rectangle = (dyn.collider as RectangleCollider).rectangle;
-						var rect2:Rectangle = (sol.collider as RectangleCollider).rectangle;
 						
 						// Calling collision() if they collided
-						if(collisionTestRectangles(rect1, rect2)){
+						if(collisionTestRectangles(dyn.collider as RectangleCollider, 
+												   sol.collider as RectangleCollider)){
 							collision(dyn, sol);
 						}
 					
@@ -116,19 +115,20 @@
 							  dyn.collider.tags.containsTag("CircleCollider") &&
 							  sol.collider.tags.containsTag("RectangleCollider")){
 						
-						var rect:Rectangle;
-						var circle:Circle;
+						var collision_happened:Boolean;
 						
-						if(dyn.collider.tags.containsTag("CircleCollider")){
-							rect = (sol.collider as RectangleCollider).rectangle;
-							circle = (dyn.collider as CircleCollider).circle;
+						if(sol.collider.tags.containsTag("CircleCollider")){
+							
+							collision_happened = collisionTestRectCirc(dyn.collider as RectangleCollider, 
+																	   sol.collider as CircleCollider);
 						} else {
-							rect = (dyn.collider as RectangleCollider).rectangle;
-							circle = (sol.collider as CircleCollider).circle;
+							
+							collision_happened = collisionTestRectCirc(sol.collider as RectangleCollider, 
+																	   dyn.collider as CircleCollider);
 						}
 						
 						// Calling collision() if they collided
-						if(collisionTestRectCirc(rect, circle)){
+						if(collision_happened){
 							collision(dyn, sol);
 						}
 						
@@ -136,11 +136,9 @@
 					} else if(dyn.collider.tags.containsTag("CircleCollider") &&
 							  sol.collider.tags.containsTag("CircleCollider")){
 						
-						var circle1:Circle = (dyn.collider as CircleCollider).circle;
-						var circle2:Circle = (sol.collider as CircleCollider).circle;
-						
 						// Calling collision() if they collided
-						if(collisionTestCircles(circle1, circle2)){
+						if(collisionTestCircles(dyn.collider as CircleCollider, 
+												sol.collider as CircleCollider)){
 							collision(dyn, sol);
 						}
 					} else {
@@ -154,30 +152,47 @@
 					}
 				}
 				
-			}
+			}*/
 		} // End of CollisionTestObjects
 		
 		/*
 		*
 		*/
-		public function collisionTestRectangles(rect1:Rectangle, rect2:Rectangle):Boolean{
+		public function collisionTestRectangles(rectCollider1:RectangleCollider, 
+												rectCollider2:RectangleCollider):Boolean{
 			
 			
-			return true;
+			return collisionTestBoundingRectangles(rectCollider1, rectCollider2);
 		}
 
 		/*
 		*
 		*/
-		public function collisionTestRectCirc(rect:Rectangle, circle:Circle):Boolean{
+		public function collisionTestRectCirc(rectCollider:RectangleCollider, 
+											  circleCollider:CircleCollider):Boolean{
 			return true;
 		}
 		
 		/*
 		*
 		*/
-		public function collisionTestCircles(circle1:Circle, circle2:Circle):Boolean{
+		public function collisionTestCircles(circleCollider1:CircleCollider, 
+											 circleCollider2:CircleCollider):Boolean{
 			return true;
+		}
+		
+		/*
+		* TODO
+		* -Test that this works with rectangles
+		* -Test that this works with circles
+		*/
+		public function collisionTestBoundingRectangles(col1:Collider, col2:Collider):Boolean {
+			// trace(col1.maxX);
+			if(col1.maxX > col2.minX && col1.minX < col2.maxX &&
+			   col1.maxY > col2.minY && col1.minY < col2.maxY){
+				return true;
+			}
+			return false;
 		}
 	}
 	
