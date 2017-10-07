@@ -79,7 +79,7 @@
 		public function collisionTestObjects(objects_list1:Array, objects_list2:Array){
 			
 			DebugGUI.getInstance().mainCharacterTouching = false;
-			/*
+			
 			// Object from the first array
 			for(var i=0; i<objects_list1.length; i++){
 				
@@ -152,7 +152,7 @@
 					}
 				}
 				
-			}*/
+			}
 		} // End of CollisionTestObjects
 		
 		/*
@@ -187,7 +187,12 @@
 		* -Test that this works with circles
 		*/
 		public function collisionTestBoundingRectangles(col1:Collider, col2:Collider):Boolean {
-			// trace(col1.maxX);
+			
+			// trace("col1.maxX: " + col1.maxX);
+			// trace("col1.minX: " + col1.minX);
+			// trace("col1.maxY: " + col1.maxY);
+			// trace("col1.minY: " + col1.minY);
+			// trace("col2.maxY: " + col2.maxY);
 			if(col1.maxX > col2.minX && col1.minX < col2.maxX &&
 			   col1.maxY > col2.minY && col1.minY < col2.maxY){
 				return true;
