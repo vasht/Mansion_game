@@ -3,7 +3,9 @@
 	/*
 	*
 	* TODO
-	* -Make collisionTestRectangles test if two rectangles are touching
+	* -Make collisionTestRectangles check if any of the edges between two rectangles
+	* are crossing each other
+	* -Make collisionTestRectangles test if two rotated rectangles are touching
 	* 	-Test if it works
 	* -Make collisionTestRectCirc test if a rectangle and a circle are touching
 	* 	-Test if it works
@@ -161,8 +163,11 @@
 		public function collisionTestRectangles(rectCollider1:RectangleCollider, 
 												rectCollider2:RectangleCollider):Boolean{
 			
+			if(!collisionTestBoundingRectangles(rectCollider1, rectCollider2)){
+				return false;
+			}
 			
-			return collisionTestBoundingRectangles(rectCollider1, rectCollider2);
+			return true;
 		}
 
 		/*
@@ -182,8 +187,13 @@
 		}
 		
 		/*
+		*
+		*/
+		
+		/*
 		* TODO
-		* -Test that this works with rectangles
+		* -Test that this works with rotated rectangles
+		*	-Right now it doesn't
 		* -Test that this works with circles
 		*/
 		public function collisionTestBoundingRectangles(col1:Collider, col2:Collider):Boolean {
