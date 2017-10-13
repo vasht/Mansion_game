@@ -35,6 +35,8 @@
 				corners[2] = (solidObject.getChildByName("collider_point_3_mc") as ColliderPoint).getGlobalCoord();
 				corners[3] = (solidObject.getChildByName("collider_point_4_mc") as ColliderPoint).getGlobalCoord();
 				
+				// trace("(" + (corners[0] as ColliderPoint).x + ", " + (corners[0] as ColliderPoint).y + ")");
+				
 				// Updating the min max x and y
 				minX = (corners[0] as Vector_2D).x;
 				minY = (corners[0] as Vector_2D).y;

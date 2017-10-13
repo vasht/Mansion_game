@@ -20,11 +20,12 @@
 		public function getGlobalCoord():Vector_2D{
 			
 			// Calculating the center of this point
-			var localPoint:Point = new Point(x + width / 2, y + height / 2);
-			// trace(this.name + ": " + "(" + localPoint.x + ", " + localPoint.y + ")");
-			var globalVec2D:Vector_2D = new Vector_2D(this.parent.x + localPoint.x, 
-													  this.parent.y + localPoint.y);
-			// trace(this.name + ": " + "(" + globalPoint.x + ", " + globalPoint.y + ")");
+			var localPoint:Point = new Point(width / 2, height / 2);
+													 
+			// Getting the coordinates on the stage of the center of this collider point
+			var globalPoint:Point = this.localToGlobal(localPoint);
+			
+			var globalVec2D = new Vector_2D(globalPoint.x, globalPoint.y);
 			
 			// Returning the coordinates on the stage of the center of this point
 			return globalVec2D;

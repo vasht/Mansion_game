@@ -5,23 +5,19 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 
-07.10.2017
--How do I make sure one solid object doesn't end up inside of another one?
-Problem is, even if I check if the edges of two rotated rectangles are touching,
-the result is still not correct if one of the rectangles is completely inside
-the other one. In that case there are no colliding edges.
+09.10.2017
+-I didn't get the localToGlobal() method to work in the collider points. So when I rotate
+the rectangle collider, I don't have the correct coordinates of the corner points anymore.
+How should I get the coordinates after rotating a rectangle collider?
 
 Option 1:
--Break each rectangle collider up into smaller rectangle colliders, to make it
-less likely anything can completely fit inside it.
-	-Sounds like a lot of work... 
-	-If something is small enough, it still won't be registered.
+-Figure out how to get localToGlobal() to work
+	-Since it's a built in method, it's probably more optimized than me using trig
+	to calculate the coordinates.
+-I got this to work now, so I'll just use it. This is the simplest option.
 
 Option 2:
--Check on which side of the edges the smaller rectangle is compared to the bigger
-one.
-
--This actually might not matter, I should return to it if I notice it being a problem.
-Or if I actually get far and people try it and find it buggy.
+-Use trigonometry and the rotation of the solid object to update the coordinates of the 
+points.
 
 
