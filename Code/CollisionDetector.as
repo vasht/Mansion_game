@@ -167,6 +167,8 @@
 				return false;
 			}
 			
+			
+			
 			return true;
 		}
 
@@ -182,18 +184,58 @@
 		*
 		*/
 		public function collisionTestCircles(circleCollider1:CircleCollider, 
-											 circleCollider2:CircleCollider):Boolean{
+											 circleCollider2:CircleCollider):Boolean {
 			return true;
 		}
 		
 		/*
-		*
+		* TODO:
+		* -Make a test file, where you can click and drag the end points of two lines
+		* and it shows wether they're touching or not
+		* -Check if either of the lines is vertical
+		* -Make it so if both of them are vertical, it checks their x-values are the same
+		* -Make it so if they are both vertical, and have the same x-values, it checks
+		* if they occupy the same interval
+		* -Make it so that if only one of them is vertical, it calculates where the two lines
+		* meet
+		* 	-Write a function that takes a two point line and a point that's somewhere on the
+		* 	line that goes through those two points, and checks whether it's between the two
+		*	points or not
+		* -Check if the lines are parallel
+		* -Make it so if they're parallel, it checks if they have the same c parameter
+		* -Make it so if they're parallel and have the same c parameter, it checks if 
+		* they're actually touching
+		* -Make this function do collision testing between two lines between two points
+		* and return the result
 		*/
+		public function collisionTestTwoPointLines(line1:TwoPointLine, line2:TwoPointLine):Boolean {
+			
+			// Checking if either of the lines is vertical
+			if(line1.p1.x == line1.p2.x){
+				
+			}
+			
+			// Calculating the inclines of both lines
+			// k = (y2 - y1)/(x2 - x1)
+			var k1:Number = (line1.p2.y - line1.p1.y) / (line1.p2.x - line1.p1.x);
+			var k2:Number = (line2.p2.y - line2.p1.y) / (line2.p2.x - line2.p1.x);
+			
+			// Checking if the lines are parallel
+			if(k1 == k2){
+				
+			}
+			
+			
+			/*
+			* 
+			*/
+			var collision_x:Number = 
+			
+			return true;
+		}
 		
 		/*
-		* TODO
-		* -Test that this works with rotated rectangles
-		*	-Right now it doesn't
+		* TODO:
 		* -Test that this works with circles
 		*/
 		public function collisionTestBoundingRectangles(col1:Collider, col2:Collider):Boolean {
@@ -203,6 +245,21 @@
 				return true;
 			}
 			return false;
+		}
+		
+		/*
+		* 
+		* -No need to check if the given point is actuallu on the line that goes through
+		* the two points, as we've already checked that before calling this
+		*
+		* TODO:
+		* -Make this function check the distance from the point to both points in
+		* the two point line
+		* 	-If the distance to both is less or equal to the distance between
+		*	the end points in the two point line, then the point is on the line
+		*/
+		public function pointOnTwoPointLine(point:Vector_2D, line:TwoPointLine):Boolean{
+			  
 		}
 	}
 	

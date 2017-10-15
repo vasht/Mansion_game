@@ -5,19 +5,6 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 
-09.10.2017
--I didn't get the localToGlobal() method to work in the collider points. So when I rotate
-the rectangle collider, I don't have the correct coordinates of the corner points anymore.
-How should I get the coordinates after rotating a rectangle collider?
 
-Option 1:
--Figure out how to get localToGlobal() to work
-	-Since it's a built in method, it's probably more optimized than me using trig
-	to calculate the coordinates.
--I got this to work now, so I'll just use it. This is the simplest option.
-
-Option 2:
--Use trigonometry and the rotation of the solid object to update the coordinates of the 
-points.
 
 
