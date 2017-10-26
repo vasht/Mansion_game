@@ -249,7 +249,7 @@
 		
 		/*
 		* 
-		* -No need to check if the given point is actuallu on the line that goes through
+		* -No need to check if the given point is actually on the line that goes through
 		* the two points, as we've already checked that before calling this
 		*
 		* TODO:
