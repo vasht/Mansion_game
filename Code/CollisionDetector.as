@@ -1,5 +1,7 @@
 ﻿package Code {
 	
+	import flash.geom.Point;
+	
 	/*
 	*
 	* TODO
@@ -75,8 +77,8 @@
 		}
 		
 		/*
-		* Checks if any of the dynamic objects collided with
-		* any of the other dynamic objects.
+		* Checks if any of the objects in the given array collided with
+		* any of the objects in the second given array.
 		*/
 		public function collisionTestObjects(objects_list1:Array, objects_list2:Array){
 			
@@ -158,11 +160,12 @@
 		} // End of CollisionTestObjects
 		
 		/*
-		*
+		* Checks if two given rectangle colliders are touching
 		*/
 		public function collisionTestRectangles(rectCollider1:RectangleCollider, 
 												rectCollider2:RectangleCollider):Boolean{
 			
+			// Checking if the bounding rectangles are overlapping
 			if(!collisionTestBoundingRectangles(rectCollider1, rectCollider2)){
 				return false;
 			}
@@ -173,7 +176,7 @@
 		}
 
 		/*
-		*
+		* Checks if a given rectangle and circle collider are touching
 		*/
 		public function collisionTestRectCirc(rectCollider:RectangleCollider, 
 											  circleCollider:CircleCollider):Boolean{
@@ -181,7 +184,7 @@
 		}
 		
 		/*
-		*
+		* Checks if two given circle colliders are touching
 		*/
 		public function collisionTestCircles(circleCollider1:CircleCollider, 
 											 circleCollider2:CircleCollider):Boolean {
@@ -190,29 +193,94 @@
 		
 		/*
 		* TODO:
-		* -Make a test file, where you can click and drag the end points of two lines
-		* and it shows wether they're touching or not
-		* -Check if either of the lines is vertical
-		* -Make it so if both of them are vertical, it checks their x-values are the same
-		* -Make it so if they are both vertical, and have the same x-values, it checks
-		* if they occupy the same interval
-		* -Make it so that if only one of them is vertical, it calculates where the two lines
-		* meet
-		* 	-Write a function that takes a two point line and a point that's somewhere on the
-		* 	line that goes through those two points, and checks whether it's between the two
-		*	points or not
-		* -Check if the lines are parallel
-		* -Make it so if they're parallel, it checks if they have the same c parameter
-		* -Make it so if they're parallel and have the same c parameter, it checks if 
-		* they're actually touching
-		* -Make this function do collision testing between two lines between two points
-		* and return the result
+		* 	
 		*/
 		public function collisionTestTwoPointLines(line1:TwoPointLine, line2:TwoPointLine):Boolean {
 			
-			// Checking if either of the lines is vertical
-			if(line1.p1.x == line1.p2.x){
+			var p1:Point = line1.p1;
+			var p2:Point = line1.p2;
+			var p3:Point = line2.p1;
+			var p4:Point = line2.p2;
+			
+			// Checking if both of the lines are vertical
+			if(p1.x == p2.x && p3.x == p4.x){
+				return checkLinesVertical(line1, line2);
+			}
+			
+			// The intersection coordinates
+			var iCoord:Point = new Point();
+			
+			// Checking if one of the lines is vertical
+			if(p1.x == p2.x || p3.x == p4.x){
 				
+				// The points of whichever line is vertical
+				var vp1:Point;
+				var vp2:Point;
+				// The points of whichever line is not vertical
+				var nvp1:Point;
+				var nvp2:Point;
+				// The inclination of the non-vertical line
+				var nvk:Number;
+				
+				// Checking if the first line is vertical
+				if(p1.x == p2.x){
+					vp1 = p1;
+					vp2 = p2;
+					nvp1 = p3;
+					nvp2 = p4;
+				} else {
+					// The second line is vertical
+					vp1 = p3;
+					vp2 = p4;
+					nvp1 = p1;
+					nvp2 = p2;
+				}
+				// Incline of the non-vertical line
+				nvk = (nvp2.y - nvp1.y)/(nvp2.x - nvp1.x);
+				
+				
+				iCoord.x = vp1.x;
+				// Calculating the y-coordinate of the intersection
+				// y = tk*vp1.x - tk*tp1.x + tp1.y
+				iCoord.y = nvk*vp1.x - nvk*nvp1.x + nvp1.y;
+				
+			} else {
+		
+			// Neither line is vertical
+			// Checking if the lines are parallel to each other
+			// Incline of the lines
+			var k1:Number = (p2.y - p1.y)/(p2.x - p1.x);
+			var k2:Number = (p4.y - p3.y)/(p4.x - p3.x);
+			k1 = Math.round(k1*100)/100;
+			k2 = Math.round(k2*100)/100;
+			if(k1 == k2){
+				/*
+				* The lines are parallel to each other
+				* Checking if they're aligned by calculating y at x = 0 
+				* for both lines, aka. the c parameter.
+				* If they have the same c parameter, then they are
+				* aligned with each other
+				* c = k1x1 + y1
+				*/
+				var c1:Number = -k1*p1.x + p1.y;
+				var c2:Number = -k2*p3.x + p3.y;
+				
+				// Rounding c1 and c2 to two decimals
+				c1 = Math.round(c1*100)/100;
+				c2 = Math.round(c2*100)/100;
+				// trace("c1: " + c1);
+				// trace("c2: " + c2);
+				if(c1 == c2){
+					// trace("lol");
+					// Checking that the lines occupy the same interval
+					if(pointOnTwoPointLine(p1, p3, p4) ||
+					   pointOnTwoPointLine(p2, p3, p4)){
+						touchingTextField.text = "true";
+					}
+				} else {
+					touchingTextField.text = "false";
+				}
+				return;
 			}
 			
 			// Calculating the inclines of both lines
@@ -232,7 +300,27 @@
 			var collision_x:Number = 
 			
 			return true;
-		}
+		} // End of collisionTestTwoPointLines
+		
+		public function checkLinesVertical(line1:TwoPointLine, line2:TwoPointLine):Boolean{
+			
+			var p1:Point = line1.p1;
+			var p2:Point = line1.p2;
+			var p3:Point = line2.p1;
+			var p4:Point = line2.p2;
+			
+			// Checking if the lines are aligned with each other
+			if(p1.x == p3.x){
+				
+				// Checking if they occupy the same interval
+				if((p3.y > p1.y && p3.y > p2.y && p4.y > p1.y && p4.y > p2.y) ||
+					(p3.y < p1.y && p3.y < p1.y && p4.y < p1.y && p4.y < p2.y)){
+					return false;
+				}
+				
+				return true;
+			}
+		} // End of checkLinesVertical
 		
 		/*
 		* TODO:
@@ -258,7 +346,7 @@
 		* 	-If the distance to both is less or equal to the distance between
 		*	the end points in the two point line, then the point is on the line
 		*/
-		public function pointOnTwoPointLine(point:Vector_2D, line:TwoPointLine):Boolean{
+		public function pointOnTwoPointLine(point:Point, line:TwoPointLine):Boolean{
 			  
 		}
 	}
