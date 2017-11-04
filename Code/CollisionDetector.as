@@ -208,98 +208,44 @@
 			}
 			
 			// The intersection coordinates
-			var iCoord:Point = new Point();
+			var iCoord:Point;
 			
 			// Checking if one of the lines is vertical
 			if(p1.x == p2.x || p3.x == p4.x){
 				
-				// The points of whichever line is vertical
-				var vp1:Point;
-				var vp2:Point;
-				// The points of whichever line is not vertical
-				var nvp1:Point;
-				var nvp2:Point;
-				// The inclination of the non-vertical line
-				var nvk:Number;
-				
-				// Checking if the first line is vertical
-				if(p1.x == p2.x){
-					vp1 = p1;
-					vp2 = p2;
-					nvp1 = p3;
-					nvp2 = p4;
-				} else {
-					// The second line is vertical
-					vp1 = p3;
-					vp2 = p4;
-					nvp1 = p1;
-					nvp2 = p2;
-				}
-				// Incline of the non-vertical line
-				nvk = (nvp2.y - nvp1.y)/(nvp2.x - nvp1.x);
-				
-				
-				iCoord.x = vp1.x;
-				// Calculating the y-coordinate of the intersection
-				// y = tk*vp1.x - tk*tp1.x + tp1.y
-				iCoord.y = nvk*vp1.x - nvk*nvp1.x + nvp1.y;
-				
+				iCoord = checkOneLineVertical(line1, line2);
 			} else {
 		
-			// Neither line is vertical
-			// Checking if the lines are parallel to each other
-			// Incline of the lines
-			var k1:Number = (p2.y - p1.y)/(p2.x - p1.x);
-			var k2:Number = (p4.y - p3.y)/(p4.x - p3.x);
-			k1 = Math.round(k1*100)/100;
-			k2 = Math.round(k2*100)/100;
-			if(k1 == k2){
-				/*
-				* The lines are parallel to each other
-				* Checking if they're aligned by calculating y at x = 0 
-				* for both lines, aka. the c parameter.
-				* If they have the same c parameter, then they are
-				* aligned with each other
-				* c = k1x1 + y1
-				*/
-				var c1:Number = -k1*p1.x + p1.y;
-				var c2:Number = -k2*p3.x + p3.y;
+				// Neither line is vertical
+				// Checking if the lines are parallel to each other
+				// Incline of the lines
+				var k1:Number = (p2.y - p1.y)/(p2.x - p1.x);
+				var k2:Number = (p4.y - p3.y)/(p4.x - p3.x);
 				
-				// Rounding c1 and c2 to two decimals
-				c1 = Math.round(c1*100)/100;
-				c2 = Math.round(c2*100)/100;
-				// trace("c1: " + c1);
-				// trace("c2: " + c2);
-				if(c1 == c2){
-					// trace("lol");
-					// Checking that the lines occupy the same interval
-					if(pointOnTwoPointLine(p1, p3, p4) ||
-					   pointOnTwoPointLine(p2, p3, p4)){
-						touchingTextField.text = "true";
-					}
-				} else {
-					touchingTextField.text = "false";
+				// Rounding the incline to two decimal places
+				k1 = Math.round(k1*100)/100;
+				k2 = Math.round(k2*100)/100;
+				if(k1 == k2){
+					// The lines are parallel to each other
+					return checkParallelLines(line1, line2);
 				}
-				return;
+			
+				// The lines are not parallel to each other
+				iCoord = checkNonParallelNonVerticalLines(line1, line2);
 			}
-			
-			// Calculating the inclines of both lines
-			// k = (y2 - y1)/(x2 - x1)
-			var k1:Number = (line1.p2.y - line1.p1.y) / (line1.p2.x - line1.p1.x);
-			var k2:Number = (line2.p2.y - line2.p1.y) / (line2.p2.x - line2.p1.x);
-			
-			// Checking if the lines are parallel
-			if(k1 == k2){
-				
-			}
-			
-			
+		
 			/*
-			* 
+			* Checking if the intersection coordinates are within the interval
+			* defined by the two points on both lines.
 			*/
-			var collision_x:Number = 
+			if(pointOnTwoPointLine(iCoord, p1, p2) &&
+			   pointOnTwoPointLine(iCoord, p3, p4)){
+				
+				return true;
+			} else {
+				return false;
+			}
 			
-			return true;
 		} // End of collisionTestTwoPointLines
 		
 		public function checkLinesVertical(line1:TwoPointLine, line2:TwoPointLine):Boolean{
@@ -323,6 +269,122 @@
 		} // End of checkLinesVertical
 		
 		/*
+		*
+		*/
+		public function checkOneLineVertical(line1:TwoPointLine, line2:TwoPointLine):Point{
+			
+			var iCoord:Point = new Point();
+			
+			var p1:Point = line1.p1;
+			var p2:Point = line1.p2;
+			var p3:Point = line2.p1;
+			var p4:Point = line2.p2;
+			
+			// The points of whichever line is vertical
+			var vp1:Point;
+			var vp2:Point;
+			// The points of whichever line is not vertical
+			var nvp1:Point;
+			var nvp2:Point;
+			// The inclination of the non-vertical line
+			var nvk:Number;
+			
+			// Checking if the first line is vertical
+			if(p1.x == p2.x){
+				vp1 = p1;
+				vp2 = p2;
+				nvp1 = p3;
+				nvp2 = p4;
+			} else {
+				// The second line is vertical
+				vp1 = p3;
+				vp2 = p4;
+				nvp1 = p1;
+				nvp2 = p2;
+			}
+			// Incline of the non-vertical line
+			nvk = (nvp2.y - nvp1.y)/(nvp2.x - nvp1.x);
+			
+			iCoord.x = vp1.x;
+			// Calculating the y-coordinate of the intersection
+			// y = tk*vp1.x - tk*tp1.x + tp1.y
+			iCoord.y = nvk*vp1.x - nvk*nvp1.x + nvp1.y;
+			
+			return iCoord;
+		} // End of checkOneLineVertical
+		
+		/*
+		*
+		*/
+		public function checkParallelLines(line1:TwoPointLine, line2:TwoPointLine):Boolean{
+			
+			/*
+			* Checking if the lines are aligned by calculating y at x = 0 
+			* for both lines, aka. the c parameter.
+			* If they have the same c parameter, then they are
+			* aligned with each other
+			* c = k1x1 + y1
+			*/
+			var c1:Number = -k1*p1.x + p1.y;
+			var c2:Number = -k2*p3.x + p3.y;
+			
+			// Rounding c1 and c2 to two decimals
+			c1 = Math.round(c1*100)/100;
+			c2 = Math.round(c2*100)/100;
+			if(c1 == c2){
+				
+				// Checking that the lines occupy the same interval
+				if(pointOnTwoPointLine(p1, p3, p4) ||
+				   pointOnTwoPointLine(p2, p3, p4)){
+					return true;
+				}
+			}
+			// The lines aren't touching
+			return false;
+		}
+		
+		/*
+		*
+		*/
+		public function checkNonParallelNonVerticalLines(line1:TwoPointLine, line2:TwoPointLine):Point{
+			/* 
+			* Calculating the intersection coordinates for the lines
+			*
+			* y = k1x - k1x1 + y1, y' = k2x - k2x3 + y3
+			* Math magic ->
+			* x = (k1x1 - k2x3 - y1 + y3)/(k1 - k2)
+			*/
+			var iCoord:Point = new Point();
+			iCoord.x = (k1*p1.x - k2*p3.x - p1.y + p3.y)/(k1 - k2);
+			
+			/*
+			* y = k1x - k1x1 + y1
+			*/
+			iCoord.y = k1*iCoord.x - k1*p1.x + p1.y;
+			return iCoord;
+		}
+		
+		/*
+		* -No need to check if the given point is actually on the line that goes through
+		* the two points, as we've already checked that before calling this
+		*
+		* Checks the distance from the point to both points in
+		* the two point line
+		* 	-If the distance to both is less or equal to the distance between
+		*	the end points in the two point line, then the point is on the line
+		*/
+		function pointOnTwoPointLine(point:Point, line:TwoPointLine):Boolean{
+			var lineLength:Number = Point.distance(line.p1, line.p2);
+			var distanceToPoint1:Number = Point.distance(point, line.p1);
+			var distanceToPoint2:Number = Point.distance(point, line.p2);
+			
+			if(distanceToPoint1 <= lineLength && distanceToPoint2 <= lineLength){
+				return true;
+			}
+			return false;
+		}
+		
+		/*
 		* TODO:
 		* -Test that this works with circles
 		*/
@@ -333,22 +395,7 @@
 				return true;
 			}
 			return false;
-		}
-		
-		/*
-		* 
-		* -No need to check if the given point is actually on the line that goes through
-		* the two points, as we've already checked that before calling this
-		*
-		* TODO:
-		* -Make this function check the distance from the point to both points in
-		* the two point line
-		* 	-If the distance to both is less or equal to the distance between
-		*	the end points in the two point line, then the point is on the line
-		*/
-		public function pointOnTwoPointLine(point:Point, line:TwoPointLine):Boolean{
-			  
-		}
+		} // End of collisionTestBoundingRectangles
 	}
 	
 }
