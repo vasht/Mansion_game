@@ -5,6 +5,30 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+05.11.2017
+-In collisionTestTwoPointLines() it calculates the inclines of the two lines, k1 and k2,
+and uses them to determine if the lines are parallel to each other. If they are, it calls
+checkParallelLines() to check if they're actually touching each other. But in checkParallelLines()
+k1 and k2 are also needed. How do I make them available inside of that function?
+
+Option 1:
+-I give k1 and k2 as additional parameters to checkParallelLines(line1, line2, k1, k2)
+	-Ugly code, but simple and works
+-I'm gonna go with this
+
+Option2:
+-I give TwoPointLine a property k, and set the k property of the two lines used as arguments
+	-Weird, because the k property wouldn't always for sure be up to date
+		-Could add a boolean property that shows whether k has been updated during the
+		current frame or not.
+			-Would have to be set to false on each frame
+			-This would be done for every line on every frame. Sounds a bit wasteful.
+
+Option 3:
+-Put the contents of checkParallelLines() back in collisionTestTwoPointLines() where it has access 
+to k1 and k2 again
+	-Makes collisionTestTwoPointLines() longer and harder to read
+
 
 09.10.2017
 -I didn't get the localToGlobal() method to work in the collider points. So when I rotate

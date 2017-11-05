@@ -218,6 +218,7 @@
 		
 				// Neither line is vertical
 				// Checking if the lines are parallel to each other
+				
 				// Incline of the lines
 				var k1:Number = (p2.y - p1.y)/(p2.x - p1.x);
 				var k2:Number = (p4.y - p3.y)/(p4.x - p3.x);
@@ -227,19 +228,19 @@
 				k2 = Math.round(k2*100)/100;
 				if(k1 == k2){
 					// The lines are parallel to each other
-					return checkParallelLines(line1, line2);
+					return checkParallelLines(line1, line2, k1, k2);
 				}
 			
 				// The lines are not parallel to each other
-				iCoord = checkNonParallelNonVerticalLines(line1, line2);
+				iCoord = checkNonParallelNonVerticalLines(line1, line2, k1, k2);
 			}
 		
 			/*
 			* Checking if the intersection coordinates are within the interval
 			* defined by the two points on both lines.
 			*/
-			if(pointOnTwoPointLine(iCoord, p1, p2) &&
-			   pointOnTwoPointLine(iCoord, p3, p4)){
+			if(pointOnTwoPointLine(iCoord, line1) &&
+			   pointOnTwoPointLine(iCoord, line2)){
 				
 				return true;
 			} else {
@@ -266,6 +267,7 @@
 				
 				return true;
 			}
+			return false;
 		} // End of checkLinesVertical
 		
 		/*
@@ -316,7 +318,13 @@
 		/*
 		*
 		*/
-		public function checkParallelLines(line1:TwoPointLine, line2:TwoPointLine):Boolean{
+		public function checkParallelLines(line1:TwoPointLine, line2:TwoPointLine, 
+										   k1:Number, k2:Number):Boolean{
+			
+			var p1:Point = line1.p1;
+			var p2:Point = line1.p2;
+			var p3:Point = line2.p1;
+			var p4:Point = line2.p2;
 			
 			/*
 			* Checking if the lines are aligned by calculating y at x = 0 
@@ -334,8 +342,8 @@
 			if(c1 == c2){
 				
 				// Checking that the lines occupy the same interval
-				if(pointOnTwoPointLine(p1, p3, p4) ||
-				   pointOnTwoPointLine(p2, p3, p4)){
+				if(pointOnTwoPointLine(p1, line2) ||
+				   pointOnTwoPointLine(p2, line2)){
 					return true;
 				}
 			}
@@ -346,7 +354,14 @@
 		/*
 		*
 		*/
-		public function checkNonParallelNonVerticalLines(line1:TwoPointLine, line2:TwoPointLine):Point{
+		public function checkNonParallelNonVerticalLines(line1:TwoPointLine, line2:TwoPointLine,
+														 k1:Number, k2:Number):Point{
+												
+			var p1:Point = line1.p1;
+			var p2:Point = line1.p2;
+			var p3:Point = line2.p1;
+			var p4:Point = line2.p2;
+			
 			/* 
 			* Calculating the intersection coordinates for the lines
 			*
