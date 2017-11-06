@@ -1,5 +1,7 @@
 ﻿package Code {
 	
+	import flash.geom.Point;
+	
 	/*
 	*
 	* TODO
@@ -26,7 +28,7 @@
 			
 			if(has_moved){
 				
-				var center1:Vector_2D = (solidObject.getChildByName("collider_point_mc") 
+				var center1:Point = (solidObject.getChildByName("collider_point_mc") 
 										 as ColliderPoint).getGlobalCoord();
 				var radius:Number = solidObject.width / 2;
 				

@@ -1,6 +1,6 @@
 ﻿package Code{
 	
-	import Code.Vector_2D;
+	import flash.geom.Point;
 	
 	/*
 	* A MovingObject extends the SolidObject class.
@@ -9,8 +9,8 @@
 	*/
 	public class DynamicObject extends SolidObject{
 		
-		public var velocity:Vector_2D;
-		public var acceleration:Vector_2D;
+		public var velocity:Point;
+		public var acceleration:Point;
 		
 		/*
 		* The constructor

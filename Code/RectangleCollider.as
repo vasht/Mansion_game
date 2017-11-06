@@ -1,12 +1,15 @@
 ﻿package Code {
 	
+	import flash.geom.Point;
+	
 	import Code.Rectangle;
 	
 	
 	/*
 	*
 	*
-	* TODO
+	* TODO:
+	* -Make this save the rectangle as two-point lines
 	* 
 	*/
 	public class RectangleCollider extends Collider {
@@ -38,14 +41,14 @@
 				// trace("(" + (corners[0] as ColliderPoint).x + ", " + (corners[0] as ColliderPoint).y + ")");
 				
 				// Updating the min max x and y
-				minX = (corners[0] as Vector_2D).x;
-				minY = (corners[0] as Vector_2D).y;
-				maxX = (corners[0] as Vector_2D).x;
-				maxY = (corners[0] as Vector_2D).y;
+				minX = (corners[0] as Point).x;
+				minY = (corners[0] as Point).y;
+				maxX = (corners[0] as Point).x;
+				maxY = (corners[0] as Point).y;
 				
-				var corner:Vector_2D;
+				var corner:Point;
 				for(var i=1; i<corners.length; i++){
-					corner = corners[i] as Vector_2D;
+					corner = corners[i] as Point;
 					if(corner.x < minX){
 						minX = corners[i].x;
 					}

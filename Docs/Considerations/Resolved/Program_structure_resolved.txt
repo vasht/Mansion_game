@@ -6,6 +6,18 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 05.11.2017
+-How do I make the collision detector go through all the pairs
+of lines in rectangle colliders when checking if they've collided?
+
+Option 1:
+-Make the rectangle consist of TwoPointLine instances, instead of Points
+	-Store these in an array
+		-An array is easy to go through using a for-loop
+	-Because the points are stored as references, it doesn't actually 
+	mean storing duplicates of points, even though each point exists
+	in two TwoPointLine instances. I think.
+-This sounds easier than anything else I can think of. I'll do this.
+
 -In collisionTestTwoPointLines() it calculates the inclines of the two lines, k1 and k2,
 and uses them to determine if the lines are parallel to each other. If they are, it calls
 checkParallelLines() to check if they're actually touching each other. But in checkParallelLines()
