@@ -26,8 +26,6 @@
 		*
 		*/
 		public override function updateCollider():void{
-			// trace(solidObject.getChildByName("corner_point_1_mc"));
-			
 			
 			if(has_moved){
 				
@@ -38,7 +36,7 @@
 				corners[2] = (solidObject.getChildByName("collider_point_3_mc") as ColliderPoint).getGlobalCoord();
 				corners[3] = (solidObject.getChildByName("collider_point_4_mc") as ColliderPoint).getGlobalCoord();
 				
-				// trace("(" + (corners[0] as ColliderPoint).x + ", " + (corners[0] as ColliderPoint).y + ")");
+				// trace("corner 1: (" + corners[1].x + ", " + corners[1].y + ")");
 				
 				// Updating the min max x and y
 				minX = (corners[0] as Point).x;

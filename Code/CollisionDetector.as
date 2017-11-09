@@ -161,6 +161,7 @@
 		
 		/*
 		* Checks if two given rectangle colliders are touching
+		* 
 		*/
 		public function collisionTestRectangles(rectCollider1:RectangleCollider, 
 												rectCollider2:RectangleCollider):Boolean{
@@ -170,9 +171,11 @@
 				return false;
 			}
 			
+			if(collisionTestRectangleEdges(rectCollider1.rectangle, rectCollider2.rectangle)){
+				return true;
+			}
 			
-			
-			return true;
+			return false;
 		}
 
 		/*
@@ -192,8 +195,30 @@
 		}
 		
 		/*
-		* TODO:
-		* 	
+		* Goes through the edges of the two given rectangles and checks if they're 
+		* intersecting.
+		*/
+		public function collisionTestRectangleEdges(rect1:Rectangle, rect2:Rectangle):Boolean{
+			
+			// Going through the edges of the first rectangle
+			for(var i=0; i<rect1.edge_array.length; i++){
+				
+				var line1:TwoPointLine = rect1.edge_array[i];
+				// Going through the edges of the second rectangle
+				for(var j=0; j<rect2.edge_array.length; j++){
+					var line2:TwoPointLine = rect2.edge_array[j];
+					
+					// Checking if these lines are intersecting
+					if(collisionTestTwoPointLines(line1, line2)){
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		
+		/*
+		* Checks if two given lines between two points are intersecting.
 		*/
 		public function collisionTestTwoPointLines(line1:TwoPointLine, line2:TwoPointLine):Boolean {
 			
@@ -249,6 +274,9 @@
 			
 		} // End of collisionTestTwoPointLines
 		
+		/*
+		* Checks if two given vertical lines are touching
+		*/
 		public function checkLinesVertical(line1:TwoPointLine, line2:TwoPointLine):Boolean{
 			
 			var p1:Point = line1.p1;
@@ -271,7 +299,8 @@
 		} // End of checkLinesVertical
 		
 		/*
-		*
+		* Checks if two given lines between two points, where one is vertical,
+		* are touching.
 		*/
 		public function checkOneLineVertical(line1:TwoPointLine, line2:TwoPointLine):Point{
 			
@@ -316,7 +345,7 @@
 		} // End of checkOneLineVertical
 		
 		/*
-		*
+		* Checks if two given parallel lines, between two points, are touching.
 		*/
 		public function checkParallelLines(line1:TwoPointLine, line2:TwoPointLine, 
 										   k1:Number, k2:Number):Boolean{
@@ -352,7 +381,8 @@
 		}
 		
 		/*
-		*
+		* Checks if two given lines, between two points, that aren't vertical or parallel to
+		* each other, are intersecting each other.
 		*/
 		public function checkNonParallelNonVerticalLines(line1:TwoPointLine, line2:TwoPointLine,
 														 k1:Number, k2:Number):Point{
@@ -377,6 +407,29 @@
 			*/
 			iCoord.y = k1*iCoord.x - k1*p1.x + p1.y;
 			return iCoord;
+		}
+		
+		/*
+		* Takes a point to be transformed, a point that describes translation
+		* and a number that describes rotation and converts the given coordinate
+		* to a new coordinate system. Then returns that point, all before lunch.
+		*
+		* TODO:
+		* -Make this happen.
+		*/
+		public function transformCoordinates(p:Point, translation:Point, rotation:Number):Point{
+			
+			// Translating the original coordinates 
+			var pt:Point = new Point(p.x + translation.x, p.y + transaltion.y);
+			
+			/*
+			* Distance from the new origin to the translated coordinates
+			* d = sqrt(x^2 + y^2)
+			* 
+			* Angle between the original x-axis and vector from origin to p
+			* tan(theta1) = p.y / p.x -> theta1 = arctan(p.y / p.x)
+			* Angle between new x-axis and vector from new origin to p
+			*/
 		}
 		
 		/*
