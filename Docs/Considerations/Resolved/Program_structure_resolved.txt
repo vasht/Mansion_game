@@ -5,6 +5,22 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+11.11.2017
+-Should the negative function in Vector2D, just change the x and y values without
+returning anything, or should it make a new vector that's negated and return it?
+
+Option 1:
+-Create a new vector with the negated values and return it. 
+-Doesn't change the original vector. This is probably convenient, in case
+it is needed again. Also I can easily change the original by setting
+vect = vect.negative();
+-I'm going with this.
+
+Option 2:
+-Negate the values and return the vector it was called on.
+-Changes the original vector...
+
+
 05.11.2017
 -How do I make the collision detector go through all the pairs
 of lines in rectangle colliders when checking if they've collided?

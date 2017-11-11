@@ -3,3 +3,27 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 
+11.11.2017
+
+
+10.11.2017
+-I'm trying to check if one rectangle collider is completely inside of another
+rectangle collider. This check is relevant when all pairs of edges have already
+been checked for intersections, and none of them were intersecting.
+-This isn't completely straight forward when at least one of the rectangles has
+been rotated.
+	-In this situation, if one vertex on one collider is inside of the other
+	one, then all of them are, otherwise one of the edges would have been 
+	intersecting another edge.
+	-So we need to pick one vertex on one rectangle collider and check if it's
+	inside the other rectangle collider. Then we need to do vice versa, in case
+	the other rectangle happens to be the one inside the first one.
+	-This check would be easier if we had the coordinates of the chosen vertex
+	in a coordinate system that's aligned with the rectangle we're checking.
+		-Then it would be easy to check if the coordinates of the vertex
+		in such a coordinate system, are within the boundries of the
+		rectangle.
+-How?
+
+Option 1:
+-

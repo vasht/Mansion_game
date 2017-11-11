@@ -410,15 +410,41 @@
 		}
 		
 		/*
-		* Takes a point to be transformed, a point that describes translation
-		* and a number that describes rotation and converts the given coordinate
-		* to a new coordinate system. Then returns that point, all before lunch.
+		* Checks if a given point is inside of the given rectangle
+		* Use pointInRectangle.png as a reference for the variable names
+		*
+		* TODO
+		* -Calculate the angle t4
+		* -Calculate x' and y'
+		*/
+		public function pointInRectangle(p:Vector_2D, rect:Rectangle){
+			
+			var p2:Vector_2D = rect.edge_array[2];
+			var p3:Vector_2D = rect.edge_array[3];
+			
+			// p4 is the vector from p3 to p2
+			// p5 is the vector from p3 to p
+			// p4 = -p3 + p2
+			// p5 = -p3 + p
+			var p4:Vector_2D = p3.negative().add(p2);
+			var p5:Vector_2D = p3.negative().add(p);
+			
+			// t4 is the angle between p4 and p5
+			// cos(t4) = (p4*p5)/(|p4||p5|) = lol
+			// t4 = arctan(lol)
+			var t4:Number = Math.atan(Vector_2D.dotProduct(p4, p5)/());
+		}
+		
+		/*
+		* Takes a point and converts it to a point on a different coordinate system.
+		* The coordinate system is defined by the given translation and rotation.
 		*
 		* TODO:
 		* -Make this happen.
 		*/
 		public function transformCoordinates(p:Point, translation:Point, rotation:Number):Point{
 			
+			// 
 			// Translating the original coordinates 
 			var pt:Point = new Point(p.x + translation.x, p.y + transaltion.y);
 			
@@ -430,6 +456,7 @@
 			* tan(theta1) = p.y / p.x -> theta1 = arctan(p.y / p.x)
 			* Angle between new x-axis and vector from new origin to p
 			*/
+			
 		}
 		
 		/*
