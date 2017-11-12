@@ -1,7 +1,5 @@
 ﻿package Code {
 	
-	import flash.geom.Point;
-	
 	import Code.Rectangle;
 	
 	
@@ -39,14 +37,14 @@
 				// trace("corner 1: (" + corners[1].x + ", " + corners[1].y + ")");
 				
 				// Updating the min max x and y
-				minX = (corners[0] as Point).x;
-				minY = (corners[0] as Point).y;
-				maxX = (corners[0] as Point).x;
-				maxY = (corners[0] as Point).y;
+				minX = (corners[0] as Vector_2D).x;
+				minY = (corners[0] as Vector_2D).y;
+				maxX = (corners[0] as Vector_2D).x;
+				maxY = (corners[0] as Vector_2D).y;
 				
-				var corner:Point;
+				var corner:Vector_2D;
 				for(var i=1; i<corners.length; i++){
-					corner = corners[i] as Point;
+					corner = corners[i] as Vector_2D;
 					if(corner.x < minX){
 						minX = corners[i].x;
 					}

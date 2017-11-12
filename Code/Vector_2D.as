@@ -13,7 +13,7 @@
 
 		
 		public function Vector_2D(_x:Number, _y:Number){
-			super(x, y);
+			super(_x, _y);
 		}
 		
 		/*
@@ -28,7 +28,7 @@
 		* Returns the magnitude of the vector, that is |v|
 		* if v is a vector.
 		*/
-		public function magnitude(v:Vector_2D):Number{
+		public function magnitude():Number{
 			return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 		}
 		

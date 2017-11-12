@@ -4,11 +4,7 @@
 	
 	/*
 	*
-	* TODO
-	* -Make collisionTestRectangles check if any of the edges between two rectangles
-	* are crossing each other
-	* -Make collisionTestRectangles test if two rotated rectangles are touching
-	* 	-Test if it works
+	* TODO:
 	* -Make collisionTestRectCirc test if a rectangle and a circle are touching
 	* 	-Test if it works
 	* -Make collisionTestCircles test if two circles are touching
@@ -74,7 +70,8 @@
 			// Telling the objects about the collision
 			sol1.collision(sol2);
 			sol2.collision(sol1);
-		}
+		} // End of collision()
+		
 		
 		/*
 		* Checks if any of the objects in the given array collided with
@@ -172,6 +169,13 @@
 			}
 			
 			if(collisionTestRectangleEdges(rectCollider1.rectangle, rectCollider2.rectangle)){
+				return true;
+			}
+			
+			var rect1_corner0:Vector_2D = (rectCollider1.rectangle.edge_array[0] as TwoPointLine).p1;
+			var rect2_corner0:Vector_2D = (rectCollider2.rectangle.edge_array[0] as TwoPointLine).p1;
+			if(pointInRectangle(rect1_corner0, rectCollider2.rectangle) ||
+			   pointInRectangle(rect2_corner0, rectCollider1.rectangle)){
 				return true;
 			}
 			
@@ -414,50 +418,42 @@
 		* Use pointInRectangle.png as a reference for the variable names
 		*
 		* TODO
-		* -Calculate the angle t4
-		* -Calculate x' and y'
+		* 
 		*/
 		public function pointInRectangle(p:Vector_2D, rect:Rectangle){
 			
-			var p2:Vector_2D = rect.edge_array[2];
-			var p3:Vector_2D = rect.edge_array[3];
+			var p0:Vector_2D = (rect.edge_array[0] as TwoPointLine).p1;
+			var p2:Vector_2D = (rect.edge_array[2] as TwoPointLine).p1;
+			var p3:Vector_2D = (rect.edge_array[3] as TwoPointLine).p1;
 			
 			// p4 is the vector from p3 to p2
 			// p5 is the vector from p3 to p
 			// p4 = -p3 + p2
 			// p5 = -p3 + p
-			var p4:Vector_2D = p3.negative().add(p2);
-			var p5:Vector_2D = p3.negative().add(p);
+			var p4:Vector_2D = p3.negative().addVector(p2);
+			var p5:Vector_2D = p3.negative().addVector(p);
 			
 			// t4 is the angle between p4 and p5
 			// cos(t4) = (p4*p5)/(|p4||p5|) = lol
 			// t4 = arctan(lol)
-			var t4:Number = Math.atan(Vector_2D.dotProduct(p4, p5)/());
+			var lol:Number = Vector_2D.dotProduct(p4, p5)/(p4.magnitude()*p5.magnitude());
+			var t4:Number = Math.atan(lol);
+			
+			// sin(t4) = y'/|p5|
+			// -> y' = |p5|sin(t4)
+			// cos(t4) = x'/|p4|
+			// -> x' = |p4|cos(t4)
+			var yprime:Number = p5.magnitude()*Math.sin(t4);
+			var xprime:Number = p4.magnitude()*Math.cos(t4);
+			// trace("x': " + xprime);
+			// trace("y': " + yprime);
+			
+			if(xprime > p3.x && xprime < p2.x && yprime > p0.y && yprime < p3.y ){
+				return true;
+			}
+			return false;
 		}
 		
-		/*
-		* Takes a point and converts it to a point on a different coordinate system.
-		* The coordinate system is defined by the given translation and rotation.
-		*
-		* TODO:
-		* -Make this happen.
-		*/
-		public function transformCoordinates(p:Point, translation:Point, rotation:Number):Point{
-			
-			// 
-			// Translating the original coordinates 
-			var pt:Point = new Point(p.x + translation.x, p.y + transaltion.y);
-			
-			/*
-			* Distance from the new origin to the translated coordinates
-			* d = sqrt(x^2 + y^2)
-			* 
-			* Angle between the original x-axis and vector from origin to p
-			* tan(theta1) = p.y / p.x -> theta1 = arctan(p.y / p.x)
-			* Angle between new x-axis and vector from new origin to p
-			*/
-			
-		}
 		
 		/*
 		* -No need to check if the given point is actually on the line that goes through
