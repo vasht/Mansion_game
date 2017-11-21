@@ -5,9 +5,6 @@
 	/*
 	* The controller used to control the character.
 	* This class uses the Singleton programming pattern.
-	*
-	* TODO
-	* -Make this also set the has_moved flag to true in the main character
 	*/
 	public class GameplayController extends Controller {
 
@@ -44,7 +41,7 @@
 			var mainCharacter:MainCharacter = Mansion_game.getInstance().mainCharacter;
 			var speed:Number = mainCharacter.moving_speed;
 			
-			if(W_pressed || S_pressed || A_pressed || D_pressed){
+			if(W_pressed || S_pressed || A_pressed || D_pressed || J_pressed || K_pressed){
 				if(W_pressed){
 					mainCharacter.y-= speed;
 				}
@@ -56,6 +53,12 @@
 				}
 				if(D_pressed){
 					mainCharacter.x+= speed;
+				}
+				if(J_pressed){
+					mainCharacter.rotation-= speed;
+				}
+				if(K_pressed){
+					mainCharacter.rotation+= speed;
 				}
 				mainCharacter.collider.has_moved = true;
 			}

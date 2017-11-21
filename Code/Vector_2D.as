@@ -22,7 +22,7 @@
 		public function negative():Vector_2D {
 			var negVec:Vector_2D = new Vector_2D(-x, -y);
 			return negVec;
-		}4
+		}
 		
 		/*
 		* Returns the magnitude of the vector, that is |v|
@@ -47,7 +47,13 @@
 		public static function dotProduct(v1:Vector_2D, v2:Vector_2D):Number{
 			return v1.x*v2.x + v1.y*v2.y;
 		}
-
+		
+		/*
+		* Priints the x and y values of this vector to the output console
+		*/
+		public function traceVector(){
+			trace("(x: " + x + ", y: " + y + ")");
+		}
 	}
 	
 }

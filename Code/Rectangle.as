@@ -1,7 +1,5 @@
 ﻿package Code {
 	
-	import flash.geom.Point;
-	
 	/*
 	* A rectangle consisting of four points.
 	*/

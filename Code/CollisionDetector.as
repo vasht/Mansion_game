@@ -162,7 +162,7 @@
 		*/
 		public function collisionTestRectangles(rectCollider1:RectangleCollider, 
 												rectCollider2:RectangleCollider):Boolean{
-			
+			/*
 			// Checking if the bounding rectangles are overlapping
 			if(!collisionTestBoundingRectangles(rectCollider1, rectCollider2)){
 				return false;
@@ -171,7 +171,7 @@
 			if(collisionTestRectangleEdges(rectCollider1.rectangle, rectCollider2.rectangle)){
 				return true;
 			}
-			
+			*/
 			var rect1_corner0:Vector_2D = (rectCollider1.rectangle.edge_array[0] as TwoPointLine).p1;
 			var rect2_corner0:Vector_2D = (rectCollider2.rectangle.edge_array[0] as TwoPointLine).p1;
 			if(pointInRectangle(rect1_corner0, rectCollider2.rectangle) ||
@@ -180,7 +180,7 @@
 			}
 			
 			return false;
-		}
+		} // End of collisionTestRectangles
 
 		/*
 		* Checks if a given rectangle and circle collider are touching
@@ -188,7 +188,7 @@
 		public function collisionTestRectCirc(rectCollider:RectangleCollider, 
 											  circleCollider:CircleCollider):Boolean{
 			return true;
-		}
+		} // End of collisionTestRectCirc
 		
 		/*
 		* Checks if two given circle colliders are touching
@@ -196,7 +196,7 @@
 		public function collisionTestCircles(circleCollider1:CircleCollider, 
 											 circleCollider2:CircleCollider):Boolean {
 			return true;
-		}
+		} // End of collisionTestCircles
 		
 		/*
 		* Goes through the edges of the two given rectangles and checks if they're 
@@ -219,7 +219,7 @@
 				}
 			}
 			return false;
-		}
+		} // End of collisionTestRectangleEdges
 		
 		/*
 		* Checks if two given lines between two points are intersecting.
@@ -382,7 +382,7 @@
 			}
 			// The lines aren't touching
 			return false;
-		}
+		} // End of checkParallelLines
 		
 		/*
 		* Checks if two given lines, between two points, that aren't vertical or parallel to
@@ -411,14 +411,14 @@
 			*/
 			iCoord.y = k1*iCoord.x - k1*p1.x + p1.y;
 			return iCoord;
-		}
+		} // End of checkNonParallelNonVerticalLines
 		
 		/*
 		* Checks if a given point is inside of the given rectangle
 		* Use pointInRectangle.png as a reference for the variable names
 		*
-		* TODO
-		* 
+		* TODO:
+		* -Make a test file where you make sure this function works properly
 		*/
 		public function pointInRectangle(p:Vector_2D, rect:Rectangle){
 			
@@ -432,27 +432,29 @@
 			// p5 = -p3 + p
 			var p4:Vector_2D = p3.negative().addVector(p2);
 			var p5:Vector_2D = p3.negative().addVector(p);
+			// p5.traceVector();
 			
 			// t4 is the angle between p4 and p5
 			// cos(t4) = (p4*p5)/(|p4||p5|) = lol
-			// t4 = arctan(lol)
+			// t4 = arccos(lol)
 			var lol:Number = Vector_2D.dotProduct(p4, p5)/(p4.magnitude()*p5.magnitude());
-			var t4:Number = Math.atan(lol);
+			var t4:Number = Math.acos(lol);
+			// trace("t4: " + t4);
 			
 			// sin(t4) = y'/|p5|
 			// -> y' = |p5|sin(t4)
-			// cos(t4) = x'/|p4|
-			// -> x' = |p4|cos(t4)
+			// cos(t4) = x'/|p5|
+			// -> x' = |p4|cos(t5)
 			var yprime:Number = p5.magnitude()*Math.sin(t4);
-			var xprime:Number = p4.magnitude()*Math.cos(t4);
+			var xprime:Number = p5.magnitude()*Math.cos(t4);
 			// trace("x': " + xprime);
 			// trace("y': " + yprime);
 			
-			if(xprime > p3.x && xprime < p2.x && yprime > p0.y && yprime < p3.y ){
+			if(xprime > 0 && xprime < (p2.x - p3.x) && yprime > 0 && yprime < (p3.y-p0.y)){
 				return true;
 			}
 			return false;
-		}
+		} // End of pointInRectangle
 		
 		
 		/*
