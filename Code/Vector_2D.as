@@ -49,6 +49,54 @@
 		}
 		
 		/*
+		*
+		* alfa2 is the angle that the point should be rotated around the pivot
+		* in degrees
+		*/
+		public static function rotatePointAroundPivot(p:Vector_2D, pivot:Vector_2D, alfa2:Number):Point{
+			
+			// Getting rid of extra revolutions
+			alfa2 = alfa2%360;
+			
+			// Angles over 180 should be negative
+			// E.g. 270 = -90 degrees
+			if(alfa2 > 180){
+				alfa2 = -360 + alfa2;
+			} else if(alfa2 < -180){
+				alfa2 = 360 + alfa2;
+			}
+			
+			// Converting alfa2 to radians instead of degrees
+			var alfa2_rads:Number = alfa2 * (Math.PI/180);
+			
+			// a is the vector from the pivot to the point p
+			var a:Point = new Point(p.x - pivot.x, p.y - pivot.y);
+			// Magnitude of a
+			var a_mag:Number = magnitude(a);
+			
+			// Calculating alfa1_rads, the angle between a and the x-axis
+			// alfa1_rads = arccos(a.x/|a|)
+			var alfa1_rads:Number = Math.acos(a.x / a_mag);
+			
+			// Checking if the angle should be negative
+			if(a.y < 0){
+				alfa1_rads = -alfa1_rads;
+			}
+			
+			// trace("alfa1_rads: " + alfa1_rads);
+			var alfa3_rads:Number = alfa1_rads + alfa2_rads;
+			// trace(alfa1_rads);
+			// Calculating vector b
+			var b:Point = new Point(a_mag*Math.cos(alfa3_rads), 
+									a_mag*Math.sin(alfa3_rads));
+			
+			// Calculating the final coordinates after rotation
+			var p2:Point = new Point(pivot.x + b.x, pivot.y + b.y);
+			return p2;
+		}
+		
+		
+		/*
 		* Priints the x and y values of this vector to the output console
 		*/
 		public function traceVector(){

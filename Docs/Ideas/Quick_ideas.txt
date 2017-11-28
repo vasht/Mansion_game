@@ -8,6 +8,16 @@ if I want to implement them or not.
 
 
 
+
+25.11.2017
+-When you die, the game could restart you from the last point where you had full
+health.
+	-The game would save whenever you enter a room, pick up an item or use an
+	item. And whenever anything else significant happens, like triggering events.
+	-When you die, you would load with mood stats and items you had when you lost
+	your full health, in the room where that happened, but at the entrance to the
+	room. (The entrance you used to enter it)
+
 21.09.2017
 -A room where you (for some reason) hear white noise for as long as you're in there
 	-This would be effectively creepy (hopefully) because there would be low volume 

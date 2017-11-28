@@ -418,39 +418,31 @@
 		* Use pointInRectangle.png as a reference for the variable names
 		*
 		* TODO:
-		* -Make a test file where you make sure this function works properly
 		*/
 		public function pointInRectangle(p:Vector_2D, rect:Rectangle){
 			
-			var p0:Vector_2D = (rect.edge_array[0] as TwoPointLine).p1;
-			var p2:Vector_2D = (rect.edge_array[2] as TwoPointLine).p1;
-			var p3:Vector_2D = (rect.edge_array[3] as TwoPointLine).p1;
+			var p0:Vector_2D = (rect.edge_array[0] as TwoPointLine).p1; // Upper left corner
+			var p2:Vector_2D = (rect.edge_array[2] as TwoPointLine).p1; // Lower right corner
+			var p3:Vector_2D = (rect.edge_array[3] as TwoPointLine).p1; // Lower left corner
 			
 			// p4 is the vector from p3 to p2
 			// p5 is the vector from p3 to p
+			// p6 is the vector from p3 to p0
 			// p4 = -p3 + p2
 			// p5 = -p3 + p
-			var p4:Vector_2D = p3.negative().addVector(p2);
-			var p5:Vector_2D = p3.negative().addVector(p);
-			// p5.traceVector();
+			// p6 = -p3 + p0
+			var p4:Point = addVector(negative(p3), p2);
+			var p5:Point = addVector(negative(p3), p);
+			var p6:Point = addVector(negative(p3), p0);
 			
-			// t4 is the angle between p4 and p5
-			// cos(t4) = (p4*p5)/(|p4||p5|) = lol
-			// t4 = arccos(lol)
-			var lol:Number = Vector_2D.dotProduct(p4, p5)/(p4.magnitude()*p5.magnitude());
-			var t4:Number = Math.acos(lol);
-			// trace("t4: " + t4);
+			// xprime is the magnitude of p5 projected on p4
+			// yprime is the magnitude of p5 projected on p0
+			// xprime = (p4*p5)/magnitude(p4) (wikipedia)
+			// yprime = (p6*p5)/magnitude(p6)
+			var xprime:Number = dotProduct(p4, p5)/magnitude(p4);
+			var yprime:Number = dotProduct(p6, p5)/magnitude(p6);
 			
-			// sin(t4) = y'/|p5|
-			// -> y' = |p5|sin(t4)
-			// cos(t4) = x'/|p5|
-			// -> x' = |p4|cos(t5)
-			var yprime:Number = p5.magnitude()*Math.sin(t4);
-			var xprime:Number = p5.magnitude()*Math.cos(t4);
-			// trace("x': " + xprime);
-			// trace("y': " + yprime);
-			
-			if(xprime > 0 && xprime < (p2.x - p3.x) && yprime > 0 && yprime < (p3.y-p0.y)){
+			if(xprime > 0 && xprime < (p2.x - p3.x) && yprime > 0 && yprime < (p0.y - p3.y)){
 				return true;
 			}
 			return false;
