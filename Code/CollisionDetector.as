@@ -431,9 +431,9 @@
 			// p4 = -p3 + p2
 			// p5 = -p3 + p
 			// p6 = -p3 + p0
-			var p4:Point = addVector(negative(p3), p2);
-			var p5:Point = addVector(negative(p3), p);
-			var p6:Point = addVector(negative(p3), p0);
+			var p4:Vector_2D = p3.negative().addVector(p2);
+			var p5:Vector_2D = p3.negative().addVector(p);
+			var p6:Vector_2D = p3.negative().addVector(p0);
 			
 			// xprime is the magnitude of p5 projected on p4
 			// yprime is the magnitude of p5 projected on p0
