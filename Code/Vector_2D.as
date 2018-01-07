@@ -50,6 +50,14 @@
 		
 		/*
 		*
+		* Rotates the given point around a given pivot, by the 
+		* the given amount. The angle to rotate is given in radians.
+		*
+		* a is the vector from origin to the original point
+		* b is the vector from origin to the final rotated point
+		* 
+		* See image rotate_point_around_pivot.png for details
+		*
 		* alfa2 is the angle that the point should be rotated around the pivot
 		* in degrees
 		*/
@@ -70,9 +78,9 @@
 			var alfa2_rads:Number = alfa2 * (Math.PI/180);
 			
 			// a is the vector from the pivot to the point p
-			var a:Point = new Point(p.x - pivot.x, p.y - pivot.y);
+			var a:Vector_2D = new Vector_2D(p.x - pivot.x, p.y - pivot.y);
 			// Magnitude of a
-			var a_mag:Number = magnitude(a);
+			var a_mag:Number = a.magnitude();
 			
 			// Calculating alfa1_rads, the angle between a and the x-axis
 			// alfa1_rads = arccos(a.x/|a|)
@@ -84,6 +92,7 @@
 			}
 			
 			// trace("alfa1_rads: " + alfa1_rads);
+			// alfa3_rads is the angle between b and the x-axis
 			var alfa3_rads:Number = alfa1_rads + alfa2_rads;
 			// trace(alfa1_rads);
 			// Calculating vector b

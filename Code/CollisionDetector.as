@@ -416,8 +416,6 @@
 		/*
 		* Checks if a given point is inside of the given rectangle
 		* Use pointInRectangle.png as a reference for the variable names
-		*
-		* TODO:
 		*/
 		public function pointInRectangle(p:Vector_2D, rect:Rectangle){
 			
@@ -439,8 +437,8 @@
 			// yprime is the magnitude of p5 projected on p0
 			// xprime = (p4*p5)/magnitude(p4) (wikipedia)
 			// yprime = (p6*p5)/magnitude(p6)
-			var xprime:Number = dotProduct(p4, p5)/magnitude(p4);
-			var yprime:Number = dotProduct(p6, p5)/magnitude(p6);
+			var xprime:Number = Vector_2D.dotProduct(p4, p5)/p4.magnitude();
+			var yprime:Number = Vector_2D.dotProduct(p6, p5)/p6.magnitude();
 			
 			if(xprime > 0 && xprime < (p2.x - p3.x) && yprime > 0 && yprime < (p0.y - p3.y)){
 				return true;
