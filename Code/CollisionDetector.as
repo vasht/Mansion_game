@@ -12,6 +12,9 @@
 	* -Test that collisionTestObjects goes through every pair of dynamic objects
 	* -Test that this goes through every pair of dynamic object and 
 	* solid object
+	* -Add a control to rotate one, or both of the rectangles
+	*	-Test that the collision detection still works, even if the rectangles
+	* 	have been rotated
 	*/
 	public class CollisionDetector {
 		
@@ -158,22 +161,39 @@
 		
 		/*
 		* Checks if two given rectangle colliders are touching
-		* 
+		* First checks if the bounding boxes are overlapping. If they're not,
+		* it returns false.
+		* Then it checks if any of the edges are overlapping. If at least one pair
+		* of edges is overlapping, returns true.
 		*/
 		public function collisionTestRectangles(rectCollider1:RectangleCollider, 
 												rectCollider2:RectangleCollider):Boolean{
-			/*
+			
 			// Checking if the bounding rectangles are overlapping
 			if(!collisionTestBoundingRectangles(rectCollider1, rectCollider2)){
 				return false;
 			}
 			
+			// Checking if any pair of edges from the rectangles is overlapping.
 			if(collisionTestRectangleEdges(rectCollider1.rectangle, rectCollider2.rectangle)){
 				return true;
 			}
-			*/
+			
+			// None of the edges were overlapping
+			// Checking if one of the rectangles is inside of the other one
+			// We do this by checking if one arbitrary corner in either one is 
+			// inside of the other rectangle.
 			var rect1_corner0:Vector_2D = (rectCollider1.rectangle.edge_array[0] as TwoPointLine).p1;
 			var rect2_corner0:Vector_2D = (rectCollider2.rectangle.edge_array[0] as TwoPointLine).p1;
+			
+			// trace("rect1_corner0: " + rect1_corner0);
+			// trace("rectCollider2.rectangle minX: " + rectCollider2.minX);
+			// trace("rectCollider2.rectangle minY: " + rectCollider2.minY);
+			// trace("rectCollider2.rectangle maxX: " + rectCollider2.maxX);
+			// trace("rectCollider2.rectangle maxY: " + rectCollider2.maxY);
+			// trace("rect2_corner0: " + rect2_corner0);
+			// trace("rect1_corner0 in rectCollider2: " + 
+			//	  pointInRectangle(rect1_corner0, rectCollider2.rectangle));
 			if(pointInRectangle(rect1_corner0, rectCollider2.rectangle) ||
 			   pointInRectangle(rect2_corner0, rectCollider1.rectangle)){
 				return true;
@@ -202,7 +222,7 @@
 		* Goes through the edges of the two given rectangles and checks if they're 
 		* intersecting.
 		*/
-		public function collisionTestRectangleEdges(rect1:Rectangle, rect2:Rectangle):Boolean{
+		public function collisionTestRectangleEdges(rect1:Rectangle, rect2:Rectangle):Boolean {
 			
 			// Going through the edges of the first rectangle
 			for(var i=0; i<rect1.edge_array.length; i++){
@@ -281,7 +301,7 @@
 		/*
 		* Checks if two given vertical lines are touching
 		*/
-		public function checkLinesVertical(line1:TwoPointLine, line2:TwoPointLine):Boolean{
+		public function checkLinesVertical(line1:TwoPointLine, line2:TwoPointLine):Boolean {
 			
 			var p1:Point = line1.p1;
 			var p2:Point = line1.p2;
@@ -417,7 +437,7 @@
 		* Checks if a given point is inside of the given rectangle
 		* Use pointInRectangle.png as a reference for the variable names
 		*/
-		public function pointInRectangle(p:Vector_2D, rect:Rectangle){
+		public function pointInRectangle(p:Vector_2D, rect:Rectangle):Boolean{
 			
 			var p0:Vector_2D = (rect.edge_array[0] as TwoPointLine).p1; // Upper left corner
 			var p2:Vector_2D = (rect.edge_array[2] as TwoPointLine).p1; // Lower right corner
@@ -440,6 +460,11 @@
 			var xprime:Number = Vector_2D.dotProduct(p4, p5)/p4.magnitude();
 			var yprime:Number = Vector_2D.dotProduct(p6, p5)/p6.magnitude();
 			
+			// trace("xprime: " + xprime);
+			// trace("yprime: " + yprime);
+			// trace("p0.y: " + p0.y);
+			// trace("p3.y: " + p3.y);
+			// trace(yprime > 0 && yprime < (p0.y - p3.y));
 			if(xprime > 0 && xprime < (p2.x - p3.x) && yprime > 0 && yprime < (p0.y - p3.y)){
 				return true;
 			}
@@ -465,7 +490,7 @@
 				return true;
 			}
 			return false;
-		}
+		} // End of pointOnTwoPointLine
 		
 		/*
 		* TODO:
