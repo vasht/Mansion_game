@@ -7,7 +7,6 @@
 	public class LevelObject extends SolidObject {
 		
 		
-		
 		public function LevelObject() {
 			tags.addTag("LevelObject");
 			

@@ -12,7 +12,7 @@
 	* -Test that collisionTestObjects goes through every pair of dynamic objects
 	* -Test that this goes through every pair of dynamic object and 
 	* solid object
-	* -Add a control to rotate one, or both of the rectangles
+	* -Add a control to rotate both of the rectangles
 	*	-Test that the collision detection still works, even if the rectangles
 	* 	have been rotated
 	*/

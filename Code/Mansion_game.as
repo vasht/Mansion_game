@@ -43,24 +43,30 @@
 				theInstance = new Mansion_game();
 			}
 			return theInstance;
-		}
+		} // End of getInstance
+		
 		
 		/*
-		*
-		* Instance methods
+		* Takes an object with references to stuff and
+		* takes a reference to the stage from it.
+		* Then calls the init functions of other classes
+		* and hands them the referenceObject.
 		*/
-		
 		public function init(referenceObject:Object):void{
 			
 			mainStage = referenceObject.mainStage;
 			
 			Updater.init(referenceObject);
 			Controller.init(referenceObject);
-		}
+		} // End of init
 		
 		
 		/*
+		* Takes the name of a level as a string. 
+		* Goes to the frame with a label that equals the given
+		* level name.
 		*
+		* Also sets the controller to a gameplay controller.
 		*/
 		public function loadLevel(levelName:String):void{
 			
