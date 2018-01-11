@@ -29,11 +29,7 @@
 		public function Mansion_game() {
 			
 		}
-		
-		/*
-		*
-		* Static functions
-		*/
+
 		
 		/*
 		* Getter function for the Mansion_game instance

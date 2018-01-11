@@ -39,6 +39,7 @@
 			super.processInput();
 			
 			var mainCharacter:MainCharacter = Mansion_game.getInstance().mainCharacter;
+			var levelObject:LevelObject;
 			var speed:Number = mainCharacter.moving_speed;
 			
 			if(W_pressed || S_pressed || A_pressed || D_pressed || J_pressed || K_pressed){
@@ -56,13 +57,25 @@
 				}
 				if(J_pressed){
 					mainCharacter.rotation-= speed;
+					
+					// Here I added controls to rotate the level object
+					levelObject = CollisionDetector.getInstance().solidObjects[1];
+					levelObject.rotation+= speed;
+					levelObject.collider.has_moved = true;
+					levelObject.collider.updateCollider();
+					trace((levelObject.collider as RectangleCollider).rectangle.edge_array[0].p2);
 				}
 				if(K_pressed){
 					mainCharacter.rotation+= speed;
+					
+					// Here I added controls to rotate the level object
+					levelObject = CollisionDetector.getInstance().solidObjects[1];
+					levelObject.rotation-= speed;
+					levelObject.collider.has_moved = true;
 				}
 				mainCharacter.collider.has_moved = true;
 			}
-		}
+		} // End of processInput
 	
 	}
 	

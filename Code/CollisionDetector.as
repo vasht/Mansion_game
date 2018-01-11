@@ -97,9 +97,8 @@
 					// Updating before checking if they're the same object,
 					// to make sure that every object gets updated, including the
 					// first one
-					if(sol.collider.has_moved){
-						sol.collider.updateCollider();
-					}
+					
+					sol.collider.updateCollider();
 					
 					if(dyn == sol){ continue; }
 					
@@ -168,7 +167,7 @@
 		*/
 		public function collisionTestRectangles(rectCollider1:RectangleCollider, 
 												rectCollider2:RectangleCollider):Boolean{
-			
+			/*
 			// Checking if the bounding rectangles are overlapping
 			if(!collisionTestBoundingRectangles(rectCollider1, rectCollider2)){
 				return false;
@@ -178,7 +177,7 @@
 			if(collisionTestRectangleEdges(rectCollider1.rectangle, rectCollider2.rectangle)){
 				return true;
 			}
-			
+			*/
 			// None of the edges were overlapping
 			// Checking if one of the rectangles is inside of the other one
 			// We do this by checking if one arbitrary corner in either one is 
@@ -468,6 +467,7 @@
 			if(xprime > 0 && xprime < (p2.x - p3.x) && yprime > 0 && yprime < (p0.y - p3.y)){
 				return true;
 			}
+			// trace("p: " + p);
 			return false;
 		} // End of pointInRectangle
 		

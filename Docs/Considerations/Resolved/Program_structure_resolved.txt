@@ -5,6 +5,17 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+11.01.2018
+-In CollisionDetector.collisionTestObjects, I check collider.has_moved
+before calling collider.updateCollider(). But collider.updateCollider also
+checks the has_moved property before updating. Which thing should check
+has_moved?
+
+-I think the updateCollider() method should check has_moved. The less 
+the collision detector has to care about details related to other classes
+the better.
+
+
 10.11.2017
 -I'm trying to check if one rectangle collider is completely inside of another
 rectangle collider. This check is relevant when all pairs of edges have already
