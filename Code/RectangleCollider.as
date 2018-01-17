@@ -24,7 +24,7 @@
 		* Checks if the has_moved boolean property has been set to true
 		* and updates the collider if so.
 		* It also calls the super.updateCollider, because it sets has_moved
-		* to false
+		* to false.
 		*/
 		public override function updateCollider():void{
 			
