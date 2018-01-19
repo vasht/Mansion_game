@@ -5,9 +5,6 @@
 	/*
 	* Your typical 2D vector  with an x and a y value.
 	* Also some functions for manipulating vectors.
-	*
-	* TODO:
-	* 
 	*/
 	public class Vector_2D extends Point {
 
@@ -40,6 +37,16 @@
 			var newVec:Vector_2D = new Vector_2D(x + vec.x, y + vec.y);
 			return newVec;
 		}
+		
+		/*
+		* Gives the distance between two Vector_2D instances
+		*/
+		public static function distanceBetweenVectors(p1:Vector_2D, p2:Vector_2D):Number {
+			var distance:Number = Math.sqrt(Math.pow(p2.x - p1.x, 2) + 
+											Math.pow(p2.y - p1.y, 2));
+			return distance;
+		}
+		
 		
 		/*
 		* Returns the dot product of the given two vectors

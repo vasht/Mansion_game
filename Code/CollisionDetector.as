@@ -12,9 +12,6 @@
 	* -Test that collisionTestObjects goes through every pair of dynamic objects
 	* -Test that this goes through every pair of dynamic object and 
 	* solid object
-	* -Add a control to rotate both of the rectangles
-	*	-Test that the collision detection still works, even if the rectangles
-	* 	have been rotated
 	*/
 	public class CollisionDetector {
 		
@@ -167,7 +164,7 @@
 		*/
 		public function collisionTestRectangles(rectCollider1:RectangleCollider, 
 												rectCollider2:RectangleCollider):Boolean{
-			/*
+			
 			// Checking if the bounding rectangles are overlapping
 			if(!collisionTestBoundingRectangles(rectCollider1, rectCollider2)){
 				return false;
@@ -177,7 +174,7 @@
 			if(collisionTestRectangleEdges(rectCollider1.rectangle, rectCollider2.rectangle)){
 				return true;
 			}
-			*/
+			
 			// None of the edges were overlapping
 			// Checking if one of the rectangles is inside of the other one
 			// We do this by checking if one arbitrary corner in either one is 
@@ -464,11 +461,13 @@
 			// trace("p0.y: " + p0.y);
 			// trace("p3.y: " + p3.y);
 			// trace(yprime > 0 && yprime < (p0.y - p3.y));
-			if(xprime > 0 && xprime < (p2.x - p3.x) && yprime > 0 && yprime < (p0.y - p3.y)){
+			if(xprime > 0 && xprime < rect.rect_width &&
+			   yprime > 0 && yprime < rect.rect_height){
 				return true;
 			}
-			// trace("p: " + p);
+			
 			return false;
+			
 		} // End of pointInRectangle
 		
 		

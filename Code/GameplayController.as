@@ -63,7 +63,7 @@
 					levelObject.rotation+= speed;
 					levelObject.collider.has_moved = true;
 					levelObject.collider.updateCollider();
-					trace((levelObject.collider as RectangleCollider).rectangle.edge_array[0].p2);
+					// trace((levelObject.collider as RectangleCollider).rectangle.edge_array[0].p2);
 				}
 				if(K_pressed){
 					mainCharacter.rotation+= speed;
