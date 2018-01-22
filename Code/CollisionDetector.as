@@ -203,6 +203,12 @@
 		*/
 		public function collisionTestRectCirc(rectCollider:RectangleCollider, 
 											  circleCollider:CircleCollider):Boolean{
+			
+			// Checking if the bounding rectangles are overlapping
+			if(!collisionTestBoundingRectangles(rectCollider, circleCollider)){
+				return false;
+			}
+			
 			return true;
 		} // End of collisionTestRectCirc
 		

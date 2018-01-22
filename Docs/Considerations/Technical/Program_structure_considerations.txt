@@ -4,20 +4,4 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 
-18.11.2017
--In the function pointInRectangle I'm trying to deduce whether or not
-a point is inside of a rectangle. To do that, I'm calculating a vector
-p4, aligned with the rectangle and a vector p5, from the bottom left
-corner of the rectangle to the given point p. I have calculated the
-angle between p4 and p5, but the problem is my calculation only gives
-the angle, but not whether it is clockwise or counter-clockwise.
-	-As a result it is impossible to tell on which side of the
-	rectangle edge the point is.
-
-Option 1:
-	-One option is finding a way to tell if the angle is clockwise or
-	counter-clockwise and using that to give x' and y' the correct
-	values.
-	-How do I do that?
-
-	
+22.01.2018

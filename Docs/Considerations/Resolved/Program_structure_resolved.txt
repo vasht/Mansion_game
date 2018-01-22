@@ -4,6 +4,42 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+22.01.2018
+-Each library item has to have a unique class.
+How do I create unique classes for the rectangular
+and the circular levelobjects?
+
+OPTION 1:
+-Well, I googled it and it turns out they don't have to
+be unique. Basically, they can have the same class as the
+base class, and then flash will automatically create a class
+for the name you enter in the "class" field. You can then
+ignore that class if you want.
+
+	
+
+
+18.11.2017
+-In the function pointInRectangle I'm trying to deduce whether or not
+a point is inside of a rectangle. To do that, I'm calculating a vector
+p4, aligned with the rectangle and a vector p5, from the bottom left
+corner of the rectangle to the given point p. I have calculated the
+angle between p4 and p5, but the problem is my calculation only gives
+the angle, but not whether it is clockwise or counter-clockwise.
+	-As a result it is impossible to tell on which side of the
+	rectangle edge the point is.
+
+Option 1:
+	-One option is finding a way to tell if the angle is clockwise or
+	counter-clockwise and using that to give x' and y' the correct
+	values.
+	-How do I do that?
+
+Option 2:
+-Calculate new coordinates for the point, according to a coordinate system
+that's aligned with the rectangle. Then use the new coordinates to evaluate 
+wether or not the point is within the bounds of the rectangle
+-I did this. I called the new coordinates xprime and yprime
 
 11.01.2018
 -In CollisionDetector.collisionTestObjects, I check collider.has_moved
