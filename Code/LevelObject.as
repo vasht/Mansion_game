@@ -15,8 +15,6 @@
 		
 		public function LevelObject() {
 			tags.addTag("LevelObject");
-			
-			collider = new RectangleCollider(this);
 		}
 
 	}

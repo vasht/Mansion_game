@@ -4,6 +4,22 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+23.01.2018
+-You can't enter a class that you've implemented in both the base
+class and class fields in the properties of a movie clip library 
+entry. How do I handle library entries that look different
+but are the same class, since they have to have a unique class?
+
+-I'll create a class CircleObstacle and another named RectangleObstacle,
+that all library entries that are those shapes can have assigned as
+their base class. 
+-Flash allows to enter a non-implemented name in the class field,
+if you enter an existing base class.
+	-> With library entries that look different but are of the same
+	class type, I will just enter a name for the class and enter
+	the obstacle of the correct shape as the base class.
+
+
 22.01.2018
 -Each library item has to have a unique class.
 How do I create unique classes for the rectangular

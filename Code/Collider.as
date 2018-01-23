@@ -8,8 +8,6 @@
 	* A Collider actually has a shape, either rectangle or circle
 	* (for now) which are used by the CollisionDetector.
 	*
-	* TODO
-	* 
 	*/
 	public class Collider {
 		

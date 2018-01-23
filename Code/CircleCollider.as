@@ -14,20 +14,30 @@
 		
 		public var circle:Circle;
 		
+		/*
+		* Calls the super constructor and then adds the tag
+		* RectangleCollider.
+		* OBS! It's important that the super constructor is called
+		* first, because it initializes the tags instance.
+		*/
 		public function CircleCollider(_solidObject:SolidObject) {
 			
-			tags.addTag("CircleCollider");
-			
 			super(_solidObject);
+			tags.addTag("CircleCollider");
 		}
 		
 		/*
-		*
+		* Updates the collider to have the correct info from the
+		* movie clip. 
+		* It gets the center coordinates from the collider point in
+		* the movie clip.
+		* Finally it calls super.updateCollider(), because it sets 
+		* has_moved to false
 		*/
-		public override function updateCollider():void{
+		public override function updateCollider():void {
 			
 			if(has_moved){
-				
+		
 				var center1:Point = (solidObject.getChildByName("collider_point_mc") 
 										 as ColliderPoint).getGlobalCoord();
 				var radius:Number = solidObject.width / 2;

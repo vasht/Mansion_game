@@ -79,6 +79,7 @@
 		*/
 		public function collisionTestObjects(objects_list1:Array, objects_list2:Array){
 			
+			// trace("objects_list2: " + objects_list2);
 			DebugGUI.getInstance().mainCharacterTouching = false;
 			
 			// Object from the first array
@@ -94,6 +95,7 @@
 					// Updating before checking if they're the same object,
 					// to make sure that every object gets updated, including the
 					// first one
+					
 					
 					sol.collider.updateCollider();
 					
@@ -182,14 +184,7 @@
 			var rect1_corner0:Vector_2D = (rectCollider1.rectangle.edge_array[0] as TwoPointLine).p1;
 			var rect2_corner0:Vector_2D = (rectCollider2.rectangle.edge_array[0] as TwoPointLine).p1;
 			
-			// trace("rect1_corner0: " + rect1_corner0);
-			// trace("rectCollider2.rectangle minX: " + rectCollider2.minX);
-			// trace("rectCollider2.rectangle minY: " + rectCollider2.minY);
-			// trace("rectCollider2.rectangle maxX: " + rectCollider2.maxX);
-			// trace("rectCollider2.rectangle maxY: " + rectCollider2.maxY);
-			// trace("rect2_corner0: " + rect2_corner0);
-			// trace("rect1_corner0 in rectCollider2: " + 
-			//	  pointInRectangle(rect1_corner0, rectCollider2.rectangle));
+			
 			if(pointInRectangle(rect1_corner0, rectCollider2.rectangle) ||
 			   pointInRectangle(rect2_corner0, rectCollider1.rectangle)){
 				return true;
@@ -206,9 +201,10 @@
 			
 			// Checking if the bounding rectangles are overlapping
 			if(!collisionTestBoundingRectangles(rectCollider, circleCollider)){
+				
 				return false;
 			}
-			
+			trace("lol");
 			return true;
 		} // End of collisionTestRectCirc
 		

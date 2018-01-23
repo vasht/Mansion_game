@@ -14,6 +14,12 @@
 		
 		public var rectangle:Rectangle;
 		
+		/*
+		* Calls the super constructor and then adds the tag
+		* RectangleCollider.
+		* OBS! It's important that the super constructor is called
+		* first, because it initializes the tags instance.
+		*/
 		public function RectangleCollider(_solidObject:SolidObject){
 			
 			super(_solidObject);
