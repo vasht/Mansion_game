@@ -37,12 +37,18 @@
 		public override function updateCollider():void {
 			
 			if(has_moved){
-		
-				var center1:Point = (solidObject.getChildByName("collider_point_mc") 
+				
+				var center:Vector_2D = (solidObject.getChildByName("collider_point_mc") 
 										 as ColliderPoint).getGlobalCoord();
 				var radius:Number = solidObject.width / 2;
 				
-				circle = new Circle(center1, radius);
+				// Updating the min max x and y
+				minX = center.x - radius;
+				minY = center.y - radius;
+				maxX = center.x + radius;
+				maxY = center.y + radius;
+				
+				circle = new Circle(center, radius);
 			}
 			
 			super.updateCollider();

@@ -9,7 +9,7 @@
 	public class ColliderPoint extends MovieClip {
 
 		public function ColliderPoint(){
-			
+			visible = false;
 		}
 		
 		/*
@@ -17,7 +17,7 @@
 		* It negates the y-value because up is negative and down is positive in
 		* actionscript.
 		*/
-		public function getGlobalCoord():Vector_2D{
+		public function getGlobalCoord():Vector_2D {
 			
 			// Calculating the center of this point
 			var localPoint:Point = new Point(width / 2, height / 2);

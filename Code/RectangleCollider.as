@@ -36,6 +36,8 @@
 			
 			if(has_moved){
 				
+				// Array of Vector_2D instances containing the coordinates of
+				// the corners of the rectangle
 				var corners:Array = new Array();
 				
 				corners[0] = (solidObject.getChildByName("collider_point_1_mc") as ColliderPoint).getGlobalCoord();

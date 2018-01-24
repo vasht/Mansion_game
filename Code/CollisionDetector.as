@@ -6,12 +6,14 @@
 	*
 	* TODO:
 	* -Make collisionTestRectCirc test if a rectangle and a circle are touching
-	* 	-Test if it works
+	* 	-Test that it works
 	* -Make collisionTestCircles test if two circles are touching
-	* 	-Test if it works
+	* 	-Test that it works
 	* -Test that collisionTestObjects goes through every pair of dynamic objects
 	* -Test that this goes through every pair of dynamic object and 
 	* solid object
+	* -Make the collisionTestRectangleEdgesWithCircle go through the rectangle
+	* edges and check if any are intersecting the circle
 	*/
 	public class CollisionDetector {
 		
@@ -197,14 +199,19 @@
 		* Checks if a given rectangle and circle collider are touching
 		*/
 		public function collisionTestRectCirc(rectCollider:RectangleCollider, 
-											  circleCollider:CircleCollider):Boolean{
+											  circCollider:CircleCollider):Boolean{
 			
 			// Checking if the bounding rectangles are overlapping
-			if(!collisionTestBoundingRectangles(rectCollider, circleCollider)){
+			if(!collisionTestBoundingRectangles(rectCollider, circCollider)){
 				
 				return false;
 			}
-			trace("lol");
+			
+			// Checking if any pair of edges from the rectangles is overlapping.
+			if(collisionTestRectangleEdgesWithCircle(rectCollider.rectangle, circCollider.circle)){
+				return true;
+			}
+			
 			return true;
 		} // End of collisionTestRectCirc
 		
@@ -238,6 +245,25 @@
 			}
 			return false;
 		} // End of collisionTestRectangleEdges
+		
+		/*
+		* Goes through the edges of the given rectangle and checks if they're 
+		* intersecting the given circle.
+		*
+		* TODO:
+		* 
+		*/
+		public function collisionTestRectangleEdgesWithCircle(rect:Rectangle, circ:Circle):Boolean {
+			
+			var line:TwoPointLine;
+			
+			for(var i=0; i<rect.edge_array.length; i++){
+				line = rect.edge_array[i];
+				
+				
+			}
+			return false;
+		} // End of collisionTestRectangleEdgesWithCircle
 		
 		/*
 		* Checks if two given lines between two points are intersecting.
@@ -432,10 +458,17 @@
 		} // End of checkNonParallelNonVerticalLines
 		
 		/*
+		*
+		*/
+		public function checkLineCircle():Boolean {
+			
+		}
+		
+		/*
 		* Checks if a given point is inside of the given rectangle
 		* Use pointInRectangle.png as a reference for the variable names
 		*/
-		public function pointInRectangle(p:Vector_2D, rect:Rectangle):Boolean{
+		public function pointInRectangle(p:Vector_2D, rect:Rectangle):Boolean {
 			
 			var p0:Vector_2D = (rect.edge_array[0] as TwoPointLine).p1; // Upper left corner
 			var p2:Vector_2D = (rect.edge_array[2] as TwoPointLine).p1; // Lower right corner
