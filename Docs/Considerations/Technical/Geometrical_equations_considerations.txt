@@ -1,0 +1,94 @@
+GEOMETRICAL EQUATIONS - CONSIDERATIONS
+
+
+
+
+(mx, my) : Center of the circle
+
+k : Incline of the line
+
+y0 : y, where the line goes through the y-axis (x=0)
+
+Equation of a circle:
+
+(x - mx)^2 + (y - my)^2 = r^2
+
+equation of a line:
+
+y = kx + y0
+
+Solving y0, when k is known
+
+y0 = y - kx
+
+
+Insert y in the equation of a circle:
+
+(x - mx)^2 + (kx + y0 - my)^2 = r^2
+
+substitute
+
+d = y0 - my
+
+->
+
+(x - mx)^2 + (kx + d)^2 = r^2
+
+->
+
+x^2 - 2(mx)x + (mx)^2 + k^2x^2 + 2dkx + d^2 = r^2
+
+->
+
+x^2 + k^2x^2 - 2(mx)x + 2dkx + (mx)^2 + d^2 - r^2 = 0
+
+c = (mx)^2 + d^2 - r^2
+
+->
+
+(1 + k^2)x^2 + 2(dk - (mx))x + c = 0
+
+->
+
+a = 1 + k^2
+b = 2(dk - (mx))
+
+->
+
+ax^2 + bx +c = 0
+
+
+
+Intersection with vertical line:
+
+We know x
+
+(x - mx)^2 + (y - my)^2 = r^2
+
+Solving for y
+
+->
+
+(x - (mx))^2 + (y - (my))^2 = r^2
+
+v = (x - (mx))^2
+
+->
+
+v + (y - (my))^2 = r^2
+
+->
+
+v + y^2 - 2(my)y + (my)^2 = r^2
+
+->
+
+y^2 - 2(my)y + (my)^2 - r^2 = 0
+
+a = 1
+b = -2(my)
+c = (my)^2 - r^2
+
+->
+
+ay^2 + by + c = 0

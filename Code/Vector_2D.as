@@ -9,7 +9,7 @@
 	public class Vector_2D extends Point {
 
 		
-		public function Vector_2D(_x:Number, _y:Number){
+		public function Vector_2D(_x:Number = 0, _y:Number = 0){
 			super(_x, _y);
 		}
 		
@@ -36,15 +36,6 @@
 		public function addVector(vec:Vector_2D):Vector_2D{
 			var newVec:Vector_2D = new Vector_2D(x + vec.x, y + vec.y);
 			return newVec;
-		}
-		
-		/*
-		* Gives the distance between two Vector_2D instances
-		*/
-		public static function distanceBetweenVectors(p1:Vector_2D, p2:Vector_2D):Number {
-			var distance:Number = Math.sqrt(Math.pow(p2.x - p1.x, 2) + 
-											Math.pow(p2.y - p1.y, 2));
-			return distance;
 		}
 		
 		

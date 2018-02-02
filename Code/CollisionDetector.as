@@ -212,7 +212,7 @@
 				return true;
 			}
 			
-			return true;
+			return false;
 		} // End of collisionTestRectCirc
 		
 		/*
@@ -250,18 +250,22 @@
 		* Goes through the edges of the given rectangle and checks if they're 
 		* intersecting the given circle.
 		*
-		* TODO:
-		* 
+		* There's documentation on how I deduced the equations for
+		* where the line and circle intersect in the file Geometrical_equations_considerations.txt
 		*/
 		public function collisionTestRectangleEdgesWithCircle(rect:Rectangle, circ:Circle):Boolean {
 			
 			var line:TwoPointLine;
 			
+			// Checkin if any of the edges intersect the circle
 			for(var i=0; i<rect.edge_array.length; i++){
 				line = rect.edge_array[i];
 				
-				
+				if(checkLineCircle(line, circ)){
+					return true;
+				}
 			}
+				
 			return false;
 		} // End of collisionTestRectangleEdgesWithCircle
 		
@@ -281,7 +285,7 @@
 			}
 			
 			// The intersection coordinates
-			var iCoord:Point;
+			var iCoord:Vector_2D;
 			
 			// Checking if one of the lines is vertical
 			if(p1.x == p2.x || p3.x == p4.x){
@@ -350,21 +354,21 @@
 		* Checks if two given lines between two points, where one is vertical,
 		* are touching.
 		*/
-		public function checkOneLineVertical(line1:TwoPointLine, line2:TwoPointLine):Point{
+		public function checkOneLineVertical(line1:TwoPointLine, line2:TwoPointLine):Vector_2D {
 			
-			var iCoord:Point = new Point();
+			var iCoord:Vector_2D = new Vector_2D();
 			
-			var p1:Point = line1.p1;
-			var p2:Point = line1.p2;
-			var p3:Point = line2.p1;
-			var p4:Point = line2.p2;
+			var p1:Vector_2D = line1.p1;
+			var p2:Vector_2D = line1.p2;
+			var p3:Vector_2D = line2.p1;
+			var p4:Vector_2D = line2.p2;
 			
 			// The points of whichever line is vertical
-			var vp1:Point;
-			var vp2:Point;
+			var vp1:Vector_2D;
+			var vp2:Vector_2D;
 			// The points of whichever line is not vertical
-			var nvp1:Point;
-			var nvp2:Point;
+			var nvp1:Vector_2D;
+			var nvp2:Vector_2D;
 			// The inclination of the non-vertical line
 			var nvk:Number;
 			
@@ -385,9 +389,11 @@
 			nvk = (nvp2.y - nvp1.y)/(nvp2.x - nvp1.x);
 			
 			iCoord.x = vp1.x;
+		
 			// Calculating the y-coordinate of the intersection
 			// y = tk*vp1.x - tk*tp1.x + tp1.y
 			iCoord.y = nvk*vp1.x - nvk*nvp1.x + nvp1.y;
+			
 			
 			return iCoord;
 		} // End of checkOneLineVertical
@@ -396,12 +402,12 @@
 		* Checks if two given parallel lines, between two points, are touching.
 		*/
 		public function checkParallelLines(line1:TwoPointLine, line2:TwoPointLine, 
-										   k1:Number, k2:Number):Boolean{
+										   k1:Number, k2:Number):Boolean {
 			
-			var p1:Point = line1.p1;
-			var p2:Point = line1.p2;
-			var p3:Point = line2.p1;
-			var p4:Point = line2.p2;
+			var p1:Vector_2D = line1.p1;
+			var p2:Vector_2D = line1.p2;
+			var p3:Vector_2D = line2.p1;
+			var p4:Vector_2D = line2.p2;
 			
 			/*
 			* Checking if the lines are aligned by calculating y at x = 0 
@@ -433,12 +439,12 @@
 		* each other, are intersecting each other.
 		*/
 		public function checkNonParallelNonVerticalLines(line1:TwoPointLine, line2:TwoPointLine,
-														 k1:Number, k2:Number):Point{
+														 k1:Number, k2:Number):Vector_2D {
 												
-			var p1:Point = line1.p1;
-			var p2:Point = line1.p2;
-			var p3:Point = line2.p1;
-			var p4:Point = line2.p2;
+			var p1:Vector_2D = line1.p1;
+			var p2:Vector_2D = line1.p2;
+			var p3:Vector_2D = line2.p1;
+			var p4:Vector_2D = line2.p2;
 			
 			/* 
 			* Calculating the intersection coordinates for the lines
@@ -447,7 +453,7 @@
 			* Math magic ->
 			* x = (k1x1 - k2x3 - y1 + y3)/(k1 - k2)
 			*/
-			var iCoord:Point = new Point();
+			var iCoord:Vector_2D = new Vector_2D();
 			iCoord.x = (k1*p1.x - k2*p3.x - p1.y + p3.y)/(k1 - k2);
 			
 			/*
@@ -458,10 +464,105 @@
 		} // End of checkNonParallelNonVerticalLines
 		
 		/*
-		*
+		* Takes a two-point line and a circle and checks if they
+		* TODO:
+		* -Make this work with vertical lines
 		*/
-		public function checkLineCircle():Boolean {
+		public function checkLineCircle(line:TwoPointLine, circ:Circle):Boolean {
 			
+			// Parameters for the quadratic formula
+			var a:Number;
+			var b:Number;
+			var c:Number;
+			
+			
+			// Check if the line is vertical
+			if(line.p1.x == line.p2.x){
+				
+				// We only need to figure out the y-coordinates
+				var intersections_y:Array;
+				
+				// Calculating the intersection points with the 
+				// circle
+				// More information in Geometrical_equations_considerations.txt
+				// a = 1
+				// b = -2(my)
+				// c = (my)^2 - r^2
+				a = 1;
+				b = -2*circ.midPoint.y;
+				c = Math.pow(circ.midPoint.y, 2) - Math.pow(circ.radius, 2);
+				
+				// Checking the intersections
+				// This calculates the y-coordinates of the intersections
+				// The x-coordinates are known, since the line is vertical
+				intersections_y = Math2.solveQuadraticEquation(a, b, c);
+				
+				// They don't intersect
+				if(intersections_y.length == 0){
+						
+					return false;
+				} else if(intersections_y.length == 1){
+					
+					// There's one intersection point
+					// Checking if it's in the scope of the two-point line
+					var intersection:Vector_2D = new Vector_2D(line.p1.x, intersections_y[0]);
+					if(pointOnTwoPointLine(intersection, line)){
+					   trace("vertical, one solution:");
+					   trace(intersection);
+						return true;
+					}
+				} else {
+						
+					// There are two solutions
+					var intersection1:Vector_2D = new Vector_2D(line.p1.x, intersections_y[0]);
+					var intersection2:Vector_2D = new Vector_2D(line.p1.x, intersections_y[1]);
+					
+					// trace(intersection1);
+					// Checking if the intersections are within the scope of the
+					// two-point line
+					if(pointOnTwoPointLine(intersection1, line) ||
+					   pointOnTwoPointLine(intersection2, line)){
+						   
+						// trace("Vertical, two solutions");
+						return true;
+					}
+				}
+				
+				
+			} else {
+				
+				// The x-coordinates of the intersection(s)
+				var intersections_x:Array;
+			
+				// The incline of the line
+				var k:Number = (line.p2.y - line.p1.y)/(line.p2.x - line.p1.x);
+				
+				// Solving y0, that is y(x=0)
+				// y0 = y - kx
+				// Inserting p1 as the x and y
+				var y0:Number = line.p1.y - k*line.p1.x;
+				
+				// d = y0 - my
+				var d:Number = y0 - circ.midPoint.y;
+				
+				// Solving intersection
+				// c = (mx)^2 + d^2 - r^2
+				c = Math.pow(circ.midPoint.x, 2) + Math.pow(d, 2) - 
+				Math.pow(circ.radius, 2);
+				
+				// a = 1 + k^2
+				a = 1 + Math.pow(k, 2);
+				
+				// b = 2(dk - (mx))
+				b = 2*(d*k - circ.midPoint.x);
+			}
+			
+			// Solving the x-coorinates using the quadratic formula
+			intersections_x = Math2.solveQuadraticEquation(a, b, c);
+			
+			
+			
+			return false;
 		}
 		
 		/*
@@ -514,8 +615,11 @@
 		* the two point line
 		* 	-If the distance to both is less or equal to the distance between
 		*	the end points in the two point line, then the point is on the line
+		*
+		* TODO:
+		* -Change this to use Vector_2D instances instead of flash.geom.Point
 		*/
-		function pointOnTwoPointLine(point:Point, line:TwoPointLine):Boolean{
+		function pointOnTwoPointLine(point:Vector_2D, line:TwoPointLine):Boolean {
 			var lineLength:Number = Point.distance(line.p1, line.p2);
 			var distanceToPoint1:Number = Point.distance(point, line.p1);
 			var distanceToPoint2:Number = Point.distance(point, line.p2);
