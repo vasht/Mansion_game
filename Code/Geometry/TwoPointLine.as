@@ -1,6 +1,4 @@
-﻿package Code {
-	
-	import flash.geom.Point;
+﻿package Code.Geometry {
 	
 	/*
 	* A line between two points.

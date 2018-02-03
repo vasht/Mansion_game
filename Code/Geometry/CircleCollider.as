@@ -1,6 +1,6 @@
-﻿package Code {
+﻿package Code.Geometry {
 	
-	import flash.geom.Point;
+	import Code.Collider;
 	
 	/*
 	*

@@ -1,6 +1,6 @@
-﻿package Code {
+﻿package Code.Geometry {
 	
-	import Code.Rectangle;
+	import Code.Collider;
 	
 	
 	/*

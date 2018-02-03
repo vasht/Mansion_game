@@ -1,4 +1,6 @@
-﻿package Code {
+﻿package Code.Geometry {
+	
+	import flash.geom.Point;
 	
 	/*
 	* A rectangle consisting of four points.
@@ -25,8 +27,8 @@
 			edge_array[2] = new TwoPointLine(corner3, corner4);
 			edge_array[3] = new TwoPointLine(corner4, corner1);
 			
-			rect_width = Vector_2D.distanceBetweenVectors(corner1, corner2);
-			rect_height = Vector_2D.distanceBetweenVectors(corner1, corner4);
+			rect_width = Point.distance(corner1, corner2);
+			rect_height = Point.distance(corner1, corner4);
 		}
 
 	}
