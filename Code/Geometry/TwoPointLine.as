@@ -1,5 +1,7 @@
 ﻿package Code.Geometry {
 	
+	import Code.Vector_2D;
+	
 	/*
 	* A line between two points.
 	*/

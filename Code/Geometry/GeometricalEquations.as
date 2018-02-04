@@ -1,5 +1,9 @@
 ﻿package Code.Geometry {
 	
+	import flash.geom.Point;
+	import Code.Math2;
+	
+	import Code.Collider;
 	import Code.Vector_2D;
 	
 	
@@ -131,12 +135,12 @@
 		/*
 		* Checks if two given lines between two points are intersecting.
 		*/
-		public function collisionTestTwoPointLines(line1:TwoPointLine, line2:TwoPointLine):Boolean {
+		public static function collisionTestTwoPointLines(line1:TwoPointLine, line2:TwoPointLine):Boolean {
 			
-			var p1:Point = line1.p1;
-			var p2:Point = line1.p2;
-			var p3:Point = line2.p1;
-			var p4:Point = line2.p2;
+			var p1:Vector_2D = line1.p1;
+			var p2:Vector_2D = line1.p2;
+			var p3:Vector_2D = line2.p1;
+			var p4:Vector_2D = line2.p2;
 			
 			// Checking if both of the lines are vertical
 			if(p1.x == p2.x && p3.x == p4.x){
@@ -188,12 +192,12 @@
 		/*
 		* Checks if two given vertical lines are touching
 		*/
-		public function checkLinesVertical(line1:TwoPointLine, line2:TwoPointLine):Boolean {
+		public static function checkLinesVertical(line1:TwoPointLine, line2:TwoPointLine):Boolean {
 			
-			var p1:Point = line1.p1;
-			var p2:Point = line1.p2;
-			var p3:Point = line2.p1;
-			var p4:Point = line2.p2;
+			var p1:Vector_2D = line1.p1;
+			var p2:Vector_2D = line1.p2;
+			var p3:Vector_2D = line2.p1;
+			var p4:Vector_2D = line2.p2;
 			
 			// Checking if the lines are aligned with each other
 			if(p1.x == p3.x){
@@ -213,7 +217,7 @@
 		* Checks if two given lines between two points, where one is vertical,
 		* are touching.
 		*/
-		public function checkOneLineVertical(line1:TwoPointLine, line2:TwoPointLine):Vector_2D {
+		public static function checkOneLineVertical(line1:TwoPointLine, line2:TwoPointLine):Vector_2D {
 			
 			var iCoord:Vector_2D = new Vector_2D();
 			
@@ -260,7 +264,7 @@
 		/*
 		* Checks if two given parallel lines, between two points, are touching.
 		*/
-		public function checkParallelLines(line1:TwoPointLine, line2:TwoPointLine, 
+		public static function checkParallelLines(line1:TwoPointLine, line2:TwoPointLine, 
 										   k1:Number, k2:Number):Boolean {
 			
 			var p1:Vector_2D = line1.p1;
@@ -297,7 +301,7 @@
 		* Checks if two given lines, between two points, that aren't vertical or parallel to
 		* each other, are intersecting each other.
 		*/
-		public function checkNonParallelNonVerticalLines(line1:TwoPointLine, line2:TwoPointLine,
+		public static function checkNonParallelNonVerticalLines(line1:TwoPointLine, line2:TwoPointLine,
 														 k1:Number, k2:Number):Vector_2D {
 												
 			var p1:Vector_2D = line1.p1;
@@ -327,7 +331,7 @@
 		* TODO:
 		* -Make this work with vertical lines
 		*/
-		public function checkLineCircle(line:TwoPointLine, circ:Circle):Boolean {
+		public static function checkLineCircle(line:TwoPointLine, circ:Circle):Boolean {
 			
 			// Parameters for the quadratic formula
 			var a:Number;
@@ -429,7 +433,7 @@
 		* Checks if a given point is inside of the given rectangle
 		* Use pointInRectangle.png as a reference for the variable names
 		*/
-		public function pointInRectangle(p:Vector_2D, rect:Rectangle):Boolean {
+		public static function pointInRectangle(p:Vector_2D, rect:Rectangle):Boolean {
 			
 			var p0:Vector_2D = (rect.edge_array[0] as TwoPointLine).p1; // Upper left corner
 			var p2:Vector_2D = (rect.edge_array[2] as TwoPointLine).p1; // Lower right corner
@@ -479,7 +483,7 @@
 		* TODO:
 		* -Change this to use Vector_2D instances instead of flash.geom.Point
 		*/
-		function pointOnTwoPointLine(point:Vector_2D, line:TwoPointLine):Boolean {
+		public static function pointOnTwoPointLine(point:Vector_2D, line:TwoPointLine):Boolean {
 			var lineLength:Number = Point.distance(line.p1, line.p2);
 			var distanceToPoint1:Number = Point.distance(point, line.p1);
 			var distanceToPoint2:Number = Point.distance(point, line.p2);
@@ -494,7 +498,7 @@
 		* TODO:
 		* -Test that this works with circles
 		*/
-		public function collisionTestBoundingRectangles(col1:Collider, col2:Collider):Boolean {
+		public static function collisionTestBoundingRectangles(col1:Collider, col2:Collider):Boolean {
 			
 			if(col1.maxX > col2.minX && col1.minX < col2.maxX &&
 			   col1.maxY > col2.minY && col1.minY < col2.maxY){

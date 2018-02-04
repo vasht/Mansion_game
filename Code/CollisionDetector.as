@@ -2,6 +2,9 @@
 	
 	import Code.Geometry.GeometricalEquations;
 	
+	import Code.Geometry.RectangleCollider;
+	import Code.Geometry.CircleCollider;
+	
 	/*
 	*
 	* TODO:
@@ -143,7 +146,7 @@
 							  sol.collider.tags.containsTag("CircleCollider")){
 						
 						// Calling collision() if they collided
-						if(collisionTestCircles(dyn.collider as CircleCollider, 
+						if(GeometricalEquations.collisionTestCircles(dyn.collider as CircleCollider, 
 												sol.collider as CircleCollider)){
 							collision(dyn, sol);
 						}

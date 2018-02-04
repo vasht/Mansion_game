@@ -1,5 +1,7 @@
 ﻿package Code {
 	
+	import Code.Geometry.RectangleCollider;
+	
 	/*
 	* The main character of the game. This class extends
 	* the DynamicObject class and uses the Singleton programming

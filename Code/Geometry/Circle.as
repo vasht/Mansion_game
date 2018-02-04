@@ -1,8 +1,10 @@
 ﻿package Code.Geometry {
 	
+	import Code.Vector_2D;
 	
 	/*
-	*
+	* A circle consisting of center coordinates as a Vector_2D
+	* instance, and a radius.
 	*/
 	public class Circle {
 		

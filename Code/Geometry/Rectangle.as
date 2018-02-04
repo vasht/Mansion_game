@@ -1,9 +1,11 @@
 ﻿package Code.Geometry {
 	
 	import flash.geom.Point;
+	import Code.Vector_2D;
 	
 	/*
-	* A rectangle consisting of four points.
+	* A rectangle consisting of four TwoPointLine instances as its
+	* edges.
 	*/
 	public class Rectangle {
 		
@@ -14,7 +16,7 @@
 		public var rect_height:Number;
 		
 		/*
-		* The constructor takes the corners as four points,
+		* The constructor takes the corners as four Vector_2D instances,
 		* going clock-wise around the rectangle, starting from
 		* the upper-left corner.
 		*/

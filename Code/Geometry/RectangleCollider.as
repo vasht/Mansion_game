@@ -1,6 +1,11 @@
 ﻿package Code.Geometry {
 	
+	import Code.SolidObject;
+	
 	import Code.Collider;
+	import Code.ColliderPoint;
+	
+	import Code.Vector_2D;
 	
 	
 	/*

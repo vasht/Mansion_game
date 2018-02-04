@@ -1,5 +1,7 @@
 ﻿package Code {
 	
+	import Code.Geometry.RectangleCollider;
+	
 	/*
 	*
 	*/
