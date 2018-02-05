@@ -344,7 +344,9 @@
 			
 			if(Math.abs(line.p2.x - line.p1.x) < 0.5){
 				// trace(line.p2.x - line.p1.x);
-				line.p1.x = line.p2.x;
+				line.p1.x = circ.midPoint.x + circ.radius;
+				line.p2.x = line.p1.x;
+				// trace(line.p1.x);
 			}
 			// Check if the line is vertical
 			if(line.p1.x == line.p2.x){
