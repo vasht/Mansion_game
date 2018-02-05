@@ -329,7 +329,10 @@
 		/*
 		* Takes a two-point line and a circle and checks if they
 		* TODO:
-		* -Make this work with vertical lines
+		* -Make this work with vertical lines, when there's only one 
+		* intersection
+		* -Make this work with non-vertical lines when there are two
+		* intersections
 		*/
 		public static function checkLineCircle(line:TwoPointLine, circ:Circle):Boolean {
 			
@@ -337,6 +340,7 @@
 			var a:Number;
 			var b:Number;
 			var c:Number;
+			var intersection:Vector_2D;
 			
 			if(Math.abs(line.p2.x - line.p1.x) < 0.5){
 				// trace(line.p2.x - line.p1.x);
@@ -373,7 +377,7 @@
 					
 					// There's one intersection point
 					// Checking if it's in the scope of the two-point line
-					var intersection:Vector_2D = new Vector_2D(line.p1.x, intersections_y[0]);
+					intersection = new Vector_2D(line.p1.x, intersections_y[0]);
 					if(pointOnTwoPointLine(intersection, line)){
 					   trace("vertical, one solution:");
 					   trace(intersection);
@@ -395,40 +399,67 @@
 						return true;
 					}
 				}
-				
-				
-			} else {
-				
-				// The x-coordinates of the intersection(s)
-				var intersections_x:Array;
-			
-				// The incline of the line
-				var k:Number = (line.p2.y - line.p1.y)/(line.p2.x - line.p1.x);
-				
-				// Solving y0, that is y(x=0)
-				// y0 = y - kx
-				// Inserting p1 as the x and y
-				var y0:Number = line.p1.y - k*line.p1.x;
-				
-				// d = y0 - my
-				var d:Number = y0 - circ.midPoint.y;
-				
-				// Solving intersection
-				// c = (mx)^2 + d^2 - r^2
-				c = Math.pow(circ.midPoint.x, 2) + Math.pow(d, 2) - 
-				Math.pow(circ.radius, 2);
-				
-				// a = 1 + k^2
-				a = 1 + Math.pow(k, 2);
-				
-				// b = 2(dk - (mx))
-				b = 2*(d*k - circ.midPoint.x);
 			}
+			
+			// The line is not vertical
+			
+			// The x-coordinates of the intersection(s)
+			var intersections_x:Array;
+		
+			// The incline of the line
+			var k:Number = (line.p2.y - line.p1.y)/(line.p2.x - line.p1.x);
+			
+			// Solving y0, that is y(x=0)
+			// y0 = y - kx
+			// Inserting p1 as the x and y
+			var y0:Number = line.p1.y - k*line.p1.x;
+			
+			// d = y0 - my
+			var d:Number = y0 - circ.midPoint.y;
+			
+			// Solving intersection
+			// c = (mx)^2 + d^2 - r^2
+			c = Math.pow(circ.midPoint.x, 2) + Math.pow(d, 2) - 
+			Math.pow(circ.radius, 2);
+			
+			// a = 1 + k^2
+			a = 1 + Math.pow(k, 2);
+			
+			// b = 2(dk - (mx))
+			b = 2*(d*k - circ.midPoint.x);
 			
 			// Solving the x-coorinates using the quadratic formula
 			intersections_x = Math2.solveQuadraticEquation(a, b, c);
 			
-			
+			var coord_y:Number;
+			if(intersections_x.length == 0){
+				
+				return false;
+			} else if(intersections_x.length == 1){
+				
+				// One intersection
+				// Calculating y
+				// y = kx + y0
+				coord_y = k*line.p1.x + y0;
+				intersection = new Vector_2D(intersections_x[0], coord_y);
+				if(pointOnTwoPointLine(intersection, line)){
+					return true
+				}
+			} else {
+				
+				// Two intersections
+				// Calculating y for both intersections
+				// and checking if they are in the two-point boundaries
+				for(var i=0; i<intersections_x.length; i++){
+					// Calculating y
+					// y = kx + y0
+					coord_y = k*line.p1.x + y0;
+					intersection = new Vector_2D(intersections_x[0], coord_y);
+					if(pointOnTwoPointLine(intersection, line)){
+						return true
+					}
+				}
+			}
 			
 			return false;
 		} // End of checkLineCircle
