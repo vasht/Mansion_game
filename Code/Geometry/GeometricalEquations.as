@@ -338,7 +338,10 @@
 			var b:Number;
 			var c:Number;
 			
-			
+			if(Math.abs(line.p2.x - line.p1.x) < 0.5){
+				// trace(line.p2.x - line.p1.x);
+				line.p1.x = line.p2.x;
+			}
 			// Check if the line is vertical
 			if(line.p1.x == line.p2.x){
 				
@@ -348,12 +351,14 @@
 				// Calculating the intersection points with the 
 				// circle
 				// More information in Geometrical_equations_considerations.txt
+				// v = (x - (mx))^2
 				// a = 1
 				// b = -2(my)
-				// c = (my)^2 - r^2
+				// c = (my)^2 + v - r^2
+				var v:Number = Math.pow(line.p1.x - circ.midPoint.x, 2); 
 				a = 1;
 				b = -2*circ.midPoint.y;
-				c = Math.pow(circ.midPoint.y, 2) - Math.pow(circ.radius, 2);
+				c = Math.pow(circ.midPoint.y, 2) + v - Math.pow(circ.radius, 2);
 				
 				// Checking the intersections
 				// This calculates the y-coordinates of the intersections
