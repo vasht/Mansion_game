@@ -333,6 +333,7 @@
 		* intersection
 		* -Make this work with non-vertical lines when there are two
 		* intersections
+		* -Make a test file where you test that this function works correctly
 		*/
 		public static function checkLineCircle(line:TwoPointLine, circ:Circle):Boolean {
 			
@@ -346,7 +347,6 @@
 			
 			if(Math.abs(line.p2.x - line.p1.x) < 0.5){
 				// trace(line.p2.x - line.p1.x);
-				line.p1.x = circ.midPoint.x + circ.radius;
 				line.p2.x = line.p1.x;
 				
 			}
@@ -388,6 +388,7 @@
 					   // trace(intersection);
 						return true;
 					}
+					return false;
 				} else {
 						
 					// There are two solutions
@@ -405,6 +406,7 @@
 						// trace(intersection2);
 						return true;
 					}
+					return false;
 				}
 			}
 			
@@ -414,6 +416,7 @@
 		
 			// The incline of the line
 			var k:Number = (line.p2.y - line.p1.y)/(line.p2.x - line.p1.x);
+			// trace("k: " + k);
 			
 			// Solving y0, that is y(x=0)
 			// y0 = y - kx
@@ -436,10 +439,10 @@
 			
 			// Solving the x-coorinates using the quadratic formula
 			intersections_x = Math2.solveQuadraticEquation(a, b, c);
-			
+			// trace(intersections_x);
 			var coord_y:Number;
 			if(intersections_x.length == 0){
-				
+				// trace("non-vertical, no solutions");
 				return false;
 			} else if(intersections_x.length == 1){
 				
@@ -449,6 +452,7 @@
 				coord_y = k*line.p1.x + y0;
 				intersection = new Vector_2D(intersections_x[0], coord_y);
 				if(pointOnTwoPointLine(intersection, line)){
+					// trace("non-vertical, one solution");
 					return true
 				}
 			} else {
@@ -462,6 +466,8 @@
 				intersection1 = new Vector_2D(intersections_x[0], coord_y);
 				intersection2 = new Vector_2D(intersections_x[1], coord_y);
 				if(pointOnTwoPointLine(intersection1, line)){
+					
+					// trace("non-vertical, two solutions");
 					return true
 				}
 			}

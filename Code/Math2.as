@@ -38,6 +38,7 @@
 				// Two solutions
 				var solution1:Number = (-b + Math.sqrt(discriminant)) / 2*a;
 				var solution2:Number = (-b - Math.sqrt(discriminant)) / 2*a;
+				
 				solutions.push(solution1);
 				solutions.push(solution2);
 			}
