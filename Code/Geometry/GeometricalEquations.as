@@ -341,12 +341,14 @@
 			var b:Number;
 			var c:Number;
 			var intersection:Vector_2D;
+			var intersection1:Vector_2D;
+			var intersection2:Vector_2D;
 			
 			if(Math.abs(line.p2.x - line.p1.x) < 0.5){
 				// trace(line.p2.x - line.p1.x);
 				line.p1.x = circ.midPoint.x + circ.radius;
 				line.p2.x = line.p1.x;
-				// trace(line.p1.x);
+				
 			}
 			// Check if the line is vertical
 			if(line.p1.x == line.p2.x){
@@ -381,15 +383,16 @@
 					// Checking if it's in the scope of the two-point line
 					intersection = new Vector_2D(line.p1.x, intersections_y[0]);
 					if(pointOnTwoPointLine(intersection, line)){
-					   trace("vertical, one solution:");
-					   trace(intersection);
+					   
+					   // trace("vertical, one solution:");
+					   // trace(intersection);
 						return true;
 					}
 				} else {
 						
 					// There are two solutions
-					var intersection1:Vector_2D = new Vector_2D(line.p1.x, intersections_y[0]);
-					var intersection2:Vector_2D = new Vector_2D(line.p1.x, intersections_y[1]);
+					intersection1 = new Vector_2D(line.p1.x, intersections_y[0]);
+					intersection2 = new Vector_2D(line.p1.x, intersections_y[1]);
 					
 					// trace(intersection1);
 					// Checking if the intersections are within the scope of the
@@ -398,13 +401,14 @@
 					   pointOnTwoPointLine(intersection2, line)){
 						   
 						// trace("Vertical, two solutions");
+						// trace(intersection1);
+						// trace(intersection2);
 						return true;
 					}
 				}
 			}
 			
 			// The line is not vertical
-			
 			// The x-coordinates of the intersection(s)
 			var intersections_x:Array;
 		
@@ -452,14 +456,13 @@
 				// Two intersections
 				// Calculating y for both intersections
 				// and checking if they are in the two-point boundaries
-				for(var i=0; i<intersections_x.length; i++){
-					// Calculating y
-					// y = kx + y0
-					coord_y = k*line.p1.x + y0;
-					intersection = new Vector_2D(intersections_x[0], coord_y);
-					if(pointOnTwoPointLine(intersection, line)){
-						return true
-					}
+				// Calculating y
+				// y = kx + y0
+				coord_y = k*line.p1.x + y0;
+				intersection1 = new Vector_2D(intersections_x[0], coord_y);
+				intersection2 = new Vector_2D(intersections_x[1], coord_y);
+				if(pointOnTwoPointLine(intersection1, line)){
+					return true
 				}
 			}
 			

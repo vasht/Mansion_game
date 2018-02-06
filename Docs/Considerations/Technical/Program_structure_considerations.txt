@@ -4,6 +4,18 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 
+
+06.02.2018
+-For some reason, aligning a vertical line with the right edge of 
+a circle makes the game stop checking for collisions at least
+with that line and the circle from that point on. This doesn't,
+however, happen if aligning a line with the left edge of the circle.
+If you do it with the right edge, it only checks again if the rectangle
+moves. But if you do it with the left edge, it keeps checking, even
+if the rectangle doesn't move.
+Why?
+
+
 04.02.1028
 -Where should classes like Collider, RectangleCollider, CircleCollider, Vector_2D and ColliderPoint be stored? Code? Code.Geometry? 
 Somewhere else?
