@@ -439,8 +439,8 @@
 			
 			// Solving the x-coorinates using the quadratic formula
 			intersections_x = Math2.solveQuadraticEquation(a, b, c);
-			// trace(intersections_x);
-			var coord_y:Number;
+			
+			
 			if(intersections_x.length == 0){
 				// trace("non-vertical, no solutions");
 				return false;
@@ -449,7 +449,7 @@
 				// One intersection
 				// Calculating y
 				// y = kx + y0
-				coord_y = k*line.p1.x + y0;
+				var coord_y:Number = k*intersection[0] + y0;
 				intersection = new Vector_2D(intersections_x[0], coord_y);
 				if(pointOnTwoPointLine(intersection, line)){
 					// trace("non-vertical, one solution");
@@ -462,10 +462,12 @@
 				// and checking if they are in the two-point boundaries
 				// Calculating y
 				// y = kx + y0
-				coord_y = k*line.p1.x + y0;
-				intersection1 = new Vector_2D(intersections_x[0], coord_y);
-				intersection2 = new Vector_2D(intersections_x[1], coord_y);
-				if(pointOnTwoPointLine(intersection1, line)){
+				var coord_y1:Number = k*intersections_x[0] + y0;
+				var coord_y2:Number = k*intersections_x[1] + y0;
+				intersection1 = new Vector_2D(intersections_x[0], coord_y1);
+				intersection2 = new Vector_2D(intersections_x[1], coord_y2);
+				if(pointOnTwoPointLine(intersection1, line) ||
+				   pointOnTwoPointLine(intersection2, line)){
 					
 					// trace("non-vertical, two solutions");
 					return true
