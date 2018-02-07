@@ -44,7 +44,7 @@
 			}
 			
 			return solutions;
-		}
+		} // End of solveQuadraticEquation
 
 	}
 	
