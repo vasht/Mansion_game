@@ -48,6 +48,13 @@
 		
 		/*
 		*
+		*/
+		public static function distance(v1:Vector_2D, v2:Vector_2D):Number {
+			return Point.distance((v1 as Point), (v2 as Point)§);
+		}
+		
+		/*
+		*
 		* Rotates the given point around a given pivot, by the 
 		* the given amount. The angle to rotate is given in radians.
 		*

@@ -79,9 +79,30 @@
 		/*
 		* Checks if two given circle colliders are touching
 		*/
-		public static function collisionTestCircles(circleCollider1:CircleCollider, 
-											 circleCollider2:CircleCollider):Boolean {
-			return true;
+		public static function collisionTestCircles(circCollider1:CircleCollider, 
+											 circCollider2:CircleCollider):Boolean {
+			
+			// Checking if the bounding rectangles are overlapping
+			if(!collisionTestBoundingRectangles(circCollider1, circCollider2)){
+				
+				return false;
+			}
+			
+			// Calculating the distance between the center points
+			var r1:Number = circCollider1.circle.radius;
+			var r2:Number = circCollider2.circle.radius;
+			
+			var center1:Vector_2D = circCollider1.circle.midPoint;
+			var center2:Vector_2D = circCollider2.circle.midPoint;
+			
+			var distance:Number = Vector_2D.distance(center1,center2);
+			
+			// Checking if the two circles are touching
+			if(distance <= (r1 + r2)){
+				return true;
+			}
+			
+			return false;
 		} // End of collisionTestCircles
 		
 		

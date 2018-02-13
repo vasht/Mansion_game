@@ -1,6 +1,7 @@
 ﻿package Code {
 	
 	import Code.Geometry.RectangleCollider;
+	import Code.Geometry.CircleCollider;
 	
 	/*
 	* The main character of the game. This class extends
@@ -27,7 +28,8 @@
 			Mansion_game.getInstance().mainCharacter = this;
 			tags.addTag("MainCharacter");
 			
-			collider = new RectangleCollider(this);
+			// collider = new RectangleCollider(this);
+			collider = new CircleCollider(this);
 		}
 		
 		
