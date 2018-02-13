@@ -50,7 +50,7 @@
 		*
 		*/
 		public static function distance(v1:Vector_2D, v2:Vector_2D):Number {
-			return Point.distance((v1 as Point), (v2 as Point)§);
+			return Point.distance((v1 as Point), (v2 as Point));
 		}
 		
 		/*

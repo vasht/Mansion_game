@@ -80,6 +80,17 @@
 		
 		
 		/*
+		* Takes two solid objects that are touching each other
+		* and moves them back towards where they came until the
+		* distance between them is less than 1.0.
+		*/
+		public function moveTouching(sol1:SolidObject, sol2:SolidObject){
+			
+			
+		}
+		
+		
+		/*
 		* Checks if any of the objects in the given array collided with
 		* any of the objects in the second given array.
 		*/
@@ -162,12 +173,6 @@
 				
 			}
 		} // End of CollisionTestObjects
-		
-		
-		
-		
-		
-		
 		
 		
 		
