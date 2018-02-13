@@ -28,8 +28,13 @@
 			Mansion_game.getInstance().mainCharacter = this;
 			tags.addTag("MainCharacter");
 			
+<<<<<<< HEAD
 			collider = new RectangleCollider(this);
 			// collider = new CircleCollider(this);
+=======
+			// collider = new RectangleCollider(this);
+			collider = new CircleCollider(this);
+>>>>>>> b7dd9326f7499a1d4e09a05b59483fecabb8cd1c
 		}
 		
 		
