@@ -13,7 +13,6 @@
 	* -Make a new circle in the constructor, using the reference to
 	* the solid object this belongs to, to get the collider_point_mc
 	* instance, using that to get the center
-	* -Make the updateCollider function update the min and max x and y properties
 	*/
 	public class CircleCollider extends Collider {
 		
@@ -21,7 +20,7 @@
 		
 		/*
 		* Calls the super constructor and then adds the tag
-		* RectangleCollider.
+		* CircleCollider.
 		* OBS! It's important that the super constructor is called
 		* first, because it initializes the tags instance.
 		*/

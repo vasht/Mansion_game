@@ -8,17 +8,16 @@
 	/*
 	*
 	* TODO:
-	* -Make collisionTestRectCirc test if a rectangle and a circle are touching
-	* 	-Test that it works
-	* -Make collisionTestCircles test if two circles are touching
-	* 	-Test that it works
+	
 	* -Test that collisionTestObjects goes through every pair of dynamic objects
 	* -Test that this goes through every pair of dynamic object and 
 	* solid object
-	* -Make the collisionTestRectangleEdgesWithCircle go through the rectangle
-	* edges and check if any are intersecting the circle
 	* -Make a separate class, GeometricalEquations, that deals with all the geometrical
 	* functions, like checkLineCircle for example
+	* -Add a function that moves dynamic objects back to a spot where
+	* they're not touching anything
+	* 	-Make the function mentioned above be called when a dynamic object
+	* 	touches something
 	*/
 	public class CollisionDetector {
 		
