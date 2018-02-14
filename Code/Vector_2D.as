@@ -50,11 +50,9 @@
 		*
 		*/
 		public static function distance(v1:Vector_2D, v2:Vector_2D):Number {
-<<<<<<< HEAD
+
 			return Point.distance((v1 as Point), (v2 as Point));
-=======
-			return Point.distance((v1 as Point), (v2 as Point)§);
->>>>>>> b7dd9326f7499a1d4e09a05b59483fecabb8cd1c
+
 		}
 		
 		/*
