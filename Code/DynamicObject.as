@@ -1,16 +1,15 @@
-﻿package Code{
+﻿package Code {
 	
-	import flash.geom.Point;
 	
 	/*
-	* A MovingObject extends the SolidObject class.
+	* A DynamicObject extends the SolidObject class.
 	* It adds properties related to movement
 	* such as vectors for velocity and accelerations.
 	*/
 	public class DynamicObject extends SolidObject{
 		
-		public var velocity:Point;
-		public var acceleration:Point;
+		public var velocity:Vector_2D;
+		public var acceleration:Vector_2D;
 		
 		/*
 		* The constructor

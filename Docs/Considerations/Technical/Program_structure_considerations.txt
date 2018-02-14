@@ -4,14 +4,32 @@ PROGRAM STRUCTURE - TECHNICAL CONSIDERATIONS
 
 
 
-13.02.2018
--Do I want to use velocity and acceleration as properties of
-solid or dynamic objects?
+
+14.02.2018
+-Can SolidObjects be explicitly converted to DynamicObjects?
+-Find out.
+
+
+-Should SolidObject and DynamicObject be two separate classes?
+
+
+-Should velocity be stored in the SolidObject class or
+DynamicObject class?
+-Solid objects were supposed to be objects that stay
+stationary. That was kind of the whole point of making it a separate
+class from the DynamicObject class.
+	-The problem with that is what to do when a solid object
+	needs to be moved?
+	-Is there even a point in having SolidObject and DynamicObject
+	as two separate classes?
 
 Option 1:
+-SolidObject class. 
+
+
 
 
 04.02.1028
--Where should classes like Collider, RectangleCollider, CircleCollider, Vector_2D and ColliderPoint be stored? Code? Code.Geometry? 
+-Where should classes like Collider, RectangleCollider, Rectangle, Circle, CircleCollider, Vector_2D and ColliderPoint be stored? Code? Code.Geometry? 
 Somewhere else?
 

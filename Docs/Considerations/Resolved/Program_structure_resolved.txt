@@ -4,6 +4,21 @@ PROGRAM STRUCTURE - RESOLVED
 
 
 
+
+13.02.2018
+-Do I want to use velocity and acceleration as properties of
+solid or dynamic objects?
+
+Option 1:
+-Use a velocity Vector_2D instance in the SolidObject or
+DynamicObject class. In which one?
+	-We don't really need an acceleration property, because
+	this isn't a very physics based game. We won't really be using
+	acceleration much. If we need it, we can just increase the velocity
+	on each frame.
+
+
+
 23.01.2018
 -You can't enter a class that you've implemented in both the base
 class and class fields in the properties of a movie clip library 
